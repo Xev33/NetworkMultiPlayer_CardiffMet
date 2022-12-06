@@ -18,7 +18,7 @@ bool Server::StaticInit()
 	return true;
 }
 
-Server::Server()
+Server::Server() : mTimeToRespawnAi(0), mCoolDownRespawnAI(3)
 {
 
 	GameObjectRegistry::sInstance->RegisterCreationFunction( 'PLYR', PlayerServer::StaticCreate );
@@ -58,12 +58,11 @@ bool Server::InitNetworkManager()
 void Server::SetupWorld()
 {
 	// Static game objects and NPCs here.
-	GoalPtr goal = std::static_pointer_cast<Goal>(GameObjectRegistry::sInstance->CreateGameObject('GOAL'));
 	WallPtr box = std::static_pointer_cast<Wall>(GameObjectRegistry::sInstance->CreateGameObject('WALL'));
+	WallPtr box2 = std::static_pointer_cast<Wall>(GameObjectRegistry::sInstance->CreateGameObject('WALL'));
 	box->SetLocation(Vector3(1.f, 3.f, 0.f));
-	goal->SetLocation(Vector3(-1.f, -3.f, 0.f));
-
-	SpawnAI();
+	box2->SetLocation(Vector3(-2.f, 3.f, 0.f));
+	RespawnGoal();
 }
 
 void Server::DoFrame()
@@ -74,8 +73,9 @@ void Server::DoFrame()
 
 	NetworkManagerServer::sInstance->RespawnPlayers();
 
+	RespawnAI();
+
 	Engine::DoFrame();
-	SpawnAI();
 
 	NetworkManagerServer::sInstance->SendOutgoingPackets();
 }
@@ -100,20 +100,34 @@ void Server::SpawnPlayer( int inPlayerId )
 
 }
 
-void Server::SpawnAI()
+void Server::RespawnAI()
 {
-	if (IsAiAlive() == true)
+	if (GetCurrentNumberOfAi() == 2)
+	{
+		mTimeToRespawnAi = 0;
 		return;
+	}
+	if (mTimeToRespawnAi < mCoolDownRespawnAI)
+	{
+		mTimeToRespawnAi += Timing::sInstance.GetDeltaTime();
+		return;
+	}
 	PlayerPtr ai = std::static_pointer_cast<Player>(GameObjectRegistry::sInstance->CreateGameObject('PLYR'));
-	ai->SetPlayerId(0);
 	ai->EnableAi(true);
+	if (GetCurrentNumberOfAi() == 2)
+		ai->SetLocation(Vector3(3.f, 3.f, 0.f));
+	else
+		ai->SetLocation(Vector3(4.f, 3.f, 0.f));
 
 	PlayerServerPtr  ps = std::static_pointer_cast<PlayerServer>(ai);
 	ps->SetPlayerControlType(ESCT_AI);
 	ps->SetPlayerHealth(3);
-	//gotta pick a better spawn location than this...
-	ai->SetLocation(Vector3(2.f, 2.f, 0.f));
+}
 
+void Server::RespawnGoal()
+{
+	GoalPtr goal = std::static_pointer_cast<Goal>(GameObjectRegistry::sInstance->CreateGameObject('GOAL'));
+	goal->SetLocation(Vector3(-1.f, -3.f, 0.f));
 }
 
 void Server::HandleLostClient( ClientProxyPtr inClientProxy )
@@ -226,10 +240,10 @@ int	Server::GetCurrentNumberOfPlayer() const
 	return nbrOfPlayer;
 }
 
-bool	Server::IsAiAlive() const
+int	Server::GetCurrentNumberOfAi() const
 {
 	const auto& gameObjects = World::sInstance->GetGameObjects();
-	int nbrOfPlayer = 0;
+	int nbrOfAi = 0;
 
 	for (int i = 0, c = gameObjects.size(); i < c; ++i)
 	{
@@ -242,9 +256,9 @@ bool	Server::IsAiAlive() const
 			PlayerPtr player = std::static_pointer_cast<Player>(go);
 
 			if (player != nullptr && player->IsAi() == true)
-				return true;
+				nbrOfAi++;
 		}
 	}
-	return false;
+	return nbrOfAi;
 }
 

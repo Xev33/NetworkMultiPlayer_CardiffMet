@@ -22,14 +22,17 @@ public:
 	PlayerPtr	GetPlayer(int inPlayerId);
 	Vector3	GetClosestPlayerPos(Vector3 inLoc);
 	void	SpawnPlayer( int inPlayerId );
-	void SpawnAI();
+	void RespawnAI();
+	void RespawnGoal();
 	int	GetCurrentNumberOfPlayer() const;
-	bool	IsAiAlive() const;
+	int	GetCurrentNumberOfAi() const;
 
 
 private:
 	Server();
 
+	float	mTimeToRespawnAi;
+	float	mCoolDownRespawnAI;
 	bool	InitNetworkManager();
 	void	SetupWorld();
 
