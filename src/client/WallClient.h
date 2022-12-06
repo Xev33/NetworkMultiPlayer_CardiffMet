@@ -9,9 +9,6 @@ class WallClient : public Wall
 public:
 	static	GameObjectPtr	StaticCreate() { return GameObjectPtr(new WallClient()); }
 
-	virtual void Update();
-	virtual void	HandleDying() override;
-
 	virtual void	Read(InputMemoryBitStream& inInputStream) override;
 
 protected:

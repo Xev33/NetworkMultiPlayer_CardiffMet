@@ -29,23 +29,12 @@ public:
 
 	virtual uint32_t GetAllStateMask()	const override { return ECRS_AllState; }
 
-	virtual void Update() override;
-
-	void SimulateMovement(float inDeltaTime);
-
-	void ProcessCollisions();
-	void ProcessCollisionsWithScreenWalls();
-	void AdjustVelocityByThrust(float inDeltaTime);
-
 	void		SetWallId(uint32_t inPlayerId) { mWallId = inPlayerId; }
 	uint32_t	GetWallId()						const { return mWallId; }
 
 	void			SetVelocity(const Vector3& inVelocity) { mVelocity = inVelocity; }
 	const Vector3& GetVelocity()						const { return mVelocity; }
 
-	void InitFromShooter(Player* player);
-
-	//	virtual void	Read( InputMemoryBitStream& inInputStream ) override;
 
 	uint32_t Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState) const override;
 	// For testing
