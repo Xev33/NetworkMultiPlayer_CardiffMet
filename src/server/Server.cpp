@@ -58,9 +58,10 @@ bool Server::InitNetworkManager()
 void Server::SetupWorld()
 {
 	// Static game objects and NPCs here.
-	//GoalPtr box = std::static_pointer_cast<Goal>(GameObjectRegistry::sInstance->CreateGameObject('GOAL'));
+	GoalPtr goal = std::static_pointer_cast<Goal>(GameObjectRegistry::sInstance->CreateGameObject('GOAL'));
 	WallPtr box = std::static_pointer_cast<Wall>(GameObjectRegistry::sInstance->CreateGameObject('WALL'));
 	box->SetLocation(Vector3(1.f, 3.f, 0.f));
+	goal->SetLocation(Vector3(-1.f, -3.f, 0.f));
 
 	SpawnAI();
 }
