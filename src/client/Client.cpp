@@ -9,6 +9,8 @@
 #include "GameObjectRegistry.h"
 #include "Player.h"
 #include "Bullet.h"
+#include "Goal.h"
+#include "Wall.h"
 #include "MoveList.h"
 
 #include "NetworkManagerClient.h"
@@ -17,6 +19,8 @@
 #include "WeightedTimedMovingAverage.h"
 #include "PlayerClient.h"
 #include "BulletClient.h"
+#include "GoalClient.h"
+#include "WallClient.h"
 #include "RenderManager.h"
 #include "StringUtils.h"
 
@@ -47,7 +51,9 @@ bool Client::StaticInit( )
 Client::Client()
 {
 	GameObjectRegistry::sInstance->RegisterCreationFunction('PLYR', PlayerClient::StaticCreate);
-	GameObjectRegistry::sInstance->RegisterCreationFunction( 'BULT', BulletClient::StaticCreate );
+	GameObjectRegistry::sInstance->RegisterCreationFunction('BULT', BulletClient::StaticCreate);
+	GameObjectRegistry::sInstance->RegisterCreationFunction('GOAL', GoalClient::StaticCreate);
+	GameObjectRegistry::sInstance->RegisterCreationFunction('WALL', WallClient::StaticCreate);
 
 	string destination = StringUtils::GetCommandLineArg( 1 );
 	string name = StringUtils::GetCommandLineArg( 2 );
