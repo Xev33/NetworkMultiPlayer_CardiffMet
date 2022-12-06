@@ -20,9 +20,6 @@ protected:
 
 private:
 
-	//float		mTimeOfNextShot;
-	//float		mTimeBetweenShots;
-
 };
 
 #endif // GOAL_SERVER_H

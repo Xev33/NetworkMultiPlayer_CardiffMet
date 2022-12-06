@@ -9,7 +9,6 @@ class GoalClient : public Goal
 public:
 	static	GameObjectPtr	StaticCreate()		{ return GameObjectPtr( new GoalClient() ); }
 
-	virtual void Update();
 	virtual void	HandleDying() override;
 
 	virtual void	Read( InputMemoryBitStream& inInputStream ) override;
