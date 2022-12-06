@@ -8,15 +8,9 @@
 const float HALF_WORLD_HEIGHT = 3.6f;
 const float HALF_WORLD_WIDTH = 6.4f;
 
-Wall::Wall() : mHealth(1)
+Wall::Wall()
 {
-	mVelocity.mX = 0;
-	mVelocity.mY = 0;
-	mVelocity.mZ = 0;
-}
 
-Wall::Wall(Vector3 dir) : mVelocity(dir), mHealth(1)
-{
 	this->SetCollisionRadius(0.5f);
 }
 
@@ -53,13 +47,4 @@ uint32_t Wall::Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyStat
 		inOutputStream.Write((bool)false);
 	}
 	return writtenState;
-}
-
-bool Wall::operator==(Wall& other)
-{
-	if (!GameObject::operator==(other)) return false;
-
-	if (!Maths::Is3DVectorEqual(this->mVelocity, other.mVelocity)) return false;
-
-	return true;
 }

@@ -32,26 +32,16 @@ public:
 	void		SetWallId(uint32_t inPlayerId) { mWallId = inPlayerId; }
 	uint32_t	GetWallId()						const { return mWallId; }
 
-	void			SetVelocity(const Vector3& inVelocity) { mVelocity = inVelocity; }
-	const Vector3& GetVelocity()						const { return mVelocity; }
-
-
 	uint32_t Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState) const override;
 	// For testing
 
-	bool operator==(Wall& other);
 protected:
 	Wall();
-	Wall(Vector3 dir);
 
 private:
-
 	uint32_t			mWallId;
-	Vector3				mVelocity;
 
 protected:
-	float				mHealth;
-	float				mSpeed;
 
 };
 
