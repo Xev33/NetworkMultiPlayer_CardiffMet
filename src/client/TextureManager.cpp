@@ -16,12 +16,12 @@ void TextureManager::StaticInit()
 TextureManager::TextureManager()
 {
 	/* This should probably load from a config file or something */
-	CacheTexture("player", "../assets/mouse2.png");
-	CacheTexture("bullet", "../assets/yarn.png");
-	CacheTexture("goal", "../assets/cheese.png");
-	CacheTexture("ai", "../assets/player.png");
-	CacheTexture("box", "../assets/box.png" );
-}
+	CacheTexture("player", "../assets/BlueCar.png");
+	CacheTexture("bullet", "../assets/smoke.png");
+	CacheTexture("goal", "../assets/Flag.png");
+	CacheTexture("ai", "../assets/BlueCar.png");
+	CacheTexture("box", "../assets/wall.png" );
+}	
 
 TexturePtr	TextureManager::GetTexture( const string& inTextureName )
 {
