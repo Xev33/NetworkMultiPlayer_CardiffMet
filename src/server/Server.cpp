@@ -18,7 +18,7 @@ bool Server::StaticInit()
 	return true;
 }
 
-Server::Server() : mTimeToRespawnAi(0), mCoolDownRespawnAI(3)
+Server::Server() : mTimeToRespawnAi(0), mCoolDownRespawnAI(3), mGoalSpawnerIndex(0)
 {
 
 	GameObjectRegistry::sInstance->RegisterCreationFunction( 'PLYR', PlayerServer::StaticCreate );
@@ -36,6 +36,24 @@ Server::Server() : mTimeToRespawnAi(0), mCoolDownRespawnAI(3)
 		latency = stof( latencyString );
 	}
 	NetworkManagerServer::sInstance->SetSimulatedLatency( latency );
+	//We setup position of every level's wall
+	mLevelPositions = { 
+	// Bottom left
+	 {-3.95, 2, 0}, {-2.90, 2, 0}, {-1.85, 2, 0},
+	// Top left
+	{-3, -2, 0}, {-1.95, -2, 0}, {-3, -0.95, 0}, {-1.95, -0.95, 0},
+	// Right
+	{3, -2, 0}, {3, 1, 0}, {3, 2.05, 0}
+	};
+
+	//We setup all the possible spawn position for the goal
+	mGoalSpawnerPos = {
+		 {0, -3, 0}, {-4, 3, 0}, {0, 0, 0},
+		 // --------------------------
+		 {4, 3, 0}, {-4, -3, 0}, {-2, 0, 0}, {0, -3, 0},
+		 // --------------------------
+		 {4, -3, 0}, {0, 3, 0}, {4, 0, 0}
+	};
 }
 
 
@@ -57,12 +75,11 @@ bool Server::InitNetworkManager()
 
 void Server::SetupWorld()
 {
-	// Static game objects and NPCs here.
-	WallPtr box = std::static_pointer_cast<Wall>(GameObjectRegistry::sInstance->CreateGameObject('WALL'));
-	WallPtr box2 = std::static_pointer_cast<Wall>(GameObjectRegistry::sInstance->CreateGameObject('WALL'));
-	box->SetLocation(Vector3(1.f, 3.f, 0.f));
-	box2->SetLocation(Vector3(-2.f, 3.f, 0.f));
-	RespawnGoal();
+	for (Vector3 pos : mLevelPositions)
+	{
+		WallPtr box = std::static_pointer_cast<Wall>(GameObjectRegistry::sInstance->CreateGameObject('WALL'));
+		box->SetLocation(pos);
+	}
 }
 
 void Server::DoFrame()
@@ -74,6 +91,8 @@ void Server::DoFrame()
 	NetworkManagerServer::sInstance->RespawnPlayers();
 
 	RespawnAI();
+
+	RespawnGoal();
 
 	Engine::DoFrame();
 
@@ -126,8 +145,13 @@ void Server::RespawnAI()
 
 void Server::RespawnGoal()
 {
+	if (IsAGoalOnMap() == true)
+		return;
 	GoalPtr goal = std::static_pointer_cast<Goal>(GameObjectRegistry::sInstance->CreateGameObject('GOAL'));
-	goal->SetLocation(Vector3(-1.f, -3.f, 0.f));
+	goal->SetLocation(mGoalSpawnerPos.at(mGoalSpawnerIndex));
+	mGoalSpawnerIndex++;
+	if (mGoalSpawnerIndex >= mGoalSpawnerPos.size())
+		mGoalSpawnerIndex = 0;
 }
 
 void Server::HandleLostClient( ClientProxyPtr inClientProxy )
@@ -260,5 +284,26 @@ int	Server::GetCurrentNumberOfAi() const
 		}
 	}
 	return nbrOfAi;
+}
+
+bool Server::IsAGoalOnMap() const
+{
+	const auto& gameObjects = World::sInstance->GetGameObjects();
+
+	for (int i = 0, c = gameObjects.size(); i < c; ++i)
+	{
+		GameObjectPtr go = gameObjects[i];
+
+		uint32_t type = go->GetClassId();
+
+		if (type == 'GOAL')
+		{
+			GoalPtr goal = std::static_pointer_cast<Goal>(go);
+
+			if (goal != nullptr)
+				return true;
+		}
+	}
+	return false;
 }
 

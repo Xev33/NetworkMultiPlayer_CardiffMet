@@ -27,7 +27,7 @@ void GoalServer::Update()
 	}
 }
 
-// The goal cannot interact with AI
+// The goal cannot interact with AI a doesn't hurt players
 bool GoalServer::HandleCollisionWithPlayer(Player* inPlayer)
 {
 	PlayerServer* ps = static_cast<PlayerServer*>(inPlayer);
@@ -35,7 +35,7 @@ bool GoalServer::HandleCollisionWithPlayer(Player* inPlayer)
 	{
 		if (ps->IsAi() == true)
 			return false;
-		ps->TakeDamage(this->GetGoalId());
+		//ps->TakeDamage(this->GetGoalId());
 	
 		SetDoesWantToDie(true);
 		return true;

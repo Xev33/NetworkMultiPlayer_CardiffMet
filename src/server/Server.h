@@ -5,6 +5,7 @@
 #include "ClientProxy.h"
 #include "Player.h"
 #include "NetworkManagerServer.h"
+#include <vector>
 
 class Server : public Engine
 {
@@ -26,6 +27,7 @@ public:
 	void RespawnGoal();
 	int	GetCurrentNumberOfPlayer() const;
 	int	GetCurrentNumberOfAi() const;
+	bool IsAGoalOnMap() const;
 
 
 private:
@@ -35,6 +37,10 @@ private:
 	float	mCoolDownRespawnAI;
 	bool	InitNetworkManager();
 	void	SetupWorld();
+	int		mGoalSpawnerIndex;
+
+	vector<Vector3> mLevelPositions;
+	vector<Vector3> mGoalSpawnerPos;
 
 };
 

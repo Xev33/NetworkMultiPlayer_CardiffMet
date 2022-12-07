@@ -10,7 +10,7 @@ const float HALF_WORLD_WIDTH = 6.4f;
 
 Wall::Wall()
 {
-	this->SetCollisionRadius(0.5f);
+	this->SetCollisionRadius(0.4f);
 }
 
 uint32_t Wall::Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState) const
