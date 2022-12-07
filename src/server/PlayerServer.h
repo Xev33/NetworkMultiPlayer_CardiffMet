@@ -31,6 +31,7 @@ protected:
 private:
 
 	void HandleShooting();
+	void HandleMakeSmoke();
 
 	EPlayerControlType	mPlayerControlType;
 

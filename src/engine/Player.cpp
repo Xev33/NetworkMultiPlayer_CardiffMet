@@ -39,6 +39,7 @@ void Player::ProcessInput( float inDeltaTime, const InputState& inInputState )
 
 
 		mIsShooting = inInputState.IsShooting();
+		mIsMakingSmoke = inInputState.IsMakingSmoke();
 }
 
 void Player::AdjustVelocityByThrust( float inDeltaTime )

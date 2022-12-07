@@ -15,12 +15,14 @@ public:
 	mDesiredLeftAmount( 0 ),
 	mDesiredForwardAmount( 0 ),
 	mDesiredBackAmount( 0 ),
-	mIsShooting( false )
+	mIsShooting(false),
+	mIsMakingSmoke( false )
 	{}
 
 	float GetDesiredHorizontalDelta()	const { return mDesiredRightAmount - mDesiredLeftAmount; }
 	float GetDesiredVerticalDelta()		const { return mDesiredForwardAmount - mDesiredBackAmount; }
 	bool  IsShooting()					const { return mIsShooting; }
+	bool  IsMakingSmoke()				const { return mIsMakingSmoke; }
 
 	bool Write( OutputMemoryBitStream& inOutputStream ) const;
 	bool Read( InputMemoryBitStream& inInputStream );
@@ -32,6 +34,7 @@ private:
 	float	mDesiredRightAmount, mDesiredLeftAmount;
 	float	mDesiredForwardAmount, mDesiredBackAmount;
 	bool	mIsShooting;
+	bool	mIsMakingSmoke;
 };
 
 typedef std::shared_ptr< InputState >	InputStatePtr;

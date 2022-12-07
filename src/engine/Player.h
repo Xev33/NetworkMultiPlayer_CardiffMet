@@ -69,6 +69,7 @@ public:
 	float GetThrustDir() { return mThrustDir; }
 	int GetHealth() { return mHealth; }
 	bool IsShooting() { return mIsShooting; }
+	bool IsMakingSmoke() { return mIsMakingSmoke; }
 	bool IsAi() { return mIsAi; }
 
 	bool operator==(Player &other);
@@ -104,6 +105,7 @@ protected:
 	int					mHealth;
 
 	bool				mIsShooting;
+	bool				mIsMakingSmoke;
 	bool				mIsAi;
 
 

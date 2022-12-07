@@ -61,6 +61,9 @@ void InputManager::HandleInput( EInputAction inInputAction, int inKeyCode )
 	case 'k':
 		UpdateDesireVariableFromKey( inInputAction, mCurrentState.mIsShooting );
 		break;
+	case 'g':
+		UpdateDesireVariableFromKey(inInputAction, mCurrentState.mIsMakingSmoke);
+		break;
 	case '+':
 	case '=':
 		{

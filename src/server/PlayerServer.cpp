@@ -52,6 +52,7 @@ void PlayerServer::UpdatePlayer()
 	}
 
 	HandleShooting();
+	HandleMakeSmoke();
 
 	if (!Maths::Is2DVectorEqual(oldLocation, GetLocation()) ||
 		!Maths::Is2DVectorEqual(oldVelocity, GetVelocity()) ||
@@ -106,6 +107,20 @@ void PlayerServer::HandleShooting()
 		//fire!
 		BulletPtr bullet = std::static_pointer_cast< Bullet >( GameObjectRegistry::sInstance->CreateGameObject( 'BULT' ) );
 		bullet->InitFromShooter( this );
+	}
+}
+
+void PlayerServer::HandleMakeSmoke()
+{
+	float time = Timing::sInstance.GetFrameStartTime();
+	if (mIsMakingSmoke && Timing::sInstance.GetFrameStartTime() > mTimeOfNextShot)
+	{
+		//not exact, but okay
+		mTimeOfNextShot = time + mTimeBetweenShots;
+
+		//fire!
+		BulletPtr bullet = std::static_pointer_cast<Bullet>(GameObjectRegistry::sInstance->CreateGameObject('BULT'));
+		bullet->InitFromShooter(this);
 	}
 }
 
