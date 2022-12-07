@@ -113,7 +113,6 @@ void Server::SpawnPlayer( int inPlayerId )
 
 	PlayerPtr player = std::static_pointer_cast< Player >( GameObjectRegistry::sInstance->CreateGameObject( 'PLYR' ) );
 	player->SetPlayerId( inPlayerId );
-	//gotta pick a better spawn location than this...
 	player->SetLocation( Vector3( 1.f - static_cast< float >( inPlayerId ), 0.f, 0.f ) );
 
 }
@@ -139,7 +138,6 @@ void Server::RespawnAI()
 
 	PlayerServerPtr  ps = std::static_pointer_cast<PlayerServer>(ai);
 	ps->SetPlayerControlType(ESCT_AI);
-	ps->SetPlayerHealth(3);
 	ps->SetColor(Colors::Red);//ScoreBoardManager::sInstance->GetEntry( inPlayerId )->GetColor() );
 }
 

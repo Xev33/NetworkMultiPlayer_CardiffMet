@@ -10,10 +10,18 @@
 
 WallClient::WallClient() :
 	mTimeLocationBecameOutOfSync(0.f),
-	mTimeVelocityBecameOutOfSync(0.f)
+	mTimeVelocityBecameOutOfSync(0.f), mIsSpriteChanged(false)
 {
 	mSpriteComponent.reset(new SpriteComponent(this));
 	mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("box"));
+}
+
+void WallClient::Update()
+{
+	if (GetScale() >= 1 || mIsSpriteChanged == true)
+		return;
+	mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("smoke"));
+	mIsSpriteChanged = true;
 }
 
 void WallClient::Read(InputMemoryBitStream& inInputStream)

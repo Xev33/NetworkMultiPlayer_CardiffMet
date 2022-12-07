@@ -22,6 +22,7 @@ public:
 	virtual void UpdateAI();
 
 	void SetPlayerControlType( EPlayerControlType inPlayerControlType ) { mPlayerControlType = inPlayerControlType; }
+	virtual bool HandleCollisionWithPlayer(Player* inPlayer) override;
 
 	void TakeDamage( int inDamagingPlayerId );
 
@@ -38,6 +39,7 @@ private:
 
 	float		mTimeOfNextShot;
 	float		mTimeBetweenShots;
+	float		mAiSpeed;
 
 };
 

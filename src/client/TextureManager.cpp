@@ -17,10 +17,11 @@ TextureManager::TextureManager()
 {
 	/* This should probably load from a config file or something */
 	CacheTexture("player", "../assets/BlueCar.png");
-	CacheTexture("bullet", "../assets/smoke.png");
+	CacheTexture("bullet", "../assets/yarn.png");
 	CacheTexture("goal", "../assets/Flag.png");
 	CacheTexture("ai", "../assets/BlueCar.png");
-	CacheTexture("box", "../assets/wall.png" );
+	CacheTexture("box", "../assets/wall.png");
+	CacheTexture("smoke", "../assets/smoke.png" );
 }	
 
 TexturePtr	TextureManager::GetTexture( const string& inTextureName )

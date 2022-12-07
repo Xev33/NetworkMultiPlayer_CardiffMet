@@ -1,17 +1,18 @@
 #include "PlayerServer.h"
 #include "Bullet.h"
+#include "Wall.h"
 #include "ClientProxy.h"
 #include "Timing.h"
 #include "MoveList.h"
 #include "Maths.h"
 #include "GameObjectRegistry.h"
-#include <iostream>
 #include <memory>
 
 PlayerServer::PlayerServer() :
 	mPlayerControlType( ESCT_Human ),
 	mTimeOfNextShot( 0.f ),
-	mTimeBetweenShots( 0.2f )
+	mTimeBetweenShots( 0.2f ),
+	mAiSpeed(0.03)
 {}
 
 void PlayerServer::HandleDying()
@@ -74,7 +75,7 @@ void PlayerServer::UpdateAI()
 		return;
 	}
 
-	mThrustDir = 0.01;
+	mThrustDir = mAiSpeed;
 	float time = Timing::sInstance.GetFrameStartTime();
 	Vector3 closestPlayerLoc = (static_cast<Server*> (Engine::sInstance.get()))->GetClosestPlayerPos(this->GetLocation()) - GetLocation();
 	Vector3 forwardVec = GetRightVector();
@@ -83,15 +84,17 @@ void PlayerServer::UpdateAI()
 	closestPlayerLoc.Normalize2D();
 	forwardVec.Normalize2D();
 
+	// Use them to find if player is on the AI's right or not
 	float dot = Dot2D(forwardVec, closestPlayerLoc); // dot product
 	float det = Det2D(forwardVec, closestPlayerLoc); // determinant
 	float angleToRotate = std::atan2(dot, det);
 
-	//We check if the player is on the AI's right or not
+	// Now we rotate the player toward the correct side
 	if (angleToRotate <= -0.5)
-		this->SetRotation(this->GetRotation() - (GetMaxRotationSpeed() * time) / 5000);
+		this->SetRotation(this->GetRotation() - (GetMaxRotationSpeed() * time) / 3000);
 	else
-		this->SetRotation(this->GetRotation() + (GetMaxRotationSpeed() * time) / 5000);
+		this->SetRotation(this->GetRotation() + (GetMaxRotationSpeed() * time) / 3000);
+
 	NetworkManagerServer::sInstance->SetStateDirty(GetNetworkId(), ECRS_Pose);
 	ProcessCollisions();
 }
@@ -118,9 +121,13 @@ void PlayerServer::HandleMakeSmoke()
 		//not exact, but okay
 		mTimeOfNextShot = time + mTimeBetweenShots;
 
-		//fire!
-		BulletPtr bullet = std::static_pointer_cast<Bullet>(GameObjectRegistry::sInstance->CreateGameObject('BULT'));
-		bullet->InitFromShooter(this);
+		// SMOKE!
+
+		WallPtr wall = std::static_pointer_cast<Wall>(GameObjectRegistry::sInstance->CreateGameObject('WALL'));
+		wall->SetLocation(GetLocation() + ((GetForwardVector() * 0.75) * -1));
+		wall->SetIsSmoke(true);
+		wall->SetCollisionRadius(0.2);
+		wall->SetScale(wall->GetScale() / 1.5);
 	}
 }
 
@@ -151,4 +158,24 @@ void PlayerServer::TakeDamage( int inDamagingPlayerId )
 
 	//tell the world our health dropped
 	NetworkManagerServer::sInstance->SetStateDirty( GetNetworkId(), ECRS_Health );
+}
+
+bool PlayerServer::HandleCollisionWithPlayer(Player* inPlayer)
+{
+	PlayerServer* ps = static_cast<PlayerServer*>(inPlayer);
+	if (ps)
+	{
+		if (ps->IsAi() == false)
+		{
+			ps->TakeDamage(this->GetPlayerId());
+			TakeDamage(this->GetPlayerId());
+			TakeDamage(this->GetPlayerId());
+			TakeDamage(this->GetPlayerId());
+		}
+
+		return true;
+	}
+	else
+		return false;
+
 }

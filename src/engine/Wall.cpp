@@ -8,7 +8,7 @@
 const float HALF_WORLD_HEIGHT = 3.6f;
 const float HALF_WORLD_WIDTH = 6.4f;
 
-Wall::Wall()
+Wall::Wall() : mIsSmoke(false)
 {
 	this->SetCollisionRadius(0.4f);
 }

@@ -12,7 +12,7 @@
 
 PlayerClient::PlayerClient() :
 	mTimeLocationBecameOutOfSync(0.f),
-	mTimeVelocityBecameOutOfSync(0.f), isSpriteChanged(false)
+	mTimeVelocityBecameOutOfSync(0.f), mIsSpriteChanged(false)
 {
 	mSpriteComponent.reset( new SpriteComponent( this ) );
 	mSpriteComponent->SetTexture( TextureManager::sInstance->GetTexture( "player" ) );
@@ -26,12 +26,12 @@ void PlayerClient::HandleDying()
 
 void PlayerClient::Update()
 {
-	if (GetColor() == Colors::Red || isSpriteChanged == true)
+	if (GetColor() == Colors::Red || mIsSpriteChanged == true)
 		return;
 	else
 	{
 		mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("ai"));
-		isSpriteChanged = true;
+		mIsSpriteChanged = true;
 	}
 }
 

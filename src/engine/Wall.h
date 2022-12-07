@@ -29,6 +29,9 @@ public:
 
 	virtual uint32_t GetAllStateMask()	const override { return ECRS_AllState; }
 
+	void		SetIsSmoke(bool in) { mIsSmoke = in; }
+	bool		GetIsSmoke() const { return mIsSmoke; }
+
 	void		SetWallId(uint32_t inPlayerId) { mWallId = inPlayerId; }
 	uint32_t	GetWallId()						const { return mWallId; }
 
@@ -42,6 +45,7 @@ private:
 	uint32_t			mWallId;
 
 protected:
+	bool				mIsSmoke;
 
 };
 

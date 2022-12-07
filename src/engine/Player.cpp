@@ -12,18 +12,18 @@ const float HALF_WORLD_WIDTH = 6.4f;
 Player::Player() :
 	GameObject(),
 	mVelocity(Vector3::Zero),
-	mMaxLinearSpeed(50.f),
+	mMaxLinearSpeed(75.f),
 	mMaxRotationSpeed(5.f),
 	mWallRestitution(0.1f),
 	mNPCRestitution(0.1f),
 	mPlayerId(0),
 	mLastMoveTimestamp(0.0f),
 	mThrustDir(0.f),
-	mHealth(10),
+	mHealth(3),
 	mIsShooting(false),
 	mIsAi(false)
 {
-	SetCollisionRadius( 0.5f );
+	SetCollisionRadius( 0.3f );
 }
 
 void Player::ProcessInput( float inDeltaTime, const InputState& inInputState )

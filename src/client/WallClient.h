@@ -10,6 +10,7 @@ public:
 	static	GameObjectPtr	StaticCreate() { return GameObjectPtr(new WallClient()); }
 
 	virtual void	Read(InputMemoryBitStream& inInputStream) override;
+	virtual void Update();
 
 protected:
 	WallClient();
@@ -18,6 +19,7 @@ protected:
 private:
 	float				mTimeLocationBecameOutOfSync;
 	float				mTimeVelocityBecameOutOfSync;
+	bool				mIsSpriteChanged;
 
 	SpriteComponentPtr	mSpriteComponent;
 };

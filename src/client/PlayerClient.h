@@ -22,7 +22,7 @@ protected:
 private:
 	float				mTimeLocationBecameOutOfSync;
 	float				mTimeVelocityBecameOutOfSync;
-	bool				isSpriteChanged;
+	bool				mIsSpriteChanged;
 
 	SpriteComponentPtr	mSpriteComponent;
 };
