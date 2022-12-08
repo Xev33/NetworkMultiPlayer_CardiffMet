@@ -1,0 +1,34 @@
+\hypertarget{_bullet_server_8h_source}{}\doxysection{Bullet\+Server.\+h}
+\label{_bullet_server_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/server/BulletServer.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/server/BulletServer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef BULLET\_SERVER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define BULLET\_SERVER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Bullet.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}NetworkManagerServer.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_bullet_server}{BulletServer}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_bullet}{Bullet}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     \textcolor{keyword}{static} GameObjectPtr    StaticCreate() \{ \textcolor{keywordflow}{return} NetworkManagerServer::sInstance-\/>RegisterAndReturn( \textcolor{keyword}{new} \mbox{\hyperlink{class_bullet_server}{BulletServer}}() ); \}}
+\DoxyCodeLine{12     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} HandleDying() \textcolor{keyword}{override};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Update() \textcolor{keyword}{override};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} HandleCollisionWithPlayer(\mbox{\hyperlink{class_player}{Player}}* inPlayer) \textcolor{keyword}{override};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_bullet_server}{BulletServer}}();}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{private}:}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{comment}{//float     mTimeOfNextShot;}}
+\DoxyCodeLine{24     \textcolor{comment}{//float     mTimeBetweenShots;}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// BULLET\_SERVER\_H}}
+
+\end{DoxyCode}

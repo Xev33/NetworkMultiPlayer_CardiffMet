@@ -1,0 +1,92 @@
+\hypertarget{class_goal}{}\doxysection{Goal Class Reference}
+\label{class_goal}\index{Goal@{Goal}}
+Inheritance diagram for Goal\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_goal}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_goal_a37e17727252bd4935cdb5528699f7f71}\label{class_goal_a37e17727252bd4935cdb5528699f7f71}} 
+enum {\bfseries EPlayer\+Replication\+State} \{ {\bfseries ECRS\+\_\+\+Pose} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
+, {\bfseries ECRS\+\_\+\+Goal\+Id} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, {\bfseries ECRS\+\_\+\+All\+State} = ECRS\+\_\+\+Pose $\vert$ ECRS\+\_\+\+Goal\+Id
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{class_goal_a3b2e778741c423af097e5923c7979b3c}{Get\+All\+State\+Mask}} () const override
+\item 
+virtual void \mbox{\hyperlink{class_goal_ae380e089b10da7de87ecf8a732ef82dc}{Update}} () override
+\item 
+\mbox{\Hypertarget{class_goal_a43220d9d35c6ad59c1718d8732d457fe}\label{class_goal_a43220d9d35c6ad59c1718d8732d457fe}} 
+void {\bfseries Set\+Goal\+Id} (uint32\+\_\+t in\+Player\+Id)
+\item 
+\mbox{\Hypertarget{class_goal_a925c85d4b765bfcaadd6e564fc2b1a10}\label{class_goal_a925c85d4b765bfcaadd6e564fc2b1a10}} 
+uint32\+\_\+t {\bfseries Get\+Goal\+Id} () const
+\item 
+uint32\+\_\+t \mbox{\hyperlink{class_goal_a86b4e637cc88a8b94f8b2249f8f98dd7}{Write}} (\mbox{\hyperlink{class_output_memory_bit_stream}{Output\+Memory\+Bit\+Stream}} \&in\+Output\+Stream, uint32\+\_\+t in\+Dirty\+State) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_goal_a1246f0afe77631b0b9d94256dccd0411}\label{class_goal_a1246f0afe77631b0b9d94256dccd0411}} 
+static \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ {\bfseries Static\+Create} ()
+\item 
+\mbox{\Hypertarget{class_goal_a6fb7c9ca9794b867ad7a927525a8ff78}\label{class_goal_a6fb7c9ca9794b867ad7a927525a8ff78}} 
+static Game\+Object\+Ptr {\bfseries Static\+Create\+Ptr} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_goal_ae2217be5d91bfd43f18acb5813e95bea}\label{class_goal_ae2217be5d91bfd43f18acb5813e95bea}} 
+float {\bfseries m\+Health}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_goal_ab22ae939376425f1e238714a119a6160}\label{class_goal_ab22ae939376425f1e238714a119a6160}} 
+uint32\+\_\+t {\bfseries m\+Goal\+Id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_goal_a3b2e778741c423af097e5923c7979b3c}\label{class_goal_a3b2e778741c423af097e5923c7979b3c}} 
+\index{Goal@{Goal}!GetAllStateMask@{GetAllStateMask}}
+\index{GetAllStateMask@{GetAllStateMask}!Goal@{Goal}}
+\doxysubsubsection{\texorpdfstring{GetAllStateMask()}{GetAllStateMask()}}
+{\footnotesize\ttfamily virtual uint32\+\_\+t Goal\+::\+Get\+All\+State\+Mask (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_goal_ae380e089b10da7de87ecf8a732ef82dc}\label{class_goal_ae380e089b10da7de87ecf8a732ef82dc}} 
+\index{Goal@{Goal}!Update@{Update}}
+\index{Update@{Update}!Goal@{Goal}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Goal\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_goal_a86b4e637cc88a8b94f8b2249f8f98dd7}\label{class_goal_a86b4e637cc88a8b94f8b2249f8f98dd7}} 
+\index{Goal@{Goal}!Write@{Write}}
+\index{Write@{Write}!Goal@{Goal}}
+\doxysubsubsection{\texorpdfstring{Write()}{Write()}}
+{\footnotesize\ttfamily uint32\+\_\+t Goal\+::\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_output_memory_bit_stream}{Output\+Memory\+Bit\+Stream}} \&}]{in\+Output\+Stream,  }\item[{uint32\+\_\+t}]{in\+Dirty\+State }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/engine/Goal.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/engine/Goal.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,37 @@
+\hypertarget{_client_8h_source}{}\doxysection{Client.\+h}
+\label{_client_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/client/Client.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/client/Client.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#define SDL\_MAIN\_HANDLED}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#ifndef \_WIN32}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <SDL2/SDL.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <SDL.h>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}Engine.h"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_client}{Client}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_engine}{Engine}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} StaticInit( );}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \mbox{\hyperlink{class_client}{Client}}();}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}    DoFrame() \textcolor{keyword}{override};}
+\DoxyCodeLine{22     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}    HandleEvent( SDL\_Event* inEvent ) \textcolor{keyword}{override};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{private}:}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{float} lastTime;}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} PrintStats();}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} OutputBandWidth();}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} OutputRoundTripTime();}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} DoNetworkTiming();}
+\DoxyCodeLine{31 \};}
+
+\end{DoxyCode}

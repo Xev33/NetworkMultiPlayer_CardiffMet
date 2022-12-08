@@ -1,0 +1,33 @@
+\hypertarget{_t_c_p_socket_test_harness_8h_source}{}\doxysection{TCPSocket\+Test\+Harness.\+h}
+\label{_t_c_p_socket_test_harness_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/gtest/TCPSocketTestHarness.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/gtest/TCPSocketTestHarness.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TCP\_SOCKET\_TEST\_HARNESS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TCP\_SOCKET\_TEST\_HARNESS\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <limits.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <gtest/gtest.h>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}TCPSocket.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}SocketUtil.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}SocketAddressFactory.h"{}}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_t_c_p_socket_test_harness}{TCPSocketTestHarness}} : \textcolor{keyword}{public} ::testing::Test}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} SetUp();}
+\DoxyCodeLine{16   \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} TearDown();}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18   TCPSocketPtr server;}
+\DoxyCodeLine{19   TCPSocketPtr client;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{public}:}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \mbox{\hyperlink{class_t_c_p_socket_test_harness}{TCPSocketTestHarness}}();}
+\DoxyCodeLine{24     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_t_c_p_socket_test_harness}{\string~TCPSocketTestHarness}}();}
+\DoxyCodeLine{25 \};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// TCP\_SOCKET\_TEST\_HARNESS\_H}}
+
+\end{DoxyCode}

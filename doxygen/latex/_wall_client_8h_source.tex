@@ -1,0 +1,33 @@
+\hypertarget{_wall_client_8h_source}{}\doxysection{Wall\+Client.\+h}
+\label{_wall_client_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/client/WallClient.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/client/WallClient.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef WALL\_CLIENT\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define WALL\_CLIENT\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Wall.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}SpriteComponent.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_wall_client}{WallClient}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_wall}{Wall}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \textcolor{keyword}{static}  GameObjectPtr   StaticCreate() \{ \textcolor{keywordflow}{return} GameObjectPtr(\textcolor{keyword}{new} \mbox{\hyperlink{class_wall_client}{WallClient}}()); \}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}    Read(\mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputStream) \textcolor{keyword}{override};}
+\DoxyCodeLine{13     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Update();}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_wall_client}{WallClient}}();}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{private}:}
+\DoxyCodeLine{20     \textcolor{keywordtype}{float}               mTimeLocationBecameOutOfSync;}
+\DoxyCodeLine{21     \textcolor{keywordtype}{float}               mTimeVelocityBecameOutOfSync;}
+\DoxyCodeLine{22     \textcolor{keywordtype}{bool}                mIsSpriteChanged;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     SpriteComponentPtr  mSpriteComponent;}
+\DoxyCodeLine{25 \};}
+\DoxyCodeLine{26 \textcolor{keyword}{typedef} shared\_ptr< WallClient >    WallClientPtr;}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//WALL\_CLIENT\_H}}
+
+\end{DoxyCode}

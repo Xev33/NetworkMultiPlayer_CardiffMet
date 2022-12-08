@@ -1,0 +1,102 @@
+\hypertarget{_input_memory_bit_stream_8h_source}{}\doxysection{Input\+Memory\+Bit\+Stream.\+h}
+\label{_input_memory_bit_stream_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/serialisation/InputMemoryBitStream.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/serialisation/InputMemoryBitStream.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef INPUT\_MEMORY\_BIT\_STREAM\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define INPUT\_MEMORY\_BIT\_STREAM\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}SerialisationCommon.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}Fixed.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}BitMan.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_game_object}{GameObject}};}
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_vector3}{Vector3}};}
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_quaternion}{Quaternion}};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21 \textcolor{keyword}{private}:}
+\DoxyCodeLine{22     \textcolor{keywordtype}{char}*       mBuffer;}
+\DoxyCodeLine{23     uint32\_t    mBitHead;}
+\DoxyCodeLine{24     uint32\_t    mBitCapacity;}
+\DoxyCodeLine{25     \textcolor{keywordtype}{bool}        mIsBufferOwner;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}( \textcolor{keywordtype}{char}* inBuffer, uint32\_t inBitCount ) :}
+\DoxyCodeLine{30     mBuffer( inBuffer ),}
+\DoxyCodeLine{31     mBitHead( 0 ),}
+\DoxyCodeLine{32     mBitCapacity( inBitCount ),}
+\DoxyCodeLine{33     mIsBufferOwner( \textcolor{keyword}{false} ) \{\}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}( \textcolor{keyword}{const} \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inOther ) :}
+\DoxyCodeLine{36   mBitHead( inOther.mBitHead ),}
+\DoxyCodeLine{37     mBitCapacity( inOther.mBitCapacity ),}
+\DoxyCodeLine{38     mIsBufferOwner( \textcolor{keyword}{true} )}
+\DoxyCodeLine{39     \{}
+\DoxyCodeLine{40         \textcolor{comment}{//allocate buffer of right size}}
+\DoxyCodeLine{41         \textcolor{keywordtype}{int} byteCount = ( mBitCapacity + 7 ) / 8;}
+\DoxyCodeLine{42         mBuffer = \textcolor{keyword}{static\_cast<} \textcolor{keywordtype}{char}* \textcolor{keyword}{>}( malloc( byteCount ) );}
+\DoxyCodeLine{43         \textcolor{comment}{//copy}}
+\DoxyCodeLine{44         memcpy( mBuffer, inOther.mBuffer, byteCount );}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \mbox{\hyperlink{class_input_memory_bit_stream}{\string~InputMemoryBitStream}}();}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keyword}{const}   \textcolor{keywordtype}{char}*   GetBufferPtr()\textcolor{keyword}{      const   }\{ \textcolor{keywordflow}{return} mBuffer; \}}
+\DoxyCodeLine{50     uint32\_t    GetRemainingBitCount()\textcolor{keyword}{  const }\{ \textcolor{keywordflow}{return} mBitCapacity -\/ mBitHead; \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void}        ReadBits( uint8\_t\& outData, uint32\_t inBitCount );}
+\DoxyCodeLine{53     \textcolor{keywordtype}{void}        ReadBits( \textcolor{keywordtype}{void}* outData, uint32\_t inBitCount );}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordtype}{void}        ReadBytes( \textcolor{keywordtype}{void}* outData, uint32\_t inByteCount )        \{ ReadBits( outData, inByteCount << 3 ); \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{keyword}{template}< \textcolor{keyword}{typename} T >}
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} Read( T\& inData, uint32\_t inBitCount = \textcolor{keyword}{sizeof}( T ) * 8 )}
+\DoxyCodeLine{59     \{}
+\DoxyCodeLine{60         \textcolor{keyword}{static\_assert}( std::is\_arithmetic< T >::value ||}
+\DoxyCodeLine{61                       std::is\_enum< T >::value,}
+\DoxyCodeLine{62                       \textcolor{stringliteral}{"{}Generic Read only supports primitive data types"{}} );}
+\DoxyCodeLine{63         ReadBits( \&inData, inBitCount );}
+\DoxyCodeLine{64     \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keywordtype}{void}        Read( uint32\_t\& outData, uint32\_t inBitCount = 32 )     \{ ReadBits( \&outData, inBitCount ); \}}
+\DoxyCodeLine{67     \textcolor{keywordtype}{void}        Read( \textcolor{keywordtype}{int}\& outData, uint32\_t inBitCount = 32 )          \{ ReadBits( \&outData, inBitCount ); \}}
+\DoxyCodeLine{68     \textcolor{keywordtype}{void}        Read( \textcolor{keywordtype}{float}\& outData )                                  \{ ReadBits( \&outData, 32 ); \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{void}        Read( uint16\_t\& outData, uint32\_t inBitCount = 16 )     \{ ReadBits( \&outData, inBitCount ); \}}
+\DoxyCodeLine{71     \textcolor{keywordtype}{void}        Read( int16\_t\& outData, uint32\_t inBitCount = 16 )      \{ ReadBits( \&outData, inBitCount ); \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keywordtype}{void}        Read( uint8\_t\& outData, uint32\_t inBitCount = 8 )       \{ ReadBits( \&outData, inBitCount ); \}}
+\DoxyCodeLine{74     \textcolor{keywordtype}{void}        Read( \textcolor{keywordtype}{bool}\& outData )                                   \{ ReadBits( \&outData, 1 ); \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{void}        Read( \mbox{\hyperlink{class_quaternion}{Quaternion}}\& outQuat );}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keywordtype}{void}        ResetToCapacity( uint32\_t inByteCapacity )              \{ mBitCapacity = inByteCapacity << 3; mBitHead = 0; \}}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{keywordtype}{void} Read( std::string\& inString )}
+\DoxyCodeLine{82     \{}
+\DoxyCodeLine{83         uint32\_t elementCount;}
+\DoxyCodeLine{84         Read( elementCount );}
+\DoxyCodeLine{85         inString.resize( elementCount );}
+\DoxyCodeLine{86         \textcolor{keywordflow}{for}( \textcolor{keyword}{auto}\& element : inString )}
+\DoxyCodeLine{87         \{}
+\DoxyCodeLine{88             Read( element );}
+\DoxyCodeLine{89         \}}
+\DoxyCodeLine{90     \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{keywordtype}{void} Read( \mbox{\hyperlink{class_vector3}{Vector3}}\& inVector );}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \};}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

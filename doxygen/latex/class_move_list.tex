@@ -1,0 +1,62 @@
+\hypertarget{class_move_list}{}\doxysection{Move\+List Class Reference}
+\label{class_move_list}\index{MoveList@{MoveList}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_move_list_a8191dbe9032366c312357aa27ac513fb}\label{class_move_list_a8191dbe9032366c312357aa27ac513fb}} 
+typedef deque$<$ \mbox{\hyperlink{class_move}{Move}} $>$\+::const\+\_\+iterator {\bfseries const\+\_\+iterator}
+\item 
+\mbox{\Hypertarget{class_move_list_a0de09657cdecf6b7b14c86cf137a6ea1}\label{class_move_list_a0de09657cdecf6b7b14c86cf137a6ea1}} 
+typedef deque$<$ \mbox{\hyperlink{class_move}{Move}} $>$\+::const\+\_\+reverse\+\_\+iterator {\bfseries const\+\_\+reverse\+\_\+iterator}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_move_list_ac09731d6f05e5aa46b224951a913bc4c}\label{class_move_list_ac09731d6f05e5aa46b224951a913bc4c}} 
+const \mbox{\hyperlink{class_move}{Move}} \& {\bfseries Add\+Move} (const \mbox{\hyperlink{class_input_state}{Input\+State}} \&in\+Input\+State, float in\+Timestamp)
+\item 
+\mbox{\Hypertarget{class_move_list_a82f01a9b8b4f7bff53548210f0932c7e}\label{class_move_list_a82f01a9b8b4f7bff53548210f0932c7e}} 
+bool {\bfseries Add\+Move} (const \mbox{\hyperlink{class_move}{Move}} \&in\+Move)
+\item 
+\mbox{\Hypertarget{class_move_list_a18d6b3fed2fd9a0945f44a1f561fd31f}\label{class_move_list_a18d6b3fed2fd9a0945f44a1f561fd31f}} 
+void {\bfseries Removed\+Processed\+Moves} (float in\+Last\+Move\+Processed\+On\+Server\+Timestamp)
+\item 
+\mbox{\Hypertarget{class_move_list_a9e2e6b34e43b33c30329cc341c0aed43}\label{class_move_list_a9e2e6b34e43b33c30329cc341c0aed43}} 
+float {\bfseries Get\+Last\+Move\+Timestamp} () const
+\item 
+\mbox{\Hypertarget{class_move_list_ac52c1da29e56add52d89f79563da03fa}\label{class_move_list_ac52c1da29e56add52d89f79563da03fa}} 
+const \mbox{\hyperlink{class_move}{Move}} \& {\bfseries Get\+Latest\+Move} () const
+\item 
+\mbox{\Hypertarget{class_move_list_a87e216538f46b86ea000a7b8e12c95f1}\label{class_move_list_a87e216538f46b86ea000a7b8e12c95f1}} 
+void {\bfseries Clear} ()
+\item 
+\mbox{\Hypertarget{class_move_list_a4580f54ed924e279428b9c2282d6a2fe}\label{class_move_list_a4580f54ed924e279428b9c2282d6a2fe}} 
+bool {\bfseries Has\+Moves} () const
+\item 
+\mbox{\Hypertarget{class_move_list_a8bb9965c5f88ac18939437c0191ab2f4}\label{class_move_list_a8bb9965c5f88ac18939437c0191ab2f4}} 
+int {\bfseries Get\+Move\+Count} () const
+\item 
+\mbox{\Hypertarget{class_move_list_a3199132ff0c71553ed2dc085d33e7ce5}\label{class_move_list_a3199132ff0c71553ed2dc085d33e7ce5}} 
+const\+\_\+iterator {\bfseries begin} () const
+\item 
+\mbox{\Hypertarget{class_move_list_a287b83a58e43371f7b77d76b8dfae849}\label{class_move_list_a287b83a58e43371f7b77d76b8dfae849}} 
+const\+\_\+iterator {\bfseries end} () const
+\item 
+\mbox{\Hypertarget{class_move_list_ab2243728b3df0327585c760982bb05ba}\label{class_move_list_ab2243728b3df0327585c760982bb05ba}} 
+const \mbox{\hyperlink{class_move}{Move}} \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (size\+\_\+t i) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_move_list_af8b4b45f4e20321be8c5331eaee3979b}\label{class_move_list_af8b4b45f4e20321be8c5331eaee3979b}} 
+float {\bfseries m\+Last\+Move\+Timestamp}
+\item 
+\mbox{\Hypertarget{class_move_list_a0d933b24af4da8e8f43cfcd24113c170}\label{class_move_list_a0d933b24af4da8e8f43cfcd24113c170}} 
+deque$<$ \mbox{\hyperlink{class_move}{Move}} $>$ {\bfseries m\+Moves}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/engine/Move\+List.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/engine/Move\+List.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,108 @@
+\hypertarget{_network_manager_8h_source}{}\doxysection{Network\+Manager.\+h}
+\label{_network_manager_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/replication/NetworkManager.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/replication/NetworkManager.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef NETWORK\_MANAGER\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define NETWORK\_MANAGER\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{comment}{// From Replication.}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}ReceivedPacket.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Timing.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}WeightedTimedMovingAverage.h"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{comment}{//From Networking}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}UDPSocket.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{comment}{//From Engine}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}GameObject.h"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{16 \textcolor{keyword}{using }std::unordered\_map;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{19 \textcolor{keyword}{using }std::list;}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{22 \textcolor{keyword}{using }std::queue;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{typedef} unordered\_map< int, GameObjectPtr > IntToGameObjectMap;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}};}
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_socket_address}{SocketAddress}};}
+\DoxyCodeLine{28 \textcolor{keyword}{class }\mbox{\hyperlink{class_output_memory_bit_stream}{OutputMemoryBitStream}};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{class_network_manager}{NetworkManager}}}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33 \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \textcolor{keyword}{static} \textcolor{keyword}{const} uint32\_t   kHelloCC = \textcolor{stringliteral}{'HELO'};}
+\DoxyCodeLine{35     \textcolor{keyword}{static} \textcolor{keyword}{const} uint32\_t   kWelcomeCC = \textcolor{stringliteral}{'WLCM'};}
+\DoxyCodeLine{36     \textcolor{keyword}{static} \textcolor{keyword}{const} uint32\_t   kStateCC = \textcolor{stringliteral}{'STAT'};}
+\DoxyCodeLine{37     \textcolor{keyword}{static} \textcolor{keyword}{const} uint32\_t   kInputCC = \textcolor{stringliteral}{'INPT'};}
+\DoxyCodeLine{38     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{int}        kMaxPacketsPerFrameCount = 10;}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \mbox{\hyperlink{class_network_manager}{NetworkManager}}();}
+\DoxyCodeLine{41     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_network_manager}{\string~NetworkManager}}();}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{bool}    Init( uint16\_t inPort );}
+\DoxyCodeLine{44     \textcolor{keywordtype}{void}    ProcessIncomingPackets();}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}    ProcessPacket( \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputStream, \textcolor{keyword}{const} \mbox{\hyperlink{class_socket_address}{SocketAddress}}\& inFromAddress ) = 0;}
+\DoxyCodeLine{47     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}    HandleConnectionReset( \textcolor{keyword}{const} \mbox{\hyperlink{class_socket_address}{SocketAddress}}\& inFromAddress ) \{ ( void ) inFromAddress; \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{void}    SendPacket( \textcolor{keyword}{const} \mbox{\hyperlink{class_output_memory_bit_stream}{OutputMemoryBitStream}}\& inOutputStream, \textcolor{keyword}{const} \mbox{\hyperlink{class_socket_address}{SocketAddress}}\& inFromAddress );}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keyword}{const} \mbox{\hyperlink{class_weighted_timed_moving_average}{WeightedTimedMovingAverage}}\& GetBytesReceivedPerSecond()\textcolor{keyword}{ const   }\{ \textcolor{keywordflow}{return} mBytesReceivedPerSecond; \}}
+\DoxyCodeLine{52     \textcolor{keyword}{const} \mbox{\hyperlink{class_weighted_timed_moving_average}{WeightedTimedMovingAverage}}\& GetBytesSentPerSecond()\textcolor{keyword}{     const   }\{ \textcolor{keywordflow}{return} mBytesSentPerSecond; \}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void}    SetDropPacketChance( \textcolor{keywordtype}{float} inChance )   \{ mDropPacketChance = inChance; \}}
+\DoxyCodeLine{55     \textcolor{keywordtype}{float}   GetDropPacketChance()\textcolor{keyword}{ const             }\{ \textcolor{keywordflow}{return} mDropPacketChance; \}}
+\DoxyCodeLine{56     \textcolor{keywordtype}{void}    SetSimulatedLatency( \textcolor{keywordtype}{float} inLatency )  \{ mSimulatedLatency = inLatency; \}}
+\DoxyCodeLine{57     \textcolor{keywordtype}{float}   GetSimulatedLatency()\textcolor{keyword}{ const             }\{ \textcolor{keywordflow}{return} mSimulatedLatency; \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keyword}{inline}  GameObjectPtr   GetGameObject( \textcolor{keywordtype}{int} inNetworkId ) \textcolor{keyword}{const};}
+\DoxyCodeLine{60     \textcolor{keywordtype}{void}    AddToNetworkIdToGameObjectMap( GameObjectPtr inGameObject );}
+\DoxyCodeLine{61     \textcolor{keywordtype}{void}    RemoveFromNetworkIdToGameObjectMap( GameObjectPtr inGameObject );}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     IntToGameObjectMap      mNetworkIdToGameObjectMap;}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{keyword}{private}:}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     \textcolor{keywordtype}{void}    UpdateBytesSentLastFrame();}
+\DoxyCodeLine{70     \textcolor{keywordtype}{void}    ReadIncomingPacketsIntoQueue();}
+\DoxyCodeLine{71     \textcolor{keywordtype}{void}    ProcessQueuedPackets();}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     queue< ReceivedPacket, list< ReceivedPacket > > mPacketQueue;}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     UDPSocketPtr    mSocket;}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \mbox{\hyperlink{class_weighted_timed_moving_average}{WeightedTimedMovingAverage}}    mBytesReceivedPerSecond;}
+\DoxyCodeLine{78     \mbox{\hyperlink{class_weighted_timed_moving_average}{WeightedTimedMovingAverage}}    mBytesSentPerSecond;}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \textcolor{keywordtype}{int}                         mBytesSentThisFrame;}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{keywordtype}{float}                       mDropPacketChance;}
+\DoxyCodeLine{83     \textcolor{keywordtype}{float}                       mSimulatedLatency;}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \};}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \textcolor{keyword}{inline}  GameObjectPtr NetworkManager::GetGameObject( \textcolor{keywordtype}{int} inNetworkId )\textcolor{keyword}{ const}}
+\DoxyCodeLine{90 \textcolor{keyword}{}\{}
+\DoxyCodeLine{91     \textcolor{keyword}{auto} gameObjectIt = mNetworkIdToGameObjectMap.find( inNetworkId );}
+\DoxyCodeLine{92     \textcolor{keywordflow}{if}( gameObjectIt != mNetworkIdToGameObjectMap.end() )}
+\DoxyCodeLine{93     \{}
+\DoxyCodeLine{94         \textcolor{keywordflow}{return} gameObjectIt-\/>second;}
+\DoxyCodeLine{95     \}}
+\DoxyCodeLine{96     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{97     \{}
+\DoxyCodeLine{98         \textcolor{keywordflow}{return} GameObjectPtr();}
+\DoxyCodeLine{99     \}}
+\DoxyCodeLine{100 \}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//NETWORK\_MANAGER\_H\_}}
+
+\end{DoxyCode}

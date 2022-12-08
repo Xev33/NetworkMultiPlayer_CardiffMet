@@ -1,0 +1,48 @@
+\hypertarget{_input_state_8h_source}{}\doxysection{Input\+State.\+h}
+\label{_input_state_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/InputState.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/InputState.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef INPUT\_STATE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define INPUT\_STATE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}};}
+\DoxyCodeLine{5 \textcolor{keyword}{class }\mbox{\hyperlink{class_output_memory_bit_stream}{OutputMemoryBitStream}};}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_input_state}{InputState}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \mbox{\hyperlink{class_input_state}{InputState}}() :}
+\DoxyCodeLine{14     mDesiredRightAmount( 0 ),}
+\DoxyCodeLine{15     mDesiredLeftAmount( 0 ),}
+\DoxyCodeLine{16     mDesiredForwardAmount( 0 ),}
+\DoxyCodeLine{17     mDesiredBackAmount( 0 ),}
+\DoxyCodeLine{18     mIsShooting(\textcolor{keyword}{false}),}
+\DoxyCodeLine{19     mIsMakingSmoke( \textcolor{keyword}{false} )}
+\DoxyCodeLine{20     \{\}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{float} GetDesiredHorizontalDelta()\textcolor{keyword}{   const }\{ \textcolor{keywordflow}{return} mDesiredRightAmount -\/ mDesiredLeftAmount; \}}
+\DoxyCodeLine{23     \textcolor{keywordtype}{float} GetDesiredVerticalDelta()\textcolor{keyword}{     const }\{ \textcolor{keywordflow}{return} mDesiredForwardAmount -\/ mDesiredBackAmount; \}}
+\DoxyCodeLine{24     \textcolor{keywordtype}{bool}  IsShooting()\textcolor{keyword}{                  const }\{ \textcolor{keywordflow}{return} mIsShooting; \}}
+\DoxyCodeLine{25     \textcolor{keywordtype}{bool}  IsMakingSmoke()\textcolor{keyword}{               const }\{ \textcolor{keywordflow}{return} mIsMakingSmoke; \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{bool} Write( \mbox{\hyperlink{class_output_memory_bit_stream}{OutputMemoryBitStream}}\& inOutputStream ) \textcolor{keyword}{const};}
+\DoxyCodeLine{28     \textcolor{keywordtype}{bool} Read( \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputStream );}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{private}:}
+\DoxyCodeLine{31     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_input_manager}{InputManager}};}
+\DoxyCodeLine{32     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_input_state_test_harness}{InputStateTestHarness}};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{float}   mDesiredRightAmount, mDesiredLeftAmount;}
+\DoxyCodeLine{35     \textcolor{keywordtype}{float}   mDesiredForwardAmount, mDesiredBackAmount;}
+\DoxyCodeLine{36     \textcolor{keywordtype}{bool}    mIsShooting;}
+\DoxyCodeLine{37     \textcolor{keywordtype}{bool}    mIsMakingSmoke;}
+\DoxyCodeLine{38 \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{keyword}{typedef} std::shared\_ptr< InputState >   InputStatePtr;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,38 @@
+\hypertarget{_texture_8h_source}{}\doxysection{Texture.\+h}
+\label{_texture_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/client/Texture.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/client/Texture.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TEXTURE\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TEXTURE\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifndef \_WIN32}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <SDL2/SDL.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <SDL.h>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{11 \textcolor{keyword}{using }std::shared\_ptr;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_texture}{Texture}}}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_texture}{Texture}}( uint32\_t inWidth, uint32\_t inHeight, SDL\_Texture* inTexture );}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_texture}{\string~Texture}}();}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     uint32\_t    GetWidth()\textcolor{keyword}{  const   }\{ \textcolor{keywordflow}{return} mWidth; \}}
+\DoxyCodeLine{20     uint32\_t    GetHeight()\textcolor{keyword}{ const   }\{ \textcolor{keywordflow}{return} mHeight; \}}
+\DoxyCodeLine{21     SDL\_Texture* GetData()\textcolor{keyword}{ const    }\{ \textcolor{keywordflow}{return} mTexture; \}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{private}:}
+\DoxyCodeLine{24     uint32\_t        mWidth;}
+\DoxyCodeLine{25     uint32\_t        mHeight;}
+\DoxyCodeLine{26     SDL\_Texture*    mTexture;}
+\DoxyCodeLine{27 \};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{typedef} shared\_ptr< Texture >   TexturePtr;}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//TEXTURE\_H\_}}
+
+\end{DoxyCode}

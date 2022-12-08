@@ -1,0 +1,30 @@
+\hypertarget{_received_packet_8h_source}{}\doxysection{Received\+Packet.\+h}
+\label{_received_packet_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/replication/ReceivedPacket.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/replication/ReceivedPacket.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef RECEIVED\_PACKET\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define RECEIVED\_PACKET\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}InputMemoryBitStream.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}SocketAddress.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_received_packet}{ReceivedPacket}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_received_packet}{ReceivedPacket}}( \textcolor{keywordtype}{float} inReceivedTime, \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputMemoryBitStream, \textcolor{keyword}{const} \mbox{\hyperlink{class_socket_address}{SocketAddress}}\& inAddress );}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keyword}{const}   \mbox{\hyperlink{class_socket_address}{SocketAddress}}\&         GetFromAddress()\textcolor{keyword}{    const   }\{ \textcolor{keywordflow}{return} mFromAddress; \}}
+\DoxyCodeLine{13             \textcolor{keywordtype}{float}                   GetReceivedTime()\textcolor{keyword}{   const   }\{ \textcolor{keywordflow}{return} mReceivedTime; \}}
+\DoxyCodeLine{14             \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\&   GetPacketBuffer()           \{ \textcolor{keywordflow}{return} mPacketBuffer; \}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{private}:}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordtype}{float}                   mReceivedTime;}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}    mPacketBuffer;}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_socket_address}{SocketAddress}}          mFromAddress;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{  \#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,72 @@
+\hypertarget{_input_memory_stream_8h_source}{}\doxysection{Input\+Memory\+Stream.\+h}
+\label{_input_memory_stream_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/serialisation/InputMemoryStream.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/serialisation/InputMemoryStream.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef INPUT\_MEMORY\_STREAM\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define INPUT\_MEMORY\_STREAM\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <type\_traits>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}SerialisationCommon.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}BitMan.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}Fixed.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_vector3}{Vector3}};}
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_quaternion}{Quaternion}};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_game_object}{GameObject}};}
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{class_linking_context}{LinkingContext}};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{class_input_memory_stream}{InputMemoryStream}}}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23 \textcolor{keyword}{private}:}
+\DoxyCodeLine{24     \textcolor{keywordtype}{char}*       mBuffer;}
+\DoxyCodeLine{25     uint32\_t    mHead;}
+\DoxyCodeLine{26     uint32\_t    mCapacity;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \mbox{\hyperlink{class_linking_context}{LinkingContext}}* mLinkingContext;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{public}:}
+\DoxyCodeLine{31     \mbox{\hyperlink{class_input_memory_stream}{InputMemoryStream}}( \textcolor{keywordtype}{char}* inBuffer, uint32\_t inByteCount ) :}
+\DoxyCodeLine{32     mBuffer( inBuffer ),}
+\DoxyCodeLine{33     mHead( 0 ),}
+\DoxyCodeLine{34     mCapacity( inByteCount ),}
+\DoxyCodeLine{35     mLinkingContext( \textcolor{keyword}{nullptr} ) \{\}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \mbox{\hyperlink{class_input_memory_stream}{\string~InputMemoryStream}}();}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     uint32\_t        GetRemainingDataSize()\textcolor{keyword}{ const}}
+\DoxyCodeLine{40 \textcolor{keyword}{                    }\{ \textcolor{keywordflow}{return} mCapacity -\/ mHead; \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void}        Read( \textcolor{keywordtype}{void}* outData, uint32\_t inByteCount );}
+\DoxyCodeLine{43   \textcolor{keywordtype}{void}    Read( \mbox{\hyperlink{class_game_object}{GameObject}}*\& outGameObject );}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keyword}{template}< \textcolor{keyword}{typename} T > \textcolor{keywordtype}{void} Read( T\& outData )}
+\DoxyCodeLine{46     \{}
+\DoxyCodeLine{47         \textcolor{keyword}{static\_assert}( std::is\_arithmetic< T >::value ||}
+\DoxyCodeLine{48                        std::is\_enum< T >::value,}
+\DoxyCodeLine{49                        \textcolor{stringliteral}{"{}Generic Read only supports primitive data types"{}} );}
+\DoxyCodeLine{50         Read( \&outData, \textcolor{keyword}{sizeof}( outData ) );}
+\DoxyCodeLine{51     \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keyword}{template}< \textcolor{keyword}{typename} T >}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} Read( std::vector< T >\& outVector )}
+\DoxyCodeLine{55     \{}
+\DoxyCodeLine{56         \textcolor{keywordtype}{size\_t} elementCount;}
+\DoxyCodeLine{57         Read( elementCount );}
+\DoxyCodeLine{58         outVector.resize( elementCount );}
+\DoxyCodeLine{59         \textcolor{keywordflow}{for}( \textcolor{keyword}{const} T\& element : outVector )}
+\DoxyCodeLine{60         \{}
+\DoxyCodeLine{61             Read( element );}
+\DoxyCodeLine{62         \}}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

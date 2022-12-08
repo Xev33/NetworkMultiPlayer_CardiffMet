@@ -1,0 +1,55 @@
+\hypertarget{_replication_command_8h_source}{}\doxysection{Replication\+Command.\+h}
+\label{_replication_command_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/replication/ReplicationCommand.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/replication/ReplicationCommand.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef REPLICATION\_COMMAND\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define REPLICATION\_COMMAND\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{enum} ReplicationAction}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6     RA\_Create,}
+\DoxyCodeLine{7     RA\_Update,}
+\DoxyCodeLine{8     RA\_Destroy,}
+\DoxyCodeLine{9     RA\_RPC,}
+\DoxyCodeLine{10     RA\_MAX}
+\DoxyCodeLine{11 \};}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_replication_command}{ReplicationCommand}}}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \mbox{\hyperlink{struct_replication_command}{ReplicationCommand}}() \{\}}
+\DoxyCodeLine{19     \mbox{\hyperlink{struct_replication_command}{ReplicationCommand}}( uint32\_t inInitialDirtyState ) : mAction( RA\_Create ), mDirtyState( inInitialDirtyState ) \{\}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{comment}{//if the create is ack'd, we can demote to just an update...}}
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} HandleCreateAckd()                         \{ \textcolor{keywordflow}{if}( mAction == RA\_Create ) \{ mAction = RA\_Update; \} \}}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} AddDirtyState( uint32\_t inState )          \{ mDirtyState |= inState; \}}
+\DoxyCodeLine{24     \textcolor{keywordtype}{void} SetDestroy()                               \{ mAction = RA\_Destroy; \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{bool}                HasDirtyState()\textcolor{keyword}{ const   }\{ \textcolor{keywordflow}{return} ( mAction == RA\_Destroy ) || ( mDirtyState != 0 ); \}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{void}                SetAction( ReplicationAction inAction )     \{ mAction = inAction; \}}
+\DoxyCodeLine{29     ReplicationAction   GetAction()\textcolor{keyword}{ const                           }\{ \textcolor{keywordflow}{return} mAction; \}}
+\DoxyCodeLine{30     uint32\_t            GetDirtyState()\textcolor{keyword}{ const                       }\{ \textcolor{keywordflow}{return} mDirtyState; \}}
+\DoxyCodeLine{31     \textcolor{keyword}{inline} \textcolor{keywordtype}{void}         ClearDirtyState( uint32\_t inStateToClear );}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{private}:}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     uint32\_t                mDirtyState;}
+\DoxyCodeLine{36     ReplicationAction       mAction;}
+\DoxyCodeLine{37 \};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{keyword}{inline} \textcolor{keywordtype}{void}  ReplicationCommand::ClearDirtyState( uint32\_t inStateToClear )}
+\DoxyCodeLine{40 \{}
+\DoxyCodeLine{41     mDirtyState \&= \string~inStateToClear;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordflow}{if}( mAction == RA\_Destroy )}
+\DoxyCodeLine{44     \{}
+\DoxyCodeLine{45         mAction = RA\_Update;}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// REPLICATION\_COMMAND\_H\_}}
+
+\end{DoxyCode}

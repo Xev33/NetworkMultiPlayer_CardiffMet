@@ -1,0 +1,32 @@
+\hypertarget{_wall_server_8h_source}{}\doxysection{Wall\+Server.\+h}
+\label{_wall_server_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/server/WallServer.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/server/WallServer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef WALL\_SERVER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define WALL\_SERVER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Wall.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}NetworkManagerServer.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_wall_server}{WallServer}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_wall}{Wall}}}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     \textcolor{keyword}{static} GameObjectPtr    StaticCreate() \{ \textcolor{keywordflow}{return} NetworkManagerServer::sInstance-\/>RegisterAndReturn(\textcolor{keyword}{new} \mbox{\hyperlink{class_wall_server}{WallServer}}()); \}}
+\DoxyCodeLine{12     }
+\DoxyCodeLine{13     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} HandleDying() \textcolor{keyword}{override};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} Update();}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_wall_server}{WallServer}}();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{private}:}
+\DoxyCodeLine{21     \textcolor{keywordtype}{float} mTimeBeforeDeath;}
+\DoxyCodeLine{22     \textcolor{keywordtype}{float} mLifeTime;}
+\DoxyCodeLine{23 \};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// WALL\_SERVER\_H}}
+
+\end{DoxyCode}

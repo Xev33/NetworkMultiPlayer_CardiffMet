@@ -1,0 +1,77 @@
+\hypertarget{class_client_proxy}{}\doxysection{Client\+Proxy Class Reference}
+\label{class_client_proxy}\index{ClientProxy@{ClientProxy}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_client_proxy_a98c9bb161ba94aefd08ee5ad0fef3077}\label{class_client_proxy_a98c9bb161ba94aefd08ee5ad0fef3077}} 
+{\bfseries Client\+Proxy} (const \mbox{\hyperlink{class_socket_address}{Socket\+Address}} \&in\+Socket\+Address, const string \&in\+Name, int in\+Player\+Id)
+\item 
+\mbox{\Hypertarget{class_client_proxy_a9308d4cd1d6ce52389345b7abaee7ff2}\label{class_client_proxy_a9308d4cd1d6ce52389345b7abaee7ff2}} 
+const \mbox{\hyperlink{class_socket_address}{Socket\+Address}} \& {\bfseries Get\+Socket\+Address} () const
+\item 
+\mbox{\Hypertarget{class_client_proxy_a2b48cf6915300eab991f904d4bec9426}\label{class_client_proxy_a2b48cf6915300eab991f904d4bec9426}} 
+int {\bfseries Get\+Player\+Id} () const
+\item 
+\mbox{\Hypertarget{class_client_proxy_ae43958f7161e789e409ee8564b9a1d02}\label{class_client_proxy_ae43958f7161e789e409ee8564b9a1d02}} 
+const string \& {\bfseries Get\+Name} () const
+\item 
+\mbox{\Hypertarget{class_client_proxy_a2f8cae26a112c87e7890ad02d346768a}\label{class_client_proxy_a2f8cae26a112c87e7890ad02d346768a}} 
+void {\bfseries Update\+Last\+Packet\+Time} ()
+\item 
+\mbox{\Hypertarget{class_client_proxy_a54d8e637eb4704336c9d324e9481a7d0}\label{class_client_proxy_a54d8e637eb4704336c9d324e9481a7d0}} 
+float {\bfseries Get\+Last\+Packet\+From\+Client\+Time} () const
+\item 
+\mbox{\Hypertarget{class_client_proxy_a2c8433c64852ad6c5a98f3517cb95c81}\label{class_client_proxy_a2c8433c64852ad6c5a98f3517cb95c81}} 
+\mbox{\hyperlink{class_replication_manager_server}{Replication\+Manager\+Server}} \& {\bfseries Get\+Replication\+Manager\+Server} ()
+\item 
+\mbox{\Hypertarget{class_client_proxy_a071b0bc06ee4d737fd01aa1409bb2071}\label{class_client_proxy_a071b0bc06ee4d737fd01aa1409bb2071}} 
+const \mbox{\hyperlink{class_move_list}{Move\+List}} \& {\bfseries Get\+Unprocessed\+Move\+List} () const
+\item 
+\mbox{\Hypertarget{class_client_proxy_a57ceb1ae11d41355eb53611ee53342c0}\label{class_client_proxy_a57ceb1ae11d41355eb53611ee53342c0}} 
+\mbox{\hyperlink{class_move_list}{Move\+List}} \& {\bfseries Get\+Unprocessed\+Move\+List} ()
+\item 
+\mbox{\Hypertarget{class_client_proxy_a97bea60e1fb50fc366697d21ea9247d8}\label{class_client_proxy_a97bea60e1fb50fc366697d21ea9247d8}} 
+void {\bfseries Set\+Is\+Last\+Move\+Timestamp\+Dirty} (bool in\+Is\+Dirty)
+\item 
+\mbox{\Hypertarget{class_client_proxy_a174b42bcd5140b854765da6ba6865a5f}\label{class_client_proxy_a174b42bcd5140b854765da6ba6865a5f}} 
+bool {\bfseries Is\+Last\+Move\+Timestamp\+Dirty} () const
+\item 
+\mbox{\Hypertarget{class_client_proxy_aa729acf6d1ad5d6020aa13e945ca2625}\label{class_client_proxy_aa729acf6d1ad5d6020aa13e945ca2625}} 
+void {\bfseries Handle\+Player\+Died} ()
+\item 
+\mbox{\Hypertarget{class_client_proxy_a1ac59e407f76901f4b72f4ab40bce0d7}\label{class_client_proxy_a1ac59e407f76901f4b72f4ab40bce0d7}} 
+void {\bfseries Respawn\+Player\+If\+Necessary} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_client_proxy_af0aa83c4bf80e8ba945bc982c0c63906}\label{class_client_proxy_af0aa83c4bf80e8ba945bc982c0c63906}} 
+\mbox{\hyperlink{class_replication_manager_server}{Replication\+Manager\+Server}} {\bfseries m\+Replication\+Manager\+Server}
+\item 
+\mbox{\Hypertarget{class_client_proxy_ac9d5346ae42927f3b5c80cf3e82d1064}\label{class_client_proxy_ac9d5346ae42927f3b5c80cf3e82d1064}} 
+\mbox{\hyperlink{class_socket_address}{Socket\+Address}} {\bfseries m\+Socket\+Address}
+\item 
+\mbox{\Hypertarget{class_client_proxy_aaca4d4ebaa52246b33c5574856a43860}\label{class_client_proxy_aaca4d4ebaa52246b33c5574856a43860}} 
+string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{class_client_proxy_a11047ddff7768061a1914e26eaa2a5ec}\label{class_client_proxy_a11047ddff7768061a1914e26eaa2a5ec}} 
+int {\bfseries m\+Player\+Id}
+\item 
+\mbox{\Hypertarget{class_client_proxy_a447d237744a907db198323ad78bfb82b}\label{class_client_proxy_a447d237744a907db198323ad78bfb82b}} 
+float {\bfseries m\+Last\+Packet\+From\+Client\+Time}
+\item 
+\mbox{\Hypertarget{class_client_proxy_a4411501bb75792c3a8770972f11716c5}\label{class_client_proxy_a4411501bb75792c3a8770972f11716c5}} 
+float {\bfseries m\+Time\+To\+Respawn}
+\item 
+\mbox{\Hypertarget{class_client_proxy_ae3f9323d9ae2263d58f3b816d6dd0bcf}\label{class_client_proxy_ae3f9323d9ae2263d58f3b816d6dd0bcf}} 
+\mbox{\hyperlink{class_move_list}{Move\+List}} {\bfseries m\+Unprocessed\+Move\+List}
+\item 
+\mbox{\Hypertarget{class_client_proxy_ab3433a5f375fd6999a694c78ff2f2655}\label{class_client_proxy_ab3433a5f375fd6999a694c78ff2f2655}} 
+bool {\bfseries m\+Is\+Last\+Move\+Timestamp\+Dirty}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/server/Client\+Proxy.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/server/Client\+Proxy.\+cpp\end{DoxyCompactItemize}

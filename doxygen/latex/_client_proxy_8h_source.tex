@@ -1,0 +1,60 @@
+\hypertarget{_client_proxy_8h_source}{}\doxysection{Client\+Proxy.\+h}
+\label{_client_proxy_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/server/ClientProxy.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/server/ClientProxy.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef CLIENT\_PROXY\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define CLIENT\_PROXY\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{keyword}{using }std::string;}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}MoveList.h"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}SocketAddress.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}ReplicationManagerServer.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_client_proxy}{ClientProxy}}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \mbox{\hyperlink{class_client_proxy}{ClientProxy}}( \textcolor{keyword}{const} \mbox{\hyperlink{class_socket_address}{SocketAddress}}\& inSocketAddress, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& inName, \textcolor{keywordtype}{int} inPlayerId );}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keyword}{const}   \mbox{\hyperlink{class_socket_address}{SocketAddress}}\& GetSocketAddress()\textcolor{keyword}{  const   }\{ \textcolor{keywordflow}{return} mSocketAddress; \}}
+\DoxyCodeLine{19     \textcolor{keywordtype}{int}             GetPlayerId()\textcolor{keyword}{       const   }\{ \textcolor{keywordflow}{return} mPlayerId; \}}
+\DoxyCodeLine{20     \textcolor{keyword}{const}   \textcolor{keywordtype}{string}\&     GetName()\textcolor{keyword}{           const   }\{ \textcolor{keywordflow}{return} mName; \}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{void}            UpdateLastPacketTime();}
+\DoxyCodeLine{23     \textcolor{keywordtype}{float}           GetLastPacketFromClientTime()\textcolor{keyword}{   const   }\{ \textcolor{keywordflow}{return} mLastPacketFromClientTime; \}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{class_replication_manager_server}{ReplicationManagerServer}}\&       GetReplicationManagerServer()       \{ \textcolor{keywordflow}{return} mReplicationManagerServer; \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keyword}{const}   \mbox{\hyperlink{class_move_list}{MoveList}}\&               GetUnprocessedMoveList()\textcolor{keyword}{ const      }\{ \textcolor{keywordflow}{return} mUnprocessedMoveList; \}}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_move_list}{MoveList}}\&               GetUnprocessedMoveList()            \{ \textcolor{keywordflow}{return} mUnprocessedMoveList; \}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordtype}{void}    SetIsLastMoveTimestampDirty( \textcolor{keywordtype}{bool} inIsDirty )               \{ mIsLastMoveTimestampDirty = inIsDirty; \}}
+\DoxyCodeLine{31     \textcolor{keywordtype}{bool}    IsLastMoveTimestampDirty()\textcolor{keyword}{                      const       }\{ \textcolor{keywordflow}{return} mIsLastMoveTimestampDirty; \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{void}    HandlePlayerDied();}
+\DoxyCodeLine{34     \textcolor{keywordtype}{void}    RespawnPlayerIfNecessary();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{private}:}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \mbox{\hyperlink{class_replication_manager_server}{ReplicationManagerServer}}    mReplicationManagerServer;}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \mbox{\hyperlink{class_socket_address}{SocketAddress}}  mSocketAddress;}
+\DoxyCodeLine{41     \textcolor{keywordtype}{string}          mName;}
+\DoxyCodeLine{42     \textcolor{keywordtype}{int}             mPlayerId;}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{float}           mLastPacketFromClientTime;}
+\DoxyCodeLine{45     \textcolor{keywordtype}{float}           mTimeToRespawn;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \mbox{\hyperlink{class_move_list}{MoveList}}        mUnprocessedMoveList;}
+\DoxyCodeLine{48     \textcolor{keywordtype}{bool}            mIsLastMoveTimestampDirty;}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keyword}{typedef} shared\_ptr< ClientProxy >   ClientProxyPtr;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

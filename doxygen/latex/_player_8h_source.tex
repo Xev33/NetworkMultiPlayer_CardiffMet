@@ -1,0 +1,121 @@
+\hypertarget{_player_8h_source}{}\doxysection{Player.\+h}
+\label{_player_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/Player.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/Player.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PLAYER\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PLAYER\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}GameObject.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}World.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_input_state}{InputState}};}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{comment}{/* We'll later create client and server versions of this class */}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_player}{Player}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     CLASS\_IDENTIFICATION( \textcolor{stringliteral}{'PLYR'}, \mbox{\hyperlink{class_game_object}{GameObject}} )}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keyword}{enum} EPlayerReplicationState}
+\DoxyCodeLine{17     \{}
+\DoxyCodeLine{18         ECRS\_Pose = 1 << 0,}
+\DoxyCodeLine{19         ECRS\_Color = 1 << 1,}
+\DoxyCodeLine{20         ECRS\_PlayerId = 1 << 2,}
+\DoxyCodeLine{21         ECRS\_Health = 1 << 3,}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23         ECRS\_AllState = ECRS\_Pose | ECRS\_Color | ECRS\_PlayerId | ECRS\_Health}
+\DoxyCodeLine{24     \};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keyword}{static}  \mbox{\hyperlink{class_game_object}{GameObject}}*   StaticCreate()          \{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_player}{Player}}(); \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{comment}{//Note -\/ the code in the book doesn't provide this until the client.}}
+\DoxyCodeLine{30     \textcolor{comment}{//This however limits testing.}}
+\DoxyCodeLine{31     \textcolor{keyword}{static}  GameObjectPtr   StaticCreatePtr()           \{ \textcolor{keywordflow}{return} GameObjectPtr(\textcolor{keyword}{new} \mbox{\hyperlink{class_player}{Player}}()); \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keyword}{virtual} uint32\_t GetAllStateMask()\textcolor{keyword}{  const override  }\{ \textcolor{keywordflow}{return} ECRS\_AllState; \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Update() \textcolor{keyword}{override};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} ProcessInput( \textcolor{keywordtype}{float} inDeltaTime, \textcolor{keyword}{const} \mbox{\hyperlink{class_input_state}{InputState}}\& inInputState );}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} SimulateMovement( \textcolor{keywordtype}{float} inDeltaTime );}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} ProcessCollisions();}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} ProcessCollisionsWithScreenWalls();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{void}        SetPlayerId( uint32\_t inPlayerId )          \{ mPlayerId = inPlayerId; \}}
+\DoxyCodeLine{45     uint32\_t    GetPlayerId()\textcolor{keyword}{                       const   }\{ \textcolor{keywordflow}{return} mPlayerId; \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordtype}{void}        SetPlayerHealth(\textcolor{keywordtype}{int} inPlayerId) \{ mHealth = inPlayerId; \}}
+\DoxyCodeLine{48     \textcolor{keywordtype}{int} GetPlayerHealth()\textcolor{keyword}{                       const }\{ \textcolor{keywordflow}{return} mHealth; \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void}            SetThrust( \textcolor{keyword}{const} \textcolor{keywordtype}{float}\& inThrust )  \{ mThrustDir = inThrust; \}}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void}            SetVelocity( \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inVelocity ) \{ mVelocity = inVelocity; \}}
+\DoxyCodeLine{52     \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\&   GetVelocity()\textcolor{keyword}{                       const   }\{ \textcolor{keywordflow}{return} mVelocity; \}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void}            EnableAi(\textcolor{keyword}{const} \textcolor{keywordtype}{bool} isAi) \{ mIsAi = isAi; \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{void}            SetClosestPlayerPos(\textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inPos) \{ mVelocity = inPos; \}}
+\DoxyCodeLine{57     \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& GetClosestPlayerPos()\textcolor{keyword}{                     const }\{ \textcolor{keywordflow}{return} mClosestPlayerPos; \}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{comment}{//  virtual void    Read( InputMemoryBitStream\& inInputStream ) override;}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     uint32\_t Write( \mbox{\hyperlink{class_output_memory_bit_stream}{OutputMemoryBitStream}}\& inOutputStream, uint32\_t inDirtyState ) \textcolor{keyword}{const override};}
+\DoxyCodeLine{62     \textcolor{comment}{// For testing}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordtype}{float} GetMaxLinearSpeed() \{ \textcolor{keywordflow}{return} mMaxLinearSpeed; \}}
+\DoxyCodeLine{65     \textcolor{keywordtype}{float} GetMaxRotationSpeed() \{ \textcolor{keywordflow}{return} mMaxRotationSpeed; \}}
+\DoxyCodeLine{66     \textcolor{keywordtype}{float} GetWallRestitution() \{ \textcolor{keywordflow}{return} mWallRestitution; \}}
+\DoxyCodeLine{67     \textcolor{keywordtype}{float} GetNPCRestitution() \{ \textcolor{keywordflow}{return} mNPCRestitution; \}}
+\DoxyCodeLine{68     \textcolor{keywordtype}{float} GetLastMoveTimestamp() \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_player_a67bea8dd02c7080ca90783916893932e}{mLastMoveTimestamp}}; \}}
+\DoxyCodeLine{69     \textcolor{keywordtype}{float} GetThrustDir() \{ \textcolor{keywordflow}{return} mThrustDir; \}}
+\DoxyCodeLine{70     \textcolor{keywordtype}{int} GetHealth() \{ \textcolor{keywordflow}{return} mHealth; \}}
+\DoxyCodeLine{71     \textcolor{keywordtype}{bool} IsShooting() \{ \textcolor{keywordflow}{return} mIsShooting; \}}
+\DoxyCodeLine{72     \textcolor{keywordtype}{bool} IsMakingSmoke() \{ \textcolor{keywordflow}{return} mIsMakingSmoke; \}}
+\DoxyCodeLine{73     \textcolor{keywordtype}{bool} IsAi() \{ \textcolor{keywordflow}{return} mIsAi; \}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keywordtype}{bool} operator==(\mbox{\hyperlink{class_player}{Player}} \&other);}
+\DoxyCodeLine{76 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{77     \mbox{\hyperlink{class_player}{Player}}();}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79 \textcolor{keyword}{private}:}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{keywordtype}{void}    AdjustVelocityByThrust( \textcolor{keywordtype}{float} inDeltaTime );}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \mbox{\hyperlink{class_vector3}{Vector3}}              mVelocity;}
+\DoxyCodeLine{85     \mbox{\hyperlink{class_vector3}{Vector3}}              mClosestPlayerPos;}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88     \textcolor{keywordtype}{float}               mMaxLinearSpeed;}
+\DoxyCodeLine{89     \textcolor{keywordtype}{float}               mMaxRotationSpeed;}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     \textcolor{comment}{//bounce fraction when hitting various things}}
+\DoxyCodeLine{92     \textcolor{keywordtype}{float}               mWallRestitution;}
+\DoxyCodeLine{93     \textcolor{keywordtype}{float}               mNPCRestitution;}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96     uint32\_t            mPlayerId;}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \textcolor{keywordtype}{float}               \mbox{\hyperlink{class_player_a67bea8dd02c7080ca90783916893932e}{mLastMoveTimestamp}};}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104     \textcolor{keywordtype}{float}               mThrustDir;}
+\DoxyCodeLine{105     \textcolor{keywordtype}{int}                 mHealth;}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     \textcolor{keywordtype}{bool}                mIsShooting;}
+\DoxyCodeLine{108     \textcolor{keywordtype}{bool}                mIsMakingSmoke;}
+\DoxyCodeLine{109     \textcolor{keywordtype}{bool}                mIsAi;}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \};}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 \textcolor{keyword}{typedef} shared\_ptr< Player >    PlayerPtr;}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// PLAYER\_H\_}}
+
+\end{DoxyCode}

@@ -1,0 +1,99 @@
+\hypertarget{class_player_server}{}\doxysection{Player\+Server Class Reference}
+\label{class_player_server}\index{PlayerServer@{PlayerServer}}
+Inheritance diagram for Player\+Server\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_player_server}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_player_server_a1335248b0a94b4c69c3a0261bdfd6cbb}{Handle\+Dying}} () override
+\item 
+virtual void \mbox{\hyperlink{class_player_server_aa6fec32773759d13dd80140e3cb28859}{Update}} () override
+\item 
+\mbox{\Hypertarget{class_player_server_a2a20b424a69e38f1fd2b86f154b71ecd}\label{class_player_server_a2a20b424a69e38f1fd2b86f154b71ecd}} 
+virtual void {\bfseries Update\+Player} ()
+\item 
+\mbox{\Hypertarget{class_player_server_abb0598f806041339a54177880b483a88}\label{class_player_server_abb0598f806041339a54177880b483a88}} 
+virtual void {\bfseries Update\+AI} ()
+\item 
+\mbox{\Hypertarget{class_player_server_a338b3df9fcf19399bd626d60d7694e0d}\label{class_player_server_a338b3df9fcf19399bd626d60d7694e0d}} 
+void {\bfseries Set\+Player\+Control\+Type} (EPlayer\+Control\+Type in\+Player\+Control\+Type)
+\item 
+virtual bool \mbox{\hyperlink{class_player_server_a23bc888c70307bf905c102d514be0c6b}{Handle\+Collision\+With\+Player}} (\mbox{\hyperlink{class_player}{Player}} $\ast$in\+Player) override
+\item 
+\mbox{\Hypertarget{class_player_server_a6fc2673f725fe576b1194deef5dbdbcd}\label{class_player_server_a6fc2673f725fe576b1194deef5dbdbcd}} 
+void {\bfseries Take\+Damage} (int in\+Damaging\+Player\+Id)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_player_server_ab7d0f76792a47ed55bccf67af28b3352}\label{class_player_server_ab7d0f76792a47ed55bccf67af28b3352}} 
+static Game\+Object\+Ptr {\bfseries Static\+Create} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_player_server_a9df8299e7ee9f7325a0117707a6c68eb}\label{class_player_server_a9df8299e7ee9f7325a0117707a6c68eb}} 
+void {\bfseries Handle\+Shooting} ()
+\item 
+\mbox{\Hypertarget{class_player_server_a3c44f79e8a14f8f0c707cdfa1a4f57cc}\label{class_player_server_a3c44f79e8a14f8f0c707cdfa1a4f57cc}} 
+void {\bfseries Handle\+Make\+Smoke} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_player_server_acc1d07d8521cf74a5fe9097146316e34}\label{class_player_server_acc1d07d8521cf74a5fe9097146316e34}} 
+EPlayer\+Control\+Type {\bfseries m\+Player\+Control\+Type}
+\item 
+\mbox{\Hypertarget{class_player_server_ae9cd487cd398157915f27a14868af4bb}\label{class_player_server_ae9cd487cd398157915f27a14868af4bb}} 
+float {\bfseries m\+Time\+Of\+Next\+Shot}
+\item 
+\mbox{\Hypertarget{class_player_server_aa9a7ff10646e1c67bc54e647adaa093a}\label{class_player_server_aa9a7ff10646e1c67bc54e647adaa093a}} 
+float {\bfseries m\+Time\+Between\+Shots}
+\item 
+\mbox{\Hypertarget{class_player_server_a888b325953e0a2f9a5ee36ff4f078542}\label{class_player_server_a888b325953e0a2f9a5ee36ff4f078542}} 
+float {\bfseries m\+Ai\+Speed}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_player_server_a23bc888c70307bf905c102d514be0c6b}\label{class_player_server_a23bc888c70307bf905c102d514be0c6b}} 
+\index{PlayerServer@{PlayerServer}!HandleCollisionWithPlayer@{HandleCollisionWithPlayer}}
+\index{HandleCollisionWithPlayer@{HandleCollisionWithPlayer}!PlayerServer@{PlayerServer}}
+\doxysubsubsection{\texorpdfstring{HandleCollisionWithPlayer()}{HandleCollisionWithPlayer()}}
+{\footnotesize\ttfamily bool Player\+Server\+::\+Handle\+Collision\+With\+Player (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_player}{Player}} $\ast$}]{in\+Player }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_player_server_a1335248b0a94b4c69c3a0261bdfd6cbb}\label{class_player_server_a1335248b0a94b4c69c3a0261bdfd6cbb}} 
+\index{PlayerServer@{PlayerServer}!HandleDying@{HandleDying}}
+\index{HandleDying@{HandleDying}!PlayerServer@{PlayerServer}}
+\doxysubsubsection{\texorpdfstring{HandleDying()}{HandleDying()}}
+{\footnotesize\ttfamily void Player\+Server\+::\+Handle\+Dying (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_player_server_aa6fec32773759d13dd80140e3cb28859}\label{class_player_server_aa6fec32773759d13dd80140e3cb28859}} 
+\index{PlayerServer@{PlayerServer}!Update@{Update}}
+\index{Update@{Update}!PlayerServer@{PlayerServer}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Player\+Server\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_player}{Player}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/server/Player\+Server.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/server/Player\+Server.\+cpp\end{DoxyCompactItemize}

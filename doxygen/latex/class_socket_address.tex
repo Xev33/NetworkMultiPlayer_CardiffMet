@@ -1,0 +1,68 @@
+\hypertarget{class_socket_address}{}\doxysection{Socket\+Address Class Reference}
+\label{class_socket_address}\index{SocketAddress@{SocketAddress}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_socket_address_a1a2a2d457e79707828de261b46248f9d}\label{class_socket_address_a1a2a2d457e79707828de261b46248f9d}} 
+{\bfseries Socket\+Address} (uint32\+\_\+t in\+Address, uint16\+\_\+t in\+Port)
+\item 
+\mbox{\Hypertarget{class_socket_address_a87da72858b6fa86c67db3a746f28405f}\label{class_socket_address_a87da72858b6fa86c67db3a746f28405f}} 
+{\bfseries Socket\+Address} (const sockaddr \&in\+Sock\+Addr)
+\item 
+\mbox{\Hypertarget{class_socket_address_ab6c0166023fc44f8ef6d27ece5f5c917}\label{class_socket_address_ab6c0166023fc44f8ef6d27ece5f5c917}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{class_socket_address}{Socket\+Address}} \&in\+Other) const
+\item 
+\mbox{\Hypertarget{class_socket_address_a960d7d31289ae88f381f80e789661269}\label{class_socket_address_a960d7d31289ae88f381f80e789661269}} 
+size\+\_\+t {\bfseries Get\+Hash} () const
+\item 
+\mbox{\Hypertarget{class_socket_address_aec20a9d709fa80e9b166b16b4a6bf701}\label{class_socket_address_aec20a9d709fa80e9b166b16b4a6bf701}} 
+uint32\+\_\+t {\bfseries Get\+Size} () const
+\item 
+\mbox{\Hypertarget{class_socket_address_a3d91a4f0910a60554ae4d380f67a3e07}\label{class_socket_address_a3d91a4f0910a60554ae4d380f67a3e07}} 
+string {\bfseries To\+String} () const
+\item 
+\mbox{\Hypertarget{class_socket_address_a25d800ef2b968fafcd8ed9e5e529e1d1}\label{class_socket_address_a25d800ef2b968fafcd8ed9e5e529e1d1}} 
+uint32\+\_\+t {\bfseries get\+IP4} ()
+\item 
+\mbox{\Hypertarget{class_socket_address_a3b3eb0fa977e3d01918877faf0137e01}\label{class_socket_address_a3b3eb0fa977e3d01918877faf0137e01}} 
+uint16\+\_\+t {\bfseries get\+Port} ()
+\item 
+\mbox{\Hypertarget{class_socket_address_af347409a81e672383308dcde2f78eede}\label{class_socket_address_af347409a81e672383308dcde2f78eede}} 
+uint16\+\_\+t {\bfseries get\+Family} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_socket_address_a3632da1b85e3415ca0ffdebcbb74abf2}\label{class_socket_address_a3632da1b85e3415ca0ffdebcbb74abf2}} 
+uint32\+\_\+t \& {\bfseries Get\+IP4\+Ref} ()
+\item 
+\mbox{\Hypertarget{class_socket_address_a1a1f490f93e1e6c9b032d6327e96ed6e}\label{class_socket_address_a1a1f490f93e1e6c9b032d6327e96ed6e}} 
+const uint32\+\_\+t \& {\bfseries Get\+IP4\+Ref} () const
+\item 
+\mbox{\Hypertarget{class_socket_address_a2587d932792e0863a9d4deb2b76c97a8}\label{class_socket_address_a2587d932792e0863a9d4deb2b76c97a8}} 
+sockaddr\+\_\+in $\ast$ {\bfseries Get\+As\+Sock\+Addr\+In} ()
+\item 
+\mbox{\Hypertarget{class_socket_address_a4b5a20b8337c4a004bd7f4088a917729}\label{class_socket_address_a4b5a20b8337c4a004bd7f4088a917729}} 
+const sockaddr\+\_\+in $\ast$ {\bfseries Get\+As\+Sock\+Addr\+In} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_socket_address_a1e4bb756892caa15850cf60f75c3855b}\label{class_socket_address_a1e4bb756892caa15850cf60f75c3855b}} 
+sockaddr {\bfseries m\+Sock\+Addr}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_socket_address_a5110df224e59d934549adc963872486c}\label{class_socket_address_a5110df224e59d934549adc963872486c}} 
+class {\bfseries UDPSocket}
+\item 
+\mbox{\Hypertarget{class_socket_address_ae392721345f444f04761959f689c8ecb}\label{class_socket_address_ae392721345f444f04761959f689c8ecb}} 
+class {\bfseries TCPSocket}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/networking/Socket\+Address.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/networking/Socket\+Address.\+cpp\end{DoxyCompactItemize}

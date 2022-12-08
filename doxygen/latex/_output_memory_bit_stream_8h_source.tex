@@ -1,0 +1,87 @@
+\hypertarget{_output_memory_bit_stream_8h_source}{}\doxysection{Output\+Memory\+Bit\+Stream.\+h}
+\label{_output_memory_bit_stream_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/serialisation/OutputMemoryBitStream.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/serialisation/OutputMemoryBitStream.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef OUTPUT\_MEMORY\_BIT\_STREAM\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define OUTPUT\_MEMORY\_BIT\_STREAM\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_game_object}{GameObject}};}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}SerialisationCommon.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}Fixed.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}BitMan.h"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_vector3}{Vector3}};}
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_quaternion}{Quaternion}};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_output_memory_bit_stream}{OutputMemoryBitStream}}}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19 \textcolor{keyword}{private}:}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void}        ReallocBuffer( uint32\_t inNewBitCapacity );}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{char}*       mBuffer;}
+\DoxyCodeLine{23     uint32\_t    mBitHead;}
+\DoxyCodeLine{24     uint32\_t    mBitCapacity;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_output_memory_bit_stream}{OutputMemoryBitStream}}() :}
+\DoxyCodeLine{28         mBuffer(\textcolor{keyword}{nullptr}),}
+\DoxyCodeLine{29         mBitHead(0)}
+\DoxyCodeLine{30         \{}
+\DoxyCodeLine{31             ReallocBuffer( 1500 * 8 );}
+\DoxyCodeLine{32         \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \mbox{\hyperlink{class_output_memory_bit_stream}{\string~OutputMemoryBitStream}}();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keywordtype}{void}        WriteBits( uint8\_t inData, uint32\_t inBitCount );}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void}        WriteBits( \textcolor{keyword}{const} \textcolor{keywordtype}{void}* inData, uint32\_t inBitCount );}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keyword}{const}   \textcolor{keywordtype}{char}*   GetBufferPtr()\textcolor{keyword}{      const   }\{ \textcolor{keywordflow}{return} mBuffer; \}}
+\DoxyCodeLine{40     uint32\_t        GetBitLength()\textcolor{keyword}{      const   }\{ \textcolor{keywordflow}{return} mBitHead; \}}
+\DoxyCodeLine{41     uint32\_t        GetByteLength()\textcolor{keyword}{     const   }\{ \textcolor{keywordflow}{return} ( mBitHead + 7 ) >> 3; \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} WriteBytes( \textcolor{keyword}{const} \textcolor{keywordtype}{void}* inData, uint32\_t inByteCount ) \{ WriteBits( inData, inByteCount << 3 ); \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{comment}{/*}}
+\DoxyCodeLine{46 \textcolor{comment}{    void Write( uint32\_t inData, uint32\_t inBitCount = 32 ) \{ WriteBits( \&inData, inBitCount ); \}}}
+\DoxyCodeLine{47 \textcolor{comment}{    void Write( int inData, uint32\_t inBitCount = 32 )      \{ WriteBits( \&inData, inBitCount ); \}}}
+\DoxyCodeLine{48 \textcolor{comment}{    void Write( float inData )                              \{ WriteBits( \&inData, 32 ); \}}}
+\DoxyCodeLine{49 \textcolor{comment}{}}
+\DoxyCodeLine{50 \textcolor{comment}{    void Write( uint16\_t inData, uint32\_t inBitCount = 16 ) \{ WriteBits( \&inData, inBitCount ); \}}}
+\DoxyCodeLine{51 \textcolor{comment}{    void Write( int16\_t inData, uint32\_t inBitCount = 16 )  \{ WriteBits( \&inData, inBitCount ); \}}}
+\DoxyCodeLine{52 \textcolor{comment}{}}
+\DoxyCodeLine{53 \textcolor{comment}{    void Write( uint8\_t inData, uint32\_t inBitCount = 8 )   \{ WriteBits( \&inData, inBitCount ); \}}}
+\DoxyCodeLine{54 \textcolor{comment}{    */}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keyword}{template}< \textcolor{keyword}{typename} T >}
+\DoxyCodeLine{57     \textcolor{keywordtype}{void} Write( T inData, uint32\_t inBitCount = \textcolor{keyword}{sizeof}( T ) * 8 )}
+\DoxyCodeLine{58     \{}
+\DoxyCodeLine{59         \textcolor{keyword}{static\_assert}( std::is\_arithmetic< T >::value ||}
+\DoxyCodeLine{60                       std::is\_enum< T >::value,}
+\DoxyCodeLine{61                       \textcolor{stringliteral}{"{}Generic Write only supports primitive data types"{}} );}
+\DoxyCodeLine{62         WriteBits( \&inData, inBitCount );}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{void}        Write( \textcolor{keywordtype}{bool} inData )                                \{ WriteBits( \&inData, 1 ); \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keywordtype}{void}        Write( \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inVector );}
+\DoxyCodeLine{68     \textcolor{keywordtype}{void}        Write( \textcolor{keyword}{const} \mbox{\hyperlink{class_quaternion}{Quaternion}}\& inQuat );}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} Write( \textcolor{keyword}{const} std::string\& inString )}
+\DoxyCodeLine{71     \{}
+\DoxyCodeLine{72         uint32\_t elementCount = \textcolor{keyword}{static\_cast<} uint32\_t \textcolor{keyword}{>}( inString.size() );}
+\DoxyCodeLine{73         Write( elementCount );}
+\DoxyCodeLine{74         \textcolor{keywordflow}{for}( \textcolor{keyword}{const} \textcolor{keyword}{auto}\& element : inString )}
+\DoxyCodeLine{75         \{}
+\DoxyCodeLine{76             Write( element );}
+\DoxyCodeLine{77         \}}
+\DoxyCodeLine{78     \}}
+\DoxyCodeLine{79 \};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

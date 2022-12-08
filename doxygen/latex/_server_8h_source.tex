@@ -1,0 +1,53 @@
+\hypertarget{_server_8h_source}{}\doxysection{Server.\+h}
+\label{_server_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/server/Server.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/server/Server.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SERVER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SERVER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Engine.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}ClientProxy.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}Player.h"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}NetworkManagerServer.h"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_server}{Server}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_engine}{Engine}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} StaticInit();}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} DoFrame() \textcolor{keyword}{override};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int} Run();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} HandleNewClient( ClientProxyPtr inClientProxy );}
+\DoxyCodeLine{21     \textcolor{keywordtype}{void} HandleLostClient( ClientProxyPtr inClientProxy );}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     PlayerPtr   GetPlayer(\textcolor{keywordtype}{int} inPlayerId);}
+\DoxyCodeLine{24     \mbox{\hyperlink{class_vector3}{Vector3}}  GetClosestPlayerPos(\mbox{\hyperlink{class_vector3}{Vector3}} inLoc);}
+\DoxyCodeLine{25     \textcolor{keywordtype}{void}    SpawnPlayer( \textcolor{keywordtype}{int} inPlayerId );}
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} RespawnAI();}
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} RespawnGoal();}
+\DoxyCodeLine{28     \textcolor{keywordtype}{int} GetCurrentNumberOfPlayer() \textcolor{keyword}{const};}
+\DoxyCodeLine{29     \textcolor{keywordtype}{int} GetCurrentNumberOfAi() \textcolor{keyword}{const};}
+\DoxyCodeLine{30     \textcolor{keywordtype}{bool} IsAGoalOnMap() \textcolor{keyword}{const};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{private}:}
+\DoxyCodeLine{34     \mbox{\hyperlink{class_server}{Server}}();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keywordtype}{float}   mTimeToRespawnAi;}
+\DoxyCodeLine{37     \textcolor{keywordtype}{float}   mCoolDownRespawnAI;}
+\DoxyCodeLine{38     \textcolor{keywordtype}{bool}    InitNetworkManager();}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void}    SetupWorld();}
+\DoxyCodeLine{40     \textcolor{keywordtype}{int}     mGoalSpawnerIndex;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     vector<Vector3> mLevelPositions;}
+\DoxyCodeLine{43     vector<Vector3> mGoalSpawnerPos;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// SERVER\_H}}
+
+\end{DoxyCode}

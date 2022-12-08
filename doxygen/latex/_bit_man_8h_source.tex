@@ -1,0 +1,28 @@
+\hypertarget{_bit_man_8h_source}{}\doxysection{Bit\+Man.\+h}
+\label{_bit_man_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/maths/BitMan.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/maths/BitMan.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef BIN\_MATH\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define BIN\_MATH\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{template}< \textcolor{keywordtype}{int} tValue, \textcolor{keywordtype}{int} tBits >}
+\DoxyCodeLine{5 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_get_required_bits_helper}{GetRequiredBitsHelper}}}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7     \textcolor{keyword}{enum} \{ Value = \mbox{\hyperlink{struct_get_required_bits_helper}{GetRequiredBitsHelper}}< ( tValue >> 1 ), tBits + 1 >::Value \};}
+\DoxyCodeLine{8 \};}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{template}< \textcolor{keywordtype}{int} tBits >}
+\DoxyCodeLine{11 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_get_required_bits_helper}{GetRequiredBitsHelper}}< 0, tBits >}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \textcolor{keyword}{enum} \{ Value = tBits \};}
+\DoxyCodeLine{14 \};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{template}< \textcolor{keywordtype}{int} tValue >}
+\DoxyCodeLine{17 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_get_required_bits}{GetRequiredBits}}}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19     \textcolor{keyword}{enum} \{ Value = \mbox{\hyperlink{struct_get_required_bits_helper}{GetRequiredBitsHelper< tValue, 0 >::Value}} \};}
+\DoxyCodeLine{20 \};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

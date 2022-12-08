@@ -1,0 +1,138 @@
+\hypertarget{class_network_manager_client}{}\doxysection{Network\+Manager\+Client Class Reference}
+\label{class_network_manager_client}\index{NetworkManagerClient@{NetworkManagerClient}}
+Inheritance diagram for Network\+Manager\+Client\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_network_manager_client}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a87ab7e10c2e78675ffc248a0ab3bcf68}\label{class_network_manager_client_a87ab7e10c2e78675ffc248a0ab3bcf68}} 
+void {\bfseries Send\+Outgoing\+Packets} ()
+\item 
+virtual void \mbox{\hyperlink{class_network_manager_client_af2bb017e7e33b1c85ef1313b3e2cbb8d}{Process\+Packet}} (\mbox{\hyperlink{class_input_memory_bit_stream}{Input\+Memory\+Bit\+Stream}} \&in\+Input\+Stream, const \mbox{\hyperlink{class_socket_address}{Socket\+Address}} \&in\+From\+Address) override
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a4eadae4fac31830855372e6c9ca7b7e4}\label{class_network_manager_client_a4eadae4fac31830855372e6c9ca7b7e4}} 
+const \mbox{\hyperlink{class_weighted_timed_moving_average}{Weighted\+Timed\+Moving\+Average}} \& {\bfseries Get\+Avg\+Round\+Trip\+Time} () const
+\item 
+\mbox{\Hypertarget{class_network_manager_client_aa575448841a851857f8d1d2573b62dfc}\label{class_network_manager_client_aa575448841a851857f8d1d2573b62dfc}} 
+float {\bfseries Get\+Round\+Trip\+Time} () const
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a937a4c804cadbf3e23e18ed50266ca2a}\label{class_network_manager_client_a937a4c804cadbf3e23e18ed50266ca2a}} 
+int {\bfseries Get\+Player\+Id} () const
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a28c8bb630ad5c78f295b0571874b83a6}\label{class_network_manager_client_a28c8bb630ad5c78f295b0571874b83a6}} 
+float {\bfseries Get\+Last\+Move\+Processed\+By\+Server\+Timestamp} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_network_manager_client_ac30b29015ea38cc124937a407769f799}\label{class_network_manager_client_ac30b29015ea38cc124937a407769f799}} 
+static void {\bfseries Static\+Init} (const \mbox{\hyperlink{class_socket_address}{Socket\+Address}} \&in\+Server\+Address, const string \&in\+Name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a515f9ea0be25810ba2d38ad6a207f496}\label{class_network_manager_client_a515f9ea0be25810ba2d38ad6a207f496}} 
+static \mbox{\hyperlink{class_network_manager_client}{Network\+Manager\+Client}} $\ast$ {\bfseries s\+Instance}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_network_manager_client_ac4e9da60533807534a1528361ad3fc48}\label{class_network_manager_client_ac4e9da60533807534a1528361ad3fc48}} 
+enum {\bfseries Network\+Client\+State} \{ {\bfseries NCS\+\_\+\+Uninitialized}
+, {\bfseries NCS\+\_\+\+Saying\+Hello}
+, {\bfseries NCS\+\_\+\+Welcomed}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a3418b1c78d36bb6c05f7e842cf5313bc}\label{class_network_manager_client_a3418b1c78d36bb6c05f7e842cf5313bc}} 
+void {\bfseries Init} (const \mbox{\hyperlink{class_socket_address}{Socket\+Address}} \&in\+Server\+Address, const string \&in\+Name)
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a15a5e627e3b5259fc3dbe60852528db4}\label{class_network_manager_client_a15a5e627e3b5259fc3dbe60852528db4}} 
+void {\bfseries Update\+Saying\+Hello} ()
+\item 
+\mbox{\Hypertarget{class_network_manager_client_aa8d79940814d48093b53e62ebd3f283d}\label{class_network_manager_client_aa8d79940814d48093b53e62ebd3f283d}} 
+void {\bfseries Send\+Hello\+Packet} ()
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a1f94a2853868d3ad128d97dae8559864}\label{class_network_manager_client_a1f94a2853868d3ad128d97dae8559864}} 
+void {\bfseries Handle\+Welcome\+Packet} (\mbox{\hyperlink{class_input_memory_bit_stream}{Input\+Memory\+Bit\+Stream}} \&in\+Input\+Stream)
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a8208f9ec70eed9cafbe283ed123ca72e}\label{class_network_manager_client_a8208f9ec70eed9cafbe283ed123ca72e}} 
+void {\bfseries Handle\+State\+Packet} (\mbox{\hyperlink{class_input_memory_bit_stream}{Input\+Memory\+Bit\+Stream}} \&in\+Input\+Stream)
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a86f05fc4e154f4c3681a8e5df4556b4e}\label{class_network_manager_client_a86f05fc4e154f4c3681a8e5df4556b4e}} 
+void {\bfseries Read\+Last\+Move\+Processed\+On\+Server\+Timestamp} (\mbox{\hyperlink{class_input_memory_bit_stream}{Input\+Memory\+Bit\+Stream}} \&in\+Input\+Stream)
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a460e3cc0ef9a3d56f3d5c9faf654922f}\label{class_network_manager_client_a460e3cc0ef9a3d56f3d5c9faf654922f}} 
+void {\bfseries Handle\+Game\+Object\+State} (\mbox{\hyperlink{class_input_memory_bit_stream}{Input\+Memory\+Bit\+Stream}} \&in\+Input\+Stream)
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a4adb8fd7e6e4cf7bb92b7b43e69af848}\label{class_network_manager_client_a4adb8fd7e6e4cf7bb92b7b43e69af848}} 
+void {\bfseries Handle\+Score\+Board\+State} (\mbox{\hyperlink{class_input_memory_bit_stream}{Input\+Memory\+Bit\+Stream}} \&in\+Input\+Stream)
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a7bc55251a7d30a8084c26768e6c0599a}\label{class_network_manager_client_a7bc55251a7d30a8084c26768e6c0599a}} 
+void {\bfseries Update\+Sending\+Input\+Packet} ()
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a4c7f7142b22cefa493ece65dd44b2029}\label{class_network_manager_client_a4c7f7142b22cefa493ece65dd44b2029}} 
+void {\bfseries Send\+Input\+Packet} ()
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a2206eaf282948806e5783e29c5652e97}\label{class_network_manager_client_a2206eaf282948806e5783e29c5652e97}} 
+void {\bfseries Destroy\+Game\+Objects\+In\+Map} (const Int\+To\+Game\+Object\+Map \&in\+Objects\+To\+Destroy)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a945f2f3cbffd106c3c7f383e66396a15}\label{class_network_manager_client_a945f2f3cbffd106c3c7f383e66396a15}} 
+\mbox{\hyperlink{class_replication_manager_client}{Replication\+Manager\+Client}} {\bfseries m\+Replication\+Manager\+Client}
+\item 
+\mbox{\Hypertarget{class_network_manager_client_af2663d0ea07ff369344ceecab62b441c}\label{class_network_manager_client_af2663d0ea07ff369344ceecab62b441c}} 
+\mbox{\hyperlink{class_socket_address}{Socket\+Address}} {\bfseries m\+Server\+Address}
+\item 
+\mbox{\Hypertarget{class_network_manager_client_ade299917df22b702370a74444f0932c5}\label{class_network_manager_client_ade299917df22b702370a74444f0932c5}} 
+Network\+Client\+State {\bfseries m\+State}
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a910809eab9e2a3b6c6a1568849311f89}\label{class_network_manager_client_a910809eab9e2a3b6c6a1568849311f89}} 
+float {\bfseries m\+Time\+Of\+Last\+Hello}
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a16067b508f92014d33d3d479198b1ec0}\label{class_network_manager_client_a16067b508f92014d33d3d479198b1ec0}} 
+float {\bfseries m\+Time\+Of\+Last\+Input\+Packet}
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a9a67f25c39ca362ff28311d596e0d67d}\label{class_network_manager_client_a9a67f25c39ca362ff28311d596e0d67d}} 
+string {\bfseries m\+Name}
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a406d61759fc5c0c07c988aa1f0b2368a}\label{class_network_manager_client_a406d61759fc5c0c07c988aa1f0b2368a}} 
+int {\bfseries m\+Player\+Id}
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a59520e636857486aa5d20d952f72b0bb}\label{class_network_manager_client_a59520e636857486aa5d20d952f72b0bb}} 
+float {\bfseries m\+Last\+Move\+Processed\+By\+Server\+Timestamp}
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a2dc84f8b6a12aedbc3512270b17486f8}\label{class_network_manager_client_a2dc84f8b6a12aedbc3512270b17486f8}} 
+\mbox{\hyperlink{class_weighted_timed_moving_average}{Weighted\+Timed\+Moving\+Average}} {\bfseries m\+Avg\+Round\+Trip\+Time}
+\item 
+\mbox{\Hypertarget{class_network_manager_client_a5bd483f71184445ada76679a09390879}\label{class_network_manager_client_a5bd483f71184445ada76679a09390879}} 
+float {\bfseries m\+Last\+Round\+Trip\+Time}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_network_manager_client_af2bb017e7e33b1c85ef1313b3e2cbb8d}\label{class_network_manager_client_af2bb017e7e33b1c85ef1313b3e2cbb8d}} 
+\index{NetworkManagerClient@{NetworkManagerClient}!ProcessPacket@{ProcessPacket}}
+\index{ProcessPacket@{ProcessPacket}!NetworkManagerClient@{NetworkManagerClient}}
+\doxysubsubsection{\texorpdfstring{ProcessPacket()}{ProcessPacket()}}
+{\footnotesize\ttfamily void Network\+Manager\+Client\+::\+Process\+Packet (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_input_memory_bit_stream}{Input\+Memory\+Bit\+Stream}} \&}]{in\+Input\+Stream,  }\item[{const \mbox{\hyperlink{class_socket_address}{Socket\+Address}} \&}]{in\+From\+Address }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_network_manager}{Network\+Manager}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/client/Network\+Manager\+Client.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/client/Network\+Manager\+Client.\+cpp\end{DoxyCompactItemize}

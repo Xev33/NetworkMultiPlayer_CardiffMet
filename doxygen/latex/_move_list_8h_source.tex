@@ -1,0 +1,51 @@
+\hypertarget{_move_list_8h_source}{}\doxysection{Move\+List.\+h}
+\label{_move_list_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/MoveList.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/MoveList.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef MOVE\_LIST\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define MOVE\_LIST\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Move.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <deque>}}
+\DoxyCodeLine{7 \textcolor{keyword}{using }std::deque;}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_move_list}{MoveList}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \textcolor{keyword}{typedef} deque< Move >::const\_iterator           const\_iterator;}
+\DoxyCodeLine{14     \textcolor{keyword}{typedef} deque< Move >::const\_reverse\_iterator   const\_reverse\_iterator;}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \mbox{\hyperlink{class_move_list}{MoveList}}():}
+\DoxyCodeLine{17         mLastMoveTimestamp( -\/1.f )}
+\DoxyCodeLine{18     \{\}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keyword}{const}   \mbox{\hyperlink{class_move}{Move}}\&   AddMove( \textcolor{keyword}{const} \mbox{\hyperlink{class_input_state}{InputState}}\& inInputState, \textcolor{keywordtype}{float} inTimestamp );}
+\DoxyCodeLine{21     \textcolor{keywordtype}{bool}    AddMove( \textcolor{keyword}{const} \mbox{\hyperlink{class_move}{Move}}\& inMove );}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordtype}{void}    RemovedProcessedMoves( \textcolor{keywordtype}{float} inLastMoveProcessedOnServerTimestamp );}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{float}           GetLastMoveTimestamp()\textcolor{keyword}{  const   }\{ \textcolor{keywordflow}{return} mLastMoveTimestamp; \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keyword}{const} \mbox{\hyperlink{class_move}{Move}}\&     GetLatestMove()\textcolor{keyword}{         const   }\{ \textcolor{keywordflow}{return} mMoves.back(); \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{void}            Clear()                         \{ mMoves.clear(); \}}
+\DoxyCodeLine{30     \textcolor{keywordtype}{bool}            HasMoves()\textcolor{keyword}{              const   }\{ \textcolor{keywordflow}{return} !mMoves.empty(); \}}
+\DoxyCodeLine{31     \textcolor{keywordtype}{int}             GetMoveCount()\textcolor{keyword}{          const   }\{ \textcolor{keywordflow}{return} mMoves.size(); \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{comment}{//for for each, we have to match stl calling convention}}
+\DoxyCodeLine{34     const\_iterator  begin()\textcolor{keyword}{                 const   }\{ \textcolor{keywordflow}{return} mMoves.begin(); \}}
+\DoxyCodeLine{35     const\_iterator  end()\textcolor{keyword}{                   const   }\{ \textcolor{keywordflow}{return} mMoves.end(); \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keyword}{const} \mbox{\hyperlink{class_move}{Move}}\&     operator[]( \textcolor{keywordtype}{size\_t} i )\textcolor{keyword}{  const   }\{ \textcolor{keywordflow}{return} mMoves[ i ]; \}}
+\DoxyCodeLine{38 \textcolor{keyword}{private}:}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{float}           mLastMoveTimestamp;}
+\DoxyCodeLine{41     deque< Move >   mMoves;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \};}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

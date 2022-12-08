@@ -1,0 +1,78 @@
+\hypertarget{_network_manager_client_8h_source}{}\doxysection{Network\+Manager\+Client.\+h}
+\label{_network_manager_client_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/client/NetworkManagerClient.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/client/NetworkManagerClient.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef NETWOKR\_MANAGER\_CLIENT\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define NETWOKR\_MANAGER\_CLIENT\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}NetworkManager.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}InputManager.h"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}ReplicationManagerClient.h"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}SocketAddress.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}InputMemoryBitStream.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}OutputMemoryBitStream.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}WeightedTimedMovingAverage.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_network_manager_client}{NetworkManagerClient}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_network_manager}{NetworkManager}}}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     \textcolor{keyword}{enum} NetworkClientState}
+\DoxyCodeLine{16     \{}
+\DoxyCodeLine{17         NCS\_Uninitialized,}
+\DoxyCodeLine{18         NCS\_SayingHello,}
+\DoxyCodeLine{19         NCS\_Welcomed}
+\DoxyCodeLine{20     \};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{public}:}
+\DoxyCodeLine{23     \textcolor{keyword}{static} \mbox{\hyperlink{class_network_manager_client}{NetworkManagerClient}}*    sInstance;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keyword}{static}  \textcolor{keywordtype}{void}    StaticInit( \textcolor{keyword}{const} \mbox{\hyperlink{class_socket_address}{SocketAddress}}\& inServerAddress, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& inName );}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void}    SendOutgoingPackets();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}    ProcessPacket( \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputStream, \textcolor{keyword}{const} \mbox{\hyperlink{class_socket_address}{SocketAddress}}\& inFromAddress ) \textcolor{keyword}{override};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keyword}{const}   \mbox{\hyperlink{class_weighted_timed_moving_average}{WeightedTimedMovingAverage}}\&       GetAvgRoundTripTime()\textcolor{keyword}{   const   }\{ \textcolor{keywordflow}{return} mAvgRoundTripTime; \}}
+\DoxyCodeLine{32     \textcolor{keywordtype}{float}                                   GetRoundTripTime()\textcolor{keyword}{      const   }\{ \textcolor{keywordflow}{return} mAvgRoundTripTime.GetValue(); \}}
+\DoxyCodeLine{33     \textcolor{keywordtype}{int}     GetPlayerId()\textcolor{keyword}{                                           const   }\{ \textcolor{keywordflow}{return} mPlayerId; \}}
+\DoxyCodeLine{34     \textcolor{keywordtype}{float}   GetLastMoveProcessedByServerTimestamp()\textcolor{keyword}{                 const   }\{ \textcolor{keywordflow}{return} mLastMoveProcessedByServerTimestamp; \}}
+\DoxyCodeLine{35 \textcolor{keyword}{private}:}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_network_manager_client}{NetworkManagerClient}}();}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} Init( \textcolor{keyword}{const} \mbox{\hyperlink{class_socket_address}{SocketAddress}}\& inServerAddress, \textcolor{keyword}{const} \textcolor{keywordtype}{string}\& inName );}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{void}    UpdateSayingHello();}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void}    SendHelloPacket();}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void}    HandleWelcomePacket( \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputStream );}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void}    HandleStatePacket( \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputStream );}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void}    ReadLastMoveProcessedOnServerTimestamp( \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputStream );}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keywordtype}{void}    HandleGameObjectState( \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputStream );}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void}    HandleScoreBoardState( \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputStream );}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void}    UpdateSendingInputPacket();}
+\DoxyCodeLine{49     \textcolor{keywordtype}{void}    SendInputPacket();}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{void}    DestroyGameObjectsInMap( \textcolor{keyword}{const} IntToGameObjectMap\& inObjectsToDestroy );}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53   \mbox{\hyperlink{class_replication_manager_client}{ReplicationManagerClient}}  mReplicationManagerClient;}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \mbox{\hyperlink{class_socket_address}{SocketAddress}}      mServerAddress;}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     NetworkClientState  mState;}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keywordtype}{float}               mTimeOfLastHello;}
+\DoxyCodeLine{60     \textcolor{keywordtype}{float}               mTimeOfLastInputPacket;}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{string}              mName;}
+\DoxyCodeLine{63     \textcolor{keywordtype}{int}                 mPlayerId;}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{float}               mLastMoveProcessedByServerTimestamp;}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \mbox{\hyperlink{class_weighted_timed_moving_average}{WeightedTimedMovingAverage}}    mAvgRoundTripTime;}
+\DoxyCodeLine{68     \textcolor{keywordtype}{float}                       mLastRoundTripTime;}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

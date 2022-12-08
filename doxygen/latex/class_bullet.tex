@@ -1,0 +1,128 @@
+\hypertarget{class_bullet}{}\doxysection{Bullet Class Reference}
+\label{class_bullet}\index{Bullet@{Bullet}}
+Inheritance diagram for Bullet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_bullet}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_bullet_a305017f671a6c95f24403294251918eb}\label{class_bullet_a305017f671a6c95f24403294251918eb}} 
+enum {\bfseries EPlayer\+Replication\+State} \{ {\bfseries ECRS\+\_\+\+Pose} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
+, {\bfseries ECRS\+\_\+\+Bullet\+Id} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, {\bfseries ECRS\+\_\+\+All\+State} = ECRS\+\_\+\+Pose $\vert$ ECRS\+\_\+\+Bullet\+Id
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{class_bullet_ae8417cbb816e604781524017309c8e70}{Get\+All\+State\+Mask}} () const override
+\item 
+virtual void \mbox{\hyperlink{class_bullet_acc341563f05697212c1d5b7db1696125}{Update}} () override
+\item 
+\mbox{\Hypertarget{class_bullet_ac75f118d84c3eb8e550f0ed133b26c78}\label{class_bullet_ac75f118d84c3eb8e550f0ed133b26c78}} 
+void {\bfseries Simulate\+Movement} (float in\+Delta\+Time)
+\item 
+\mbox{\Hypertarget{class_bullet_a0b89b52e96152d7185d71a23d6103fee}\label{class_bullet_a0b89b52e96152d7185d71a23d6103fee}} 
+void {\bfseries Process\+Collisions} ()
+\item 
+\mbox{\Hypertarget{class_bullet_ada21a1aae148ab520949dfe97bcd076f}\label{class_bullet_ada21a1aae148ab520949dfe97bcd076f}} 
+void {\bfseries Process\+Collisions\+With\+Screen\+Walls} ()
+\item 
+\mbox{\Hypertarget{class_bullet_a92da15ec89e0669c43c90035cc5709b4}\label{class_bullet_a92da15ec89e0669c43c90035cc5709b4}} 
+void {\bfseries Adjust\+Velocity\+By\+Thrust} (float in\+Delta\+Time)
+\item 
+\mbox{\Hypertarget{class_bullet_aedf6b4f91b3a5500ff4bde26bd3d341f}\label{class_bullet_aedf6b4f91b3a5500ff4bde26bd3d341f}} 
+void {\bfseries Set\+Bullet\+Id} (uint32\+\_\+t in\+Player\+Id)
+\item 
+\mbox{\Hypertarget{class_bullet_a099c58b1b0b8306ba460da4b5491b185}\label{class_bullet_a099c58b1b0b8306ba460da4b5491b185}} 
+uint32\+\_\+t {\bfseries Get\+Bullet\+Id} () const
+\item 
+\mbox{\Hypertarget{class_bullet_a7e76c9fdc512e447bfe408487eb80695}\label{class_bullet_a7e76c9fdc512e447bfe408487eb80695}} 
+void {\bfseries Set\+Velocity} (const \mbox{\hyperlink{class_vector3}{Vector3}} \&in\+Velocity)
+\item 
+\mbox{\Hypertarget{class_bullet_ae814a50efee661acefb01c2490019dca}\label{class_bullet_ae814a50efee661acefb01c2490019dca}} 
+const \mbox{\hyperlink{class_vector3}{Vector3}} \& {\bfseries Get\+Velocity} () const
+\item 
+\mbox{\Hypertarget{class_bullet_ab794f1e7e0919dde6721a1dfb6a68f5a}\label{class_bullet_ab794f1e7e0919dde6721a1dfb6a68f5a}} 
+void {\bfseries Init\+From\+Shooter} (\mbox{\hyperlink{class_player}{Player}} $\ast$player)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{class_bullet_a8cee3337c767d003cd1dee882ad99c39}{Write}} (\mbox{\hyperlink{class_output_memory_bit_stream}{Output\+Memory\+Bit\+Stream}} \&in\+Output\+Stream, uint32\+\_\+t in\+Dirty\+State) const override
+\item 
+\mbox{\Hypertarget{class_bullet_a864c709496eea0d0e775385d0225f38e}\label{class_bullet_a864c709496eea0d0e775385d0225f38e}} 
+bool {\bfseries operator==} (\mbox{\hyperlink{class_bullet}{Bullet}} \&other)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_bullet_a99061f67c732ad4fdd2a40550bd12f91}\label{class_bullet_a99061f67c732ad4fdd2a40550bd12f91}} 
+static \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ {\bfseries Static\+Create} ()
+\item 
+\mbox{\Hypertarget{class_bullet_a02f17e346f1c49deec839db8f6836475}\label{class_bullet_a02f17e346f1c49deec839db8f6836475}} 
+static Game\+Object\+Ptr {\bfseries Static\+Create\+Ptr} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_bullet_a5c2d0294be9e1bd20ceba5c8b8c09c2f}\label{class_bullet_a5c2d0294be9e1bd20ceba5c8b8c09c2f}} 
+{\bfseries Bullet} (\mbox{\hyperlink{class_vector3}{Vector3}} dir)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_bullet_af08dcb8201e500133f3c57b4d1facf87}\label{class_bullet_af08dcb8201e500133f3c57b4d1facf87}} 
+float {\bfseries m\+Health}
+\item 
+\mbox{\Hypertarget{class_bullet_ae303210593d38d3949fbe0d0c9ef54e1}\label{class_bullet_ae303210593d38d3949fbe0d0c9ef54e1}} 
+float {\bfseries m\+Speed}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_bullet_aeb6728635355f426939e93dc5e10b16e}\label{class_bullet_aeb6728635355f426939e93dc5e10b16e}} 
+uint32\+\_\+t {\bfseries m\+Bullet\+Id}
+\item 
+\mbox{\Hypertarget{class_bullet_ae12cce8571f7d3254f9d664db5482790}\label{class_bullet_ae12cce8571f7d3254f9d664db5482790}} 
+\mbox{\hyperlink{class_vector3}{Vector3}} {\bfseries m\+Velocity}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bullet_ae8417cbb816e604781524017309c8e70}\label{class_bullet_ae8417cbb816e604781524017309c8e70}} 
+\index{Bullet@{Bullet}!GetAllStateMask@{GetAllStateMask}}
+\index{GetAllStateMask@{GetAllStateMask}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{GetAllStateMask()}{GetAllStateMask()}}
+{\footnotesize\ttfamily virtual uint32\+\_\+t Bullet\+::\+Get\+All\+State\+Mask (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_bullet_acc341563f05697212c1d5b7db1696125}\label{class_bullet_acc341563f05697212c1d5b7db1696125}} 
+\index{Bullet@{Bullet}!Update@{Update}}
+\index{Update@{Update}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Bullet\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_bullet_a8cee3337c767d003cd1dee882ad99c39}\label{class_bullet_a8cee3337c767d003cd1dee882ad99c39}} 
+\index{Bullet@{Bullet}!Write@{Write}}
+\index{Write@{Write}!Bullet@{Bullet}}
+\doxysubsubsection{\texorpdfstring{Write()}{Write()}}
+{\footnotesize\ttfamily uint32\+\_\+t Bullet\+::\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_output_memory_bit_stream}{Output\+Memory\+Bit\+Stream}} \&}]{in\+Output\+Stream,  }\item[{uint32\+\_\+t}]{in\+Dirty\+State }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/engine/Bullet.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/engine/Bullet.\+cpp\end{DoxyCompactItemize}

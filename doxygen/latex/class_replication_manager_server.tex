@@ -1,0 +1,47 @@
+\hypertarget{class_replication_manager_server}{}\doxysection{Replication\+Manager\+Server Class Reference}
+\label{class_replication_manager_server}\index{ReplicationManagerServer@{ReplicationManagerServer}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_replication_manager_server_a8e1ed4a2ccd016ba31afbd5e8e604862}\label{class_replication_manager_server_a8e1ed4a2ccd016ba31afbd5e8e604862}} 
+void {\bfseries Replicate\+Create} (int in\+Network\+Id, uint32\+\_\+t in\+Initial\+Dirty\+State)
+\item 
+\mbox{\Hypertarget{class_replication_manager_server_a77721e7aaa494858bf913809bfbf8cbe}\label{class_replication_manager_server_a77721e7aaa494858bf913809bfbf8cbe}} 
+void {\bfseries Replicate\+Destroy} (int in\+Network\+Id)
+\item 
+\mbox{\Hypertarget{class_replication_manager_server_a7b111607d21e99bc1a5f51d497ff78e2}\label{class_replication_manager_server_a7b111607d21e99bc1a5f51d497ff78e2}} 
+void {\bfseries Set\+State\+Dirty} (int in\+Network\+Id, uint32\+\_\+t in\+Dirty\+State)
+\item 
+\mbox{\Hypertarget{class_replication_manager_server_ac9a12961a4b19b4a636a67a833e51ac4}\label{class_replication_manager_server_ac9a12961a4b19b4a636a67a833e51ac4}} 
+void {\bfseries Remove\+From\+Replication} (int in\+Network\+Id)
+\item 
+\mbox{\Hypertarget{class_replication_manager_server_a0b67200afd70ae7781eac5cdd7a4b130}\label{class_replication_manager_server_a0b67200afd70ae7781eac5cdd7a4b130}} 
+void {\bfseries Write} (\mbox{\hyperlink{class_output_memory_bit_stream}{Output\+Memory\+Bit\+Stream}} \&in\+Output\+Stream)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_replication_manager_server_aff619faac4c2a53f1c6d2466e85526b2}\label{class_replication_manager_server_aff619faac4c2a53f1c6d2466e85526b2}} 
+uint32\+\_\+t {\bfseries Write\+Create\+Action} (\mbox{\hyperlink{class_output_memory_bit_stream}{Output\+Memory\+Bit\+Stream}} \&in\+Output\+Stream, int in\+Network\+Id, uint32\+\_\+t in\+Dirty\+State)
+\item 
+\mbox{\Hypertarget{class_replication_manager_server_a942bf7692a77b5af19107f6bc7f2be2d}\label{class_replication_manager_server_a942bf7692a77b5af19107f6bc7f2be2d}} 
+uint32\+\_\+t {\bfseries Write\+Update\+Action} (\mbox{\hyperlink{class_output_memory_bit_stream}{Output\+Memory\+Bit\+Stream}} \&in\+Output\+Stream, int in\+Network\+Id, uint32\+\_\+t in\+Dirty\+State)
+\item 
+\mbox{\Hypertarget{class_replication_manager_server_a7e4f9b8b49f244506363ae382c22ce5b}\label{class_replication_manager_server_a7e4f9b8b49f244506363ae382c22ce5b}} 
+uint32\+\_\+t {\bfseries Write\+Destroy\+Action} (\mbox{\hyperlink{class_output_memory_bit_stream}{Output\+Memory\+Bit\+Stream}} \&in\+Output\+Stream, int in\+Network\+Id, uint32\+\_\+t in\+Dirty\+State)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_replication_manager_server_ac2fc3e2921e756ea759b467c708c0cce}\label{class_replication_manager_server_ac2fc3e2921e756ea759b467c708c0cce}} 
+unordered\+\_\+map$<$ int, \mbox{\hyperlink{struct_replication_command}{Replication\+Command}} $>$ {\bfseries m\+Network\+Id\+To\+Replication\+Command}
+\item 
+\mbox{\Hypertarget{class_replication_manager_server_a1f9f66b1a1c667c4ccd215533d2ccbff}\label{class_replication_manager_server_a1f9f66b1a1c667c4ccd215533d2ccbff}} 
+vector$<$ int $>$ {\bfseries m\+Network\+Ids\+To\+Remove}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/server/Replication\+Manager\+Server.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/server/Replication\+Manager\+Server.\+cpp\end{DoxyCompactItemize}

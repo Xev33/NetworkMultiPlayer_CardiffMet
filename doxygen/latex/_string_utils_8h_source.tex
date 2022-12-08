@@ -1,0 +1,25 @@
+\hypertarget{_string_utils_8h_source}{}\doxysection{String\+Utils.\+h}
+\label{_string_utils_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/strings/StringUtils.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/strings/StringUtils.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef STRING\_UTILS}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define STRING\_UTILS}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{keyword}{using }std::string;}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{namespace }StringUtils}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \textcolor{keywordtype}{string} GetCommandLineArg( \textcolor{keywordtype}{int} inIndex );}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     \textcolor{keywordtype}{string} Sprintf( \textcolor{keyword}{const} \textcolor{keywordtype}{char}* inFormat, ... );}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \textcolor{keywordtype}{void}    Log( \textcolor{keyword}{const} \textcolor{keywordtype}{char}* inFormat );}
+\DoxyCodeLine{14     \textcolor{keywordtype}{void}    Log( \textcolor{keyword}{const} \textcolor{keywordtype}{char}* inFormat, ... );}
+\DoxyCodeLine{15 \}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define LOG( ... ) StringUtils::Log( \_\_VA\_ARGS\_\_ );}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

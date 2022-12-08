@@ -1,0 +1,116 @@
+\hypertarget{_byte_swap_8h_source}{}\doxysection{Byte\+Swap.\+h}
+\label{_byte_swap_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/serialisation/ByteSwap.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/serialisation/ByteSwap.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef BYTE\_SWAP\_H\_}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define BYTE\_SWAP\_H\_}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cstdio>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{inline} uint16\_t ByteSwap2( uint16\_t inData )}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \textcolor{keywordflow}{return} ( inData >> 8 ) | ( inData << 8 );}
+\DoxyCodeLine{10 \}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{inline} uint32\_t ByteSwap4( uint32\_t inData )}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14     \textcolor{keywordflow}{return}  ( ( inData >> 24 ) \& 0x000000ff ) |}
+\DoxyCodeLine{15             ( ( inData >>  8 ) \& 0x0000ff00 ) |}
+\DoxyCodeLine{16             ( ( inData <<  8 ) \& 0x00ff0000 ) |}
+\DoxyCodeLine{17             ( ( inData << 24 ) \& 0xff000000 );}
+\DoxyCodeLine{18 \}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{inline} uint64\_t ByteSwap8( uint64\_t inData )}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     \textcolor{keywordflow}{return}  ( ( inData >> 56 ) \& 0x00000000000000ff ) |}
+\DoxyCodeLine{23             ( ( inData >> 40 ) \& 0x000000000000ff00 ) |}
+\DoxyCodeLine{24             ( ( inData >> 24 ) \& 0x0000000000ff0000 ) |}
+\DoxyCodeLine{25             ( ( inData >>  8 ) \& 0x00000000ff000000 ) |}
+\DoxyCodeLine{26             ( ( inData <<  8 ) \& 0x000000ff00000000 ) |}
+\DoxyCodeLine{27             ( ( inData << 24 ) \& 0x0000ff0000000000 ) |}
+\DoxyCodeLine{28             ( ( inData << 40 ) \& 0x00ff000000000000 ) |}
+\DoxyCodeLine{29             ( ( inData << 56 ) \& 0xff00000000000000 );}
+\DoxyCodeLine{30 \}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{keyword}{template} < \textcolor{keyword}{typename} tFrom, \textcolor{keyword}{typename} tTo >}
+\DoxyCodeLine{34 \textcolor{keyword}{class }\mbox{\hyperlink{class_type_aliaser}{TypeAliaser}}}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36 \textcolor{keyword}{public}:}
+\DoxyCodeLine{37     \mbox{\hyperlink{class_type_aliaser}{TypeAliaser}}( tFrom inFromValue ) :}
+\DoxyCodeLine{38         mAsFromType( inFromValue ) \{\}}
+\DoxyCodeLine{39     tTo\& Get() \{ \textcolor{keywordflow}{return} mAsToType; \}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keyword}{union}}
+\DoxyCodeLine{42     \{}
+\DoxyCodeLine{43         tFrom   mAsFromType;}
+\DoxyCodeLine{44         tTo     mAsToType;}
+\DoxyCodeLine{45     \};}
+\DoxyCodeLine{46 \};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T, \textcolor{keywordtype}{size\_t} tSize > \textcolor{keyword}{class }\mbox{\hyperlink{class_byte_swapper}{ByteSwapper}};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{comment}{//specialize for 1...}}
+\DoxyCodeLine{52 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{53 \textcolor{keyword}{class }\mbox{\hyperlink{class_byte_swapper}{ByteSwapper}}< T, 1 >}
+\DoxyCodeLine{54 \{}
+\DoxyCodeLine{55 \textcolor{keyword}{public}:}
+\DoxyCodeLine{56     T Swap( T inData )\textcolor{keyword}{ const}}
+\DoxyCodeLine{57 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{58         \textcolor{keywordflow}{return} inData;}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 \};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{comment}{//specialize for 2...}}
+\DoxyCodeLine{64 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{65 \textcolor{keyword}{class }\mbox{\hyperlink{class_byte_swapper}{ByteSwapper}}< T, 2 >}
+\DoxyCodeLine{66 \{}
+\DoxyCodeLine{67 \textcolor{keyword}{public}:}
+\DoxyCodeLine{68     T Swap( T inData )\textcolor{keyword}{ const}}
+\DoxyCodeLine{69 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{70         uint16\_t result =}
+\DoxyCodeLine{71             ByteSwap2( \mbox{\hyperlink{class_type_aliaser}{TypeAliaser< T, uint16\_t >}}( inData ).Get() );}
+\DoxyCodeLine{72         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_type_aliaser}{TypeAliaser< uint16\_t, T >}}( result ).Get();}
+\DoxyCodeLine{73     \}}
+\DoxyCodeLine{74 \};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{comment}{//specialize for 4...}}
+\DoxyCodeLine{77 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{78 \textcolor{keyword}{class }\mbox{\hyperlink{class_byte_swapper}{ByteSwapper}}< T, 4 >}
+\DoxyCodeLine{79 \{}
+\DoxyCodeLine{80 \textcolor{keyword}{public}:}
+\DoxyCodeLine{81     T Swap( T inData )\textcolor{keyword}{ const}}
+\DoxyCodeLine{82 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{83         uint32\_t result =}
+\DoxyCodeLine{84             ByteSwap4( \mbox{\hyperlink{class_type_aliaser}{TypeAliaser< T, uint32\_t >}}( inData ).Get() );}
+\DoxyCodeLine{85         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_type_aliaser}{TypeAliaser< uint32\_t, T >}}( result ).Get();}
+\DoxyCodeLine{86     \}}
+\DoxyCodeLine{87 \};}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{comment}{//specialize for 8...}}
+\DoxyCodeLine{91 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{92 \textcolor{keyword}{class }\mbox{\hyperlink{class_byte_swapper}{ByteSwapper}}< T, 8 >}
+\DoxyCodeLine{93 \{}
+\DoxyCodeLine{94 \textcolor{keyword}{public}:}
+\DoxyCodeLine{95     T Swap( T inData )\textcolor{keyword}{ const}}
+\DoxyCodeLine{96 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{97         uint64\_t result =}
+\DoxyCodeLine{98             ByteSwap8( \mbox{\hyperlink{class_type_aliaser}{TypeAliaser< T, uint64\_t >}}( inData ).Get() );}
+\DoxyCodeLine{99         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_type_aliaser}{TypeAliaser< uint64\_t, T >}}( result ).Get();}
+\DoxyCodeLine{100     \}}
+\DoxyCodeLine{101 \};}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{keyword}{template} < \textcolor{keyword}{typename} T >}
+\DoxyCodeLine{104 T ByteSwap( T inData )}
+\DoxyCodeLine{105 \{}
+\DoxyCodeLine{106     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_byte_swapper}{ByteSwapper< T, sizeof( T ) >}}().Swap( inData );}
+\DoxyCodeLine{107 \}}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,86 @@
+\hypertarget{class_wall}{}\doxysection{Wall Class Reference}
+\label{class_wall}\index{Wall@{Wall}}
+Inheritance diagram for Wall\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_wall}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_wall_aae5be71b3908bdb500a8c9ffc4aacf8a}\label{class_wall_aae5be71b3908bdb500a8c9ffc4aacf8a}} 
+enum {\bfseries EPlayer\+Replication\+State} \{ {\bfseries ECRS\+\_\+\+Pose} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
+, {\bfseries ECRS\+\_\+\+Wall\+Id} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, {\bfseries ECRS\+\_\+\+All\+State} = ECRS\+\_\+\+Pose $\vert$ ECRS\+\_\+\+Wall\+Id
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{class_wall_aeec873ab8bb7c7a13b2c30e17e2600e5}{Get\+All\+State\+Mask}} () const override
+\item 
+\mbox{\Hypertarget{class_wall_a2219d211baa0afa1c8183bf88ff697fb}\label{class_wall_a2219d211baa0afa1c8183bf88ff697fb}} 
+void {\bfseries Set\+Is\+Smoke} (bool in)
+\item 
+\mbox{\Hypertarget{class_wall_a1ef3fa3c21f55e5f75ddf59474372c04}\label{class_wall_a1ef3fa3c21f55e5f75ddf59474372c04}} 
+bool {\bfseries Get\+Is\+Smoke} () const
+\item 
+\mbox{\Hypertarget{class_wall_a60b30d40b0b9b523efbc3d0bfb67ddb7}\label{class_wall_a60b30d40b0b9b523efbc3d0bfb67ddb7}} 
+void {\bfseries Set\+Wall\+Id} (uint32\+\_\+t in\+Player\+Id)
+\item 
+\mbox{\Hypertarget{class_wall_a6eb5e8162329109278784e56dd95a898}\label{class_wall_a6eb5e8162329109278784e56dd95a898}} 
+uint32\+\_\+t {\bfseries Get\+Wall\+Id} () const
+\item 
+uint32\+\_\+t \mbox{\hyperlink{class_wall_a6a734d5ef995434b8c2ad9e65510f501}{Write}} (\mbox{\hyperlink{class_output_memory_bit_stream}{Output\+Memory\+Bit\+Stream}} \&in\+Output\+Stream, uint32\+\_\+t in\+Dirty\+State) const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_wall_a784ccdda17e657e022df9107c05400e4}\label{class_wall_a784ccdda17e657e022df9107c05400e4}} 
+static \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ {\bfseries Static\+Create} ()
+\item 
+\mbox{\Hypertarget{class_wall_aa675fc84c0274d6e551afbde89e5c68b}\label{class_wall_aa675fc84c0274d6e551afbde89e5c68b}} 
+static Game\+Object\+Ptr {\bfseries Static\+Create\+Ptr} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_wall_ac5750ff08c71dfa0d4d4d72f5e045d7d}\label{class_wall_ac5750ff08c71dfa0d4d4d72f5e045d7d}} 
+bool {\bfseries m\+Is\+Smoke}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_wall_a8bcdd8291ee152c3af34c5bcafb9eee5}\label{class_wall_a8bcdd8291ee152c3af34c5bcafb9eee5}} 
+uint32\+\_\+t {\bfseries m\+Wall\+Id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_wall_aeec873ab8bb7c7a13b2c30e17e2600e5}\label{class_wall_aeec873ab8bb7c7a13b2c30e17e2600e5}} 
+\index{Wall@{Wall}!GetAllStateMask@{GetAllStateMask}}
+\index{GetAllStateMask@{GetAllStateMask}!Wall@{Wall}}
+\doxysubsubsection{\texorpdfstring{GetAllStateMask()}{GetAllStateMask()}}
+{\footnotesize\ttfamily virtual uint32\+\_\+t Wall\+::\+Get\+All\+State\+Mask (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_wall_a6a734d5ef995434b8c2ad9e65510f501}\label{class_wall_a6a734d5ef995434b8c2ad9e65510f501}} 
+\index{Wall@{Wall}!Write@{Write}}
+\index{Write@{Write}!Wall@{Wall}}
+\doxysubsubsection{\texorpdfstring{Write()}{Write()}}
+{\footnotesize\ttfamily uint32\+\_\+t Wall\+::\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_output_memory_bit_stream}{Output\+Memory\+Bit\+Stream}} \&}]{in\+Output\+Stream,  }\item[{uint32\+\_\+t}]{in\+Dirty\+State }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/engine/Wall.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/engine/Wall.\+cpp\end{DoxyCompactItemize}

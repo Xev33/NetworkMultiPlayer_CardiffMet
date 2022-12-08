@@ -1,0 +1,181 @@
+\hypertarget{_vector3_8h_source}{}\doxysection{Vector3.\+h}
+\label{_vector3_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/maths/Vector3.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/maths/Vector3.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef VECTOR3\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define VECTOR3\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_vector3}{Vector3}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     \textcolor{keywordtype}{float}       mX, mY, mZ;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \mbox{\hyperlink{class_vector3}{Vector3}}( \textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, \textcolor{keywordtype}{float} z ) :}
+\DoxyCodeLine{13         mX( x ),}
+\DoxyCodeLine{14         mY( y ),}
+\DoxyCodeLine{15         mZ( z )}
+\DoxyCodeLine{16     \{\}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \mbox{\hyperlink{class_vector3}{Vector3}}() :}
+\DoxyCodeLine{19         mX( 0.0f ),}
+\DoxyCodeLine{20         mY( 0.0f ),}
+\DoxyCodeLine{21         mZ( 0.0f )}
+\DoxyCodeLine{22     \{\}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \mbox{\hyperlink{class_vector3}{Vector3}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}} \&orig) :}
+\DoxyCodeLine{25         mX(orig.mX),}
+\DoxyCodeLine{26         mY(orig.mY),}
+\DoxyCodeLine{27         mZ(orig.mZ)}
+\DoxyCodeLine{28     \{\}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} Set( \textcolor{keywordtype}{float} x, \textcolor{keywordtype}{float} y, \textcolor{keywordtype}{float} z )}
+\DoxyCodeLine{32     \{}
+\DoxyCodeLine{33         mX = x;}
+\DoxyCodeLine{34         mY = y;}
+\DoxyCodeLine{35         mZ = z;}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37 \textcolor{comment}{/*}}
+\DoxyCodeLine{38 \textcolor{comment}{https://www.learncpp.com/cpp-\/tutorial/92-\/overloading-\/the-\/arithmetic-\/operators-\/using-\/friend-\/functions/}}
+\DoxyCodeLine{39 \textcolor{comment}{*/}}
+\DoxyCodeLine{40     \textcolor{keyword}{friend} \mbox{\hyperlink{class_vector3}{Vector3}} operator+( \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inLeft, \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inRight )}
+\DoxyCodeLine{41     \{}
+\DoxyCodeLine{42         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_vector3}{Vector3}}( inLeft.mX + inRight.mX, inLeft.mY + inRight.mY, inLeft.mZ + inRight.mZ );}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keyword}{friend} \mbox{\hyperlink{class_vector3}{Vector3}} operator-\/( \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inLeft, \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inRight )}
+\DoxyCodeLine{46     \{}
+\DoxyCodeLine{47         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_vector3}{Vector3}}( inLeft.mX -\/ inRight.mX, inLeft.mY -\/ inRight.mY, inLeft.mZ -\/ inRight.mZ );}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inLeft, \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inRight)}
+\DoxyCodeLine{52     \{}
+\DoxyCodeLine{53         \textcolor{keywordflow}{if} (inLeft.mX == inRight.mX}
+\DoxyCodeLine{54             \&\& inLeft.mY == inRight.mY}
+\DoxyCodeLine{55             \&\& inLeft.mZ == inRight.mZ)}
+\DoxyCodeLine{56             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{57         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{58             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{comment}{// Component-\/wise multiplication}}
+\DoxyCodeLine{62     \textcolor{keyword}{friend} \mbox{\hyperlink{class_vector3}{Vector3}} operator*( \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inLeft, \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inRight )}
+\DoxyCodeLine{63     \{}
+\DoxyCodeLine{64         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_vector3}{Vector3}}( inLeft.mX * inRight.mX, inLeft.mY * inRight.mY, inLeft.mZ * inRight.mZ );}
+\DoxyCodeLine{65     \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{comment}{// Scalar multiply}}
+\DoxyCodeLine{68     \textcolor{keyword}{friend} \mbox{\hyperlink{class_vector3}{Vector3}} operator*( \textcolor{keywordtype}{float} inScalar, \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inVec )}
+\DoxyCodeLine{69     \{}
+\DoxyCodeLine{70         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_vector3}{Vector3}}( inVec.mX * inScalar, inVec.mY * inScalar, inVec.mZ * inScalar );}
+\DoxyCodeLine{71     \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keyword}{friend} \mbox{\hyperlink{class_vector3}{Vector3}} operator*( \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inVec, \textcolor{keywordtype}{float} inScalar )}
+\DoxyCodeLine{74     \{}
+\DoxyCodeLine{75         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_vector3}{Vector3}}( inVec.mX * inScalar, inVec.mY * inScalar, inVec.mZ * inScalar );}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \mbox{\hyperlink{class_vector3}{Vector3}}\& operator*=( \textcolor{keywordtype}{float} inScalar )}
+\DoxyCodeLine{79     \{}
+\DoxyCodeLine{80         mX *= inScalar;}
+\DoxyCodeLine{81         mY *= inScalar;}
+\DoxyCodeLine{82         mZ *= inScalar;}
+\DoxyCodeLine{83         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{84     \}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \mbox{\hyperlink{class_vector3}{Vector3}}\& operator+=( \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inRight )}
+\DoxyCodeLine{87     \{}
+\DoxyCodeLine{88         mX += inRight.mX;}
+\DoxyCodeLine{89         mY += inRight.mY;}
+\DoxyCodeLine{90         mZ += inRight.mZ;}
+\DoxyCodeLine{91         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{92     \}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \mbox{\hyperlink{class_vector3}{Vector3}}\& operator-\/=( \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inRight )}
+\DoxyCodeLine{95     \{}
+\DoxyCodeLine{96         mX -\/= inRight.mX;}
+\DoxyCodeLine{97         mY -\/= inRight.mY;}
+\DoxyCodeLine{98         mZ -\/= inRight.mZ;}
+\DoxyCodeLine{99         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{100     \}}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \textcolor{keywordtype}{float} Length()}
+\DoxyCodeLine{103     \{}
+\DoxyCodeLine{104         \textcolor{keywordflow}{return} sqrtf( mX * mX + mY * mY + mZ * mZ );}
+\DoxyCodeLine{105     \}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     \textcolor{keywordtype}{float} LengthSq()}
+\DoxyCodeLine{108     \{}
+\DoxyCodeLine{109         \textcolor{keywordflow}{return} mX * mX + mY * mY + mZ * mZ;}
+\DoxyCodeLine{110     \}}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \textcolor{keywordtype}{float} Length2D()}
+\DoxyCodeLine{113     \{}
+\DoxyCodeLine{114         \textcolor{keywordflow}{return} sqrtf( mX * mX + mY * mY );}
+\DoxyCodeLine{115     \}}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117     \textcolor{keywordtype}{float} LengthSq2D()}
+\DoxyCodeLine{118     \{}
+\DoxyCodeLine{119         \textcolor{keywordflow}{return} mX * mX + mY * mY;}
+\DoxyCodeLine{120     \}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122     \textcolor{keywordtype}{void} Normalize()}
+\DoxyCodeLine{123     \{}
+\DoxyCodeLine{124         \textcolor{keywordtype}{float} length = Length();}
+\DoxyCodeLine{125         mX /= length;}
+\DoxyCodeLine{126         mY /= length;}
+\DoxyCodeLine{127         mZ /= length;}
+\DoxyCodeLine{128     \}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     \textcolor{keywordtype}{void} Normalize2D()}
+\DoxyCodeLine{131     \{}
+\DoxyCodeLine{132         \textcolor{keywordtype}{float} length = Length2D();}
+\DoxyCodeLine{133         mX /= length;}
+\DoxyCodeLine{134         mY /= length;}
+\DoxyCodeLine{135     \}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137     \textcolor{keyword}{friend} \textcolor{keywordtype}{float} Dot( \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inLeft, \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inRight )}
+\DoxyCodeLine{138     \{}
+\DoxyCodeLine{139         \textcolor{keywordflow}{return} ( inLeft.mX * inRight.mX + inLeft.mY * inRight.mY + inLeft.mZ * inRight.mZ );}
+\DoxyCodeLine{140     \}}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142     \textcolor{keyword}{friend} \textcolor{keywordtype}{float} Dot2D( \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inLeft, \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inRight )}
+\DoxyCodeLine{143     \{}
+\DoxyCodeLine{144         \textcolor{keywordflow}{return} ( inLeft.mX * inRight.mX + inLeft.mY * inRight.mY );}
+\DoxyCodeLine{145     \}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147     \textcolor{keyword}{friend} \textcolor{keywordtype}{float} Det2D(\textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inLeft, \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inRight)}
+\DoxyCodeLine{148     \{}
+\DoxyCodeLine{149         \textcolor{keywordflow}{return} (inLeft.mX * inRight.mX -\/ inLeft.mY * inRight.mY);}
+\DoxyCodeLine{150     \}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152     \textcolor{keyword}{friend} \mbox{\hyperlink{class_vector3}{Vector3}} Cross( \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inLeft, \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inRight )}
+\DoxyCodeLine{153     \{}
+\DoxyCodeLine{154         \mbox{\hyperlink{class_vector3}{Vector3}} temp;}
+\DoxyCodeLine{155         temp.mX = inLeft.mY * inRight.mZ -\/ inLeft.mZ * inRight.mY;}
+\DoxyCodeLine{156         temp.mY = inLeft.mZ * inRight.mX -\/ inLeft.mX * inRight.mZ;}
+\DoxyCodeLine{157         temp.mZ = inLeft.mX * inRight.mY -\/ inLeft.mY * inRight.mX;}
+\DoxyCodeLine{158         \textcolor{keywordflow}{return} temp;}
+\DoxyCodeLine{159     \}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161     \textcolor{keyword}{friend} \mbox{\hyperlink{class_vector3}{Vector3}} Lerp( \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inA, \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inB, \textcolor{keywordtype}{float} t )}
+\DoxyCodeLine{162     \{}
+\DoxyCodeLine{163         \textcolor{keywordflow}{return} \mbox{\hyperlink{class_vector3}{Vector3}}( inA + t * ( inB -\/ inA ) );}
+\DoxyCodeLine{164     \}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}} Zero;}
+\DoxyCodeLine{167     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}} UnitX;}
+\DoxyCodeLine{168     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}} UnitY;}
+\DoxyCodeLine{169     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}} UnitZ;}
+\DoxyCodeLine{170     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}} NegUnitX;}
+\DoxyCodeLine{171     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}} NegUnitY;}
+\DoxyCodeLine{172     \textcolor{keyword}{static} \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}} NegUnitZ;}
+\DoxyCodeLine{173 \};}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

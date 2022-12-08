@@ -1,0 +1,20 @@
+\hypertarget{_fixed_8h_source}{}\doxysection{Fixed.\+h}
+\label{_fixed_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/serialisation/Fixed.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/serialisation/Fixed.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef FIXED\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define FIXED\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{inline} uint32\_t ConvertToFixed( \textcolor{keywordtype}{float} inNumber, \textcolor{keywordtype}{float} inMin, \textcolor{keywordtype}{float} inPrecision )}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<} \textcolor{keywordtype}{int} \textcolor{keyword}{>} ( ( inNumber -\/ inMin ) / inPrecision );}
+\DoxyCodeLine{7 \}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{inline} \textcolor{keywordtype}{float} ConvertFromFixed( uint32\_t inNumber, \textcolor{keywordtype}{float} inMin, \textcolor{keywordtype}{float} inPrecision )}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<} \textcolor{keywordtype}{float} \textcolor{keyword}{>}( inNumber ) * inPrecision + inMin;}
+\DoxyCodeLine{12 \}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,103 @@
+\hypertarget{_output_memory_stream_8h_source}{}\doxysection{Output\+Memory\+Stream.\+h}
+\label{_output_memory_stream_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/serialisation/OutputMemoryStream.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/serialisation/OutputMemoryStream.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef OUTPUT\_MEMORY\_STREAM\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define OUTPUT\_MEMORY\_STREAM\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <type\_traits>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}SerialisationCommon.h"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}Fixed.h"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}Quaternion.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}Vector3.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}ByteSwap.h"{}}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_game_object}{GameObject}};}
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_linking_context}{LinkingContext}};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{class_output_memory_stream}{OutputMemoryStream}}}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23 \textcolor{keyword}{public}:}
+\DoxyCodeLine{24     \mbox{\hyperlink{class_output_memory_stream}{OutputMemoryStream}}() :}
+\DoxyCodeLine{25     mBuffer ( \textcolor{keyword}{nullptr} ),}
+\DoxyCodeLine{26     mHead ( 0 ),}
+\DoxyCodeLine{27     mCapacity ( 0 ),}
+\DoxyCodeLine{28     mLinkingContext( \textcolor{keyword}{nullptr} )}
+\DoxyCodeLine{29     \{ ReallocBuffer( 32 ); \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \mbox{\hyperlink{class_output_memory_stream}{\string~OutputMemoryStream}}();}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{comment}{//get a pointer to the data in the stream}}
+\DoxyCodeLine{34     \textcolor{keyword}{const}   \textcolor{keywordtype}{char}*       GetBufferPtr()\textcolor{keyword}{  const   }\{ \textcolor{keywordflow}{return} mBuffer; \}}
+\DoxyCodeLine{35             uint32\_t    GetLength()\textcolor{keyword}{     const   }\{ \textcolor{keywordflow}{return} mHead; \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37             \textcolor{keywordtype}{void}        Write( \textcolor{keyword}{const} \textcolor{keywordtype}{void}* inData,}
+\DoxyCodeLine{38                                 \textcolor{keywordtype}{size\_t} inByteCount );}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keyword}{template}< \textcolor{keyword}{typename} T > \textcolor{keywordtype}{void} Write( T inData )}
+\DoxyCodeLine{41     \{}
+\DoxyCodeLine{42         \textcolor{keyword}{static\_assert}( std::is\_arithmetic< T >::value ||}
+\DoxyCodeLine{43                       std::is\_enum< T >::value,}
+\DoxyCodeLine{44                       \textcolor{stringliteral}{"{}Generic Write only supports primitive data types"{}} );}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46         \textcolor{keywordflow}{if}( STREAM\_ENDIANNESS == PLATFORM\_ENDIANNESS )}
+\DoxyCodeLine{47         \{}
+\DoxyCodeLine{48             Write( \&inData, \textcolor{keyword}{sizeof}( inData ) );}
+\DoxyCodeLine{49         \}}
+\DoxyCodeLine{50         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{51         \{}
+\DoxyCodeLine{52             T swappedData = ByteSwap( inData );}
+\DoxyCodeLine{53             Write( \&swappedData, \textcolor{keyword}{sizeof}( swappedData ) );}
+\DoxyCodeLine{54         \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} Write( \textcolor{keyword}{const} std::vector< int >\& inIntVector )}
+\DoxyCodeLine{59     \{}
+\DoxyCodeLine{60         \textcolor{keywordtype}{size\_t} elementCount = inIntVector.size();}
+\DoxyCodeLine{61         Write( elementCount );}
+\DoxyCodeLine{62         Write( inIntVector.data(), elementCount * \textcolor{keyword}{sizeof}( \textcolor{keywordtype}{int} ) );}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keyword}{template}< \textcolor{keyword}{typename} T >}
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} Write( \textcolor{keyword}{const} std::vector< T >\& inVector )}
+\DoxyCodeLine{67     \{}
+\DoxyCodeLine{68         uint32\_t elementCount = inVector.size();}
+\DoxyCodeLine{69         Write( elementCount );}
+\DoxyCodeLine{70         \textcolor{keywordflow}{for}( \textcolor{keyword}{const} T\& element : inVector )}
+\DoxyCodeLine{71         \{}
+\DoxyCodeLine{72             Write( element );}
+\DoxyCodeLine{73         \}}
+\DoxyCodeLine{74     \}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} Write( \textcolor{keyword}{const} std::string\& inString )}
+\DoxyCodeLine{77     \{}
+\DoxyCodeLine{78         \textcolor{keywordtype}{size\_t} elementCount = inString.size() ;}
+\DoxyCodeLine{79         Write( elementCount );}
+\DoxyCodeLine{80         Write( inString.data(), elementCount * \textcolor{keyword}{sizeof}( \textcolor{keywordtype}{char} ) );}
+\DoxyCodeLine{81     \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keywordtype}{void} Write( \textcolor{keyword}{const} \mbox{\hyperlink{class_game_object}{GameObject}}* inGameObject );}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{keyword}{private}:}
+\DoxyCodeLine{88             \textcolor{keywordtype}{void}        ReallocBuffer( uint32\_t inNewLength );}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     \textcolor{keywordtype}{char}*       mBuffer;}
+\DoxyCodeLine{91     uint32\_t    mHead;}
+\DoxyCodeLine{92     uint32\_t    mCapacity;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \mbox{\hyperlink{class_linking_context}{LinkingContext}}* mLinkingContext;}
+\DoxyCodeLine{95 \};}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

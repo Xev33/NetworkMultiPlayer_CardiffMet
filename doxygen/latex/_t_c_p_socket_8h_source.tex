@@ -1,0 +1,34 @@
+\hypertarget{_t_c_p_socket_8h_source}{}\doxysection{TCPSocket.\+h}
+\label{_t_c_p_socket_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/networking/TCPSocket.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/networking/TCPSocket.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef TCP\_SOCKET\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define TCP\_SOCKET\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}NetworkingCommon.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_socket_address}{SocketAddress}};}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{9 \textcolor{keyword}{using }std::shared\_ptr;}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_t_c_p_socket}{TCPSocket}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14     \mbox{\hyperlink{class_t_c_p_socket}{\string~TCPSocket}}();}
+\DoxyCodeLine{15     \textcolor{keywordtype}{int}                             Connect( \textcolor{keyword}{const} \mbox{\hyperlink{class_socket_address}{SocketAddress}}\& inAddress );}
+\DoxyCodeLine{16     \textcolor{keywordtype}{int}                             Bind( \textcolor{keyword}{const} \mbox{\hyperlink{class_socket_address}{SocketAddress}}\& inToAddress );}
+\DoxyCodeLine{17     \textcolor{keywordtype}{int}                             Listen( \textcolor{keywordtype}{int} inBackLog = 32 );}
+\DoxyCodeLine{18     shared\_ptr< TCPSocket >         Accept( \mbox{\hyperlink{class_socket_address}{SocketAddress}}\& inFromAddress );}
+\DoxyCodeLine{19     int32\_t                         Send( \textcolor{keyword}{const} \textcolor{keywordtype}{void}* inData, \textcolor{keywordtype}{size\_t} inLen );}
+\DoxyCodeLine{20     int32\_t                         Receive( \textcolor{keywordtype}{void}* inBuffer, \textcolor{keywordtype}{size\_t} inLen );}
+\DoxyCodeLine{21 \textcolor{keyword}{private}:}
+\DoxyCodeLine{22     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_socket_util}{SocketUtil}};}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_t_c_p_socket}{TCPSocket}}( SOCKET inSocket ) : mSocket( inSocket ) \{\}}
+\DoxyCodeLine{24     SOCKET      mSocket;}
+\DoxyCodeLine{25 \};}
+\DoxyCodeLine{26 \textcolor{keyword}{typedef} shared\_ptr< TCPSocket > TCPSocketPtr;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

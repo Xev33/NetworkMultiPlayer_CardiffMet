@@ -1,0 +1,49 @@
+\hypertarget{_world_8h_source}{}\doxysection{World.\+h}
+\label{_world_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/World.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/World.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef WORLD\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define WORLD\_H\_}}
+\DoxyCodeLine{3 \textcolor{comment}{/*}}
+\DoxyCodeLine{4 \textcolor{comment}{* the world tracks all the live game objects. Failry inefficient for now, but not that much of a problem}}
+\DoxyCodeLine{5 \textcolor{comment}{*/}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}GameObject.h"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_world}{World}}}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keyword}{static} \textcolor{keywordtype}{void} StaticInit();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keyword}{static} std::unique\_ptr< World >     sInstance;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} AddGameObject( GameObjectPtr inGameObject );}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} RemoveGameObject( GameObjectPtr inGameObject );}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} GetGameObjectCount();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} Update();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keyword}{const} std::vector< GameObjectPtr >\& GetGameObjects()\textcolor{keyword}{    const   }\{ \textcolor{keywordflow}{return} mGameObjects; \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{keyword}{private}:}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \mbox{\hyperlink{class_world}{World}}();}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keywordtype}{int} GetIndexOfGameObject( GameObjectPtr inGameObject );}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     std::vector< GameObjectPtr >    mGameObjects;}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// WORLD\_H\_}}
+
+\end{DoxyCode}

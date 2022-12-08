@@ -1,0 +1,35 @@
+\hypertarget{class_linking_context}{}\doxysection{Linking\+Context Class Reference}
+\label{class_linking_context}\index{LinkingContext@{LinkingContext}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_linking_context_a6f7d383794f9a3b5a3fcf619fd8b901c}\label{class_linking_context_a6f7d383794f9a3b5a3fcf619fd8b901c}} 
+uint32\+\_\+t {\bfseries Get\+Network\+Id} (\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$in\+Game\+Object, bool in\+Should\+Create\+If\+Not\+Found)
+\item 
+\mbox{\Hypertarget{class_linking_context_a7ef18d7d05584ca8c485ca8a434b3ee9}\label{class_linking_context_a7ef18d7d05584ca8c485ca8a434b3ee9}} 
+\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ {\bfseries Get\+Game\+Object} (uint32\+\_\+t in\+Network\+Id) const
+\item 
+\mbox{\Hypertarget{class_linking_context_ae6bf54172af72687d8dc057063af1de8}\label{class_linking_context_ae6bf54172af72687d8dc057063af1de8}} 
+void {\bfseries Add\+Game\+Object} (\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$in\+Game\+Object, uint32\+\_\+t in\+Network\+Id)
+\item 
+\mbox{\Hypertarget{class_linking_context_a7e0a542ca5f77b786fb5116952eb5745}\label{class_linking_context_a7e0a542ca5f77b786fb5116952eb5745}} 
+void {\bfseries Remove\+Game\+Object} (\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$in\+Game\+Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_linking_context_a10275eefb6e9b29cdd7fa273e0806700}\label{class_linking_context_a10275eefb6e9b29cdd7fa273e0806700}} 
+std\+::unordered\+\_\+map$<$ uint32\+\_\+t, \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ $>$ {\bfseries m\+Network\+Id\+To\+Game\+Object\+Map}
+\item 
+\mbox{\Hypertarget{class_linking_context_a768092da3d0ac456ed900b2fd70279fd}\label{class_linking_context_a768092da3d0ac456ed900b2fd70279fd}} 
+std\+::unordered\+\_\+map$<$ const \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$, uint32\+\_\+t $>$ {\bfseries m\+Game\+Object\+To\+Network\+Id\+Map}
+\item 
+\mbox{\Hypertarget{class_linking_context_a6c8b9ca8aa468328cd8a8e25287a5047}\label{class_linking_context_a6c8b9ca8aa468328cd8a8e25287a5047}} 
+uint32\+\_\+t {\bfseries m\+Next\+Network\+Id}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/serialisation/Linking\+Context.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/serialisation/Linking\+Context.\+cpp\end{DoxyCompactItemize}

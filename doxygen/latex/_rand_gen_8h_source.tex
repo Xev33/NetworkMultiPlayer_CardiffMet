@@ -1,0 +1,34 @@
+\hypertarget{_rand_gen_8h_source}{}\doxysection{Rand\+Gen.\+h}
+\label{_rand_gen_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/maths/RandGen.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/maths/RandGen.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef RAND\_GEN\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define RAND\_GEN\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Vector3.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <random>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_rand_gen}{RandGen}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12     \textcolor{keyword}{static} std::unique\_ptr< RandGen > sInstance;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \mbox{\hyperlink{class_rand_gen}{RandGen}}();}
+\DoxyCodeLine{15     \textcolor{keyword}{static} \textcolor{keywordtype}{void} StaticInit();}
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} Seed( uint32\_t inSeed );}
+\DoxyCodeLine{17     std::mt19937\& GetGeneratorRef() \{ \textcolor{keywordflow}{return} mGenerator; \}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keywordtype}{float} GetRandomFloat();}
+\DoxyCodeLine{20     uint32\_t GetRandomUInt32( uint32\_t inMin, uint32\_t inMax );}
+\DoxyCodeLine{21     int32\_t GetRandomInt( int32\_t inMin, int32\_t inMax );}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_vector3}{Vector3}} GetRandomVector( \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inMin, \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inMax );}
+\DoxyCodeLine{23 \textcolor{keyword}{private}:}
+\DoxyCodeLine{24     std::mt19937 mGenerator;}
+\DoxyCodeLine{25     std::uniform\_real\_distribution< float > mFloatDistr;}
+\DoxyCodeLine{26 \};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

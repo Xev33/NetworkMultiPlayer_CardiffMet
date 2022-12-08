@@ -1,0 +1,25 @@
+\hypertarget{_replication_manager_client_8h_source}{}\doxysection{Replication\+Manager\+Client.\+h}
+\label{_replication_manager_client_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/client/ReplicationManagerClient.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/client/ReplicationManagerClient.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef REPLICATION\_MANAGER\_CLIENT}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define REPLICATION\_MANAGER\_CLIENT}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{keyword}{class }\mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}};}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_replication_manager_client}{ReplicationManagerClient}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{9     \textcolor{keywordtype}{void} Read( \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputStream );}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{private}:}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13     \textcolor{keywordtype}{void} ReadAndDoCreateAction( \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputStream, \textcolor{keywordtype}{int} inNetworkId );}
+\DoxyCodeLine{14     \textcolor{keywordtype}{void} ReadAndDoUpdateAction( \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputStream, \textcolor{keywordtype}{int} inNetworkId );}
+\DoxyCodeLine{15     \textcolor{keywordtype}{void} ReadAndDoDestroyAction( \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputStream, \textcolor{keywordtype}{int} inNetworkId );}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

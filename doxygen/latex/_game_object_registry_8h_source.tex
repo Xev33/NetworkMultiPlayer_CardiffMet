@@ -1,0 +1,50 @@
+\hypertarget{_game_object_registry_8h_source}{}\doxysection{Game\+Object\+Registry.\+h}
+\label{_game_object_registry_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/replication/GameObjectRegistry.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/replication/GameObjectRegistry.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef GAME\_OBJECT\_REGISTRY\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define GAME\_OBJECT\_REGISTRY\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}GameObject.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <exception>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{typedef} GameObjectPtr ( *GameObjectCreationFunc )();}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{comment}{// http://www.cplusplus.com/doc/tutorial/exceptions/}}
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_unknown_game_object_type}{UnknownGameObjectType}}: \textcolor{keyword}{public} std::exception}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16   \textcolor{keyword}{virtual} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* what() \textcolor{keyword}{const} \textcolor{keywordflow}{throw}()}
+\DoxyCodeLine{17   \{}
+\DoxyCodeLine{18     \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Game Object Type Unknown"{}};}
+\DoxyCodeLine{19   \}}
+\DoxyCodeLine{20 \};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{class_game_object_registry}{GameObjectRegistry}}}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keyword}{static} \textcolor{keywordtype}{void} StaticInit();}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keyword}{static} std::unique\_ptr< GameObjectRegistry >        sInstance;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} RegisterCreationFunction( uint32\_t inFourCCName, GameObjectCreationFunc inCreationFunction );}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     GameObjectPtr CreateGameObject( uint32\_t inFourCCName );}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{private}:}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \mbox{\hyperlink{class_game_object_registry}{GameObjectRegistry}}();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{bool} CanCreate( uint32\_t inFourCCName );}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     std::unordered\_map< uint32\_t, GameObjectCreationFunc >  mNameToGameObjectCreationFunctionMap;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

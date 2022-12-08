@@ -1,0 +1,42 @@
+\hypertarget{_replication_manager_server_8h_source}{}\doxysection{Replication\+Manager\+Server.\+h}
+\label{_replication_manager_server_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/server/ReplicationManagerServer.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/server/ReplicationManagerServer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef REPLICATION\_MANAGER\_SERVER}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define REPLICATION\_MANAGER\_SERVER}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{5 \textcolor{keyword}{using }std::vector;}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{8 \textcolor{keyword}{using }std::unordered\_map;}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}OutputMemoryBitStream.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}ReplicationCommand.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_replication_manager_server}{ReplicationManagerServer}}}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} ReplicateCreate( \textcolor{keywordtype}{int} inNetworkId, uint32\_t inInitialDirtyState );}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} ReplicateDestroy( \textcolor{keywordtype}{int} inNetworkId );}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} SetStateDirty( \textcolor{keywordtype}{int} inNetworkId, uint32\_t inDirtyState );}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void} RemoveFromReplication( \textcolor{keywordtype}{int} inNetworkId );}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} Write( \mbox{\hyperlink{class_output_memory_bit_stream}{OutputMemoryBitStream}}\& inOutputStream );}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{private}:}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     uint32\_t WriteCreateAction( \mbox{\hyperlink{class_output_memory_bit_stream}{OutputMemoryBitStream}}\& inOutputStream, \textcolor{keywordtype}{int} inNetworkId, uint32\_t inDirtyState );}
+\DoxyCodeLine{27     uint32\_t WriteUpdateAction( \mbox{\hyperlink{class_output_memory_bit_stream}{OutputMemoryBitStream}}\& inOutputStream, \textcolor{keywordtype}{int} inNetworkId, uint32\_t inDirtyState );}
+\DoxyCodeLine{28     uint32\_t WriteDestroyAction( \mbox{\hyperlink{class_output_memory_bit_stream}{OutputMemoryBitStream}}\& inOutputStream, \textcolor{keywordtype}{int} inNetworkId, uint32\_t inDirtyState );}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     unordered\_map< int, ReplicationCommand >    mNetworkIdToReplicationCommand;}
+\DoxyCodeLine{31     vector< int >                               mNetworkIdsToRemove;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

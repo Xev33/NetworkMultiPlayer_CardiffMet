@@ -1,0 +1,42 @@
+\hypertarget{_engine_8h_source}{}\doxysection{Engine.\+h}
+\label{_engine_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/Engine.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/Engine.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef ENGINE\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define ENGINE\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifndef \_WIN32}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <SDL2/SDL.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <SDL.h>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_engine}{Engine}}}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14 \textcolor{keyword}{public}:}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_engine}{\string~Engine}}();}
+\DoxyCodeLine{17     \textcolor{keyword}{static} std::unique\_ptr< Engine >    sInstance;}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keyword}{virtual} \textcolor{keywordtype}{int}     Run();}
+\DoxyCodeLine{20     \textcolor{keywordtype}{void}            SetShouldKeepRunning( \textcolor{keywordtype}{bool} inShouldKeepRunning ) \{ mShouldKeepRunning = inShouldKeepRunning; \}}
+\DoxyCodeLine{21     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}    HandleEvent( SDL\_Event* inEvent );}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{class_engine}{Engine}}();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} DoFrame();}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{private}:}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31             \textcolor{keywordtype}{int}     DoRunLoop();}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33             \textcolor{keywordtype}{bool}    mShouldKeepRunning;}
+\DoxyCodeLine{34 \};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// ENGINE\_H\_}}
+
+\end{DoxyCode}

@@ -1,0 +1,33 @@
+\hypertarget{_goal_client_8h_source}{}\doxysection{Goal\+Client.\+h}
+\label{_goal_client_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/client/GoalClient.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/client/GoalClient.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef GOAL\_CLIENT\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define GOAL\_CLIENT\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Goal.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}SpriteComponent.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_goal_client}{GoalClient}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_goal}{Goal}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \textcolor{keyword}{static}  GameObjectPtr   StaticCreate()      \{ \textcolor{keywordflow}{return} GameObjectPtr( \textcolor{keyword}{new} \mbox{\hyperlink{class_goal_client}{GoalClient}}() ); \}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}    HandleDying() \textcolor{keyword}{override};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}    Read( \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputStream ) \textcolor{keyword}{override};}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_goal_client}{GoalClient}}();}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{private}:}
+\DoxyCodeLine{21     \textcolor{keywordtype}{float}               mTimeLocationBecameOutOfSync;}
+\DoxyCodeLine{22     \textcolor{keywordtype}{float}               mTimeVelocityBecameOutOfSync;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     SpriteComponentPtr  mSpriteComponent;}
+\DoxyCodeLine{25 \};}
+\DoxyCodeLine{26 \textcolor{keyword}{typedef} shared\_ptr< GoalClient >    GoalClientPtr;}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//GOAL\_CLIENT\_H}}
+
+\end{DoxyCode}

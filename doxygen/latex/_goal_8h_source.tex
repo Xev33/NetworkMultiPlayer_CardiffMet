@@ -1,0 +1,60 @@
+\hypertarget{_goal_8h_source}{}\doxysection{Goal.\+h}
+\label{_goal_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/Goal.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/Goal.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef GOAL\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define GOAL\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}GameObject.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}World.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{comment}{/* We'll later create client and server versions of this class */}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_goal}{Goal}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12     CLASS\_IDENTIFICATION( \textcolor{stringliteral}{'GOAL'}, \mbox{\hyperlink{class_game_object}{GameObject}} )}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keyword}{enum} EPlayerReplicationState}
+\DoxyCodeLine{15     \{}
+\DoxyCodeLine{16         ECRS\_Pose = 1 << 0,}
+\DoxyCodeLine{17         ECRS\_GoalId = 1 << 1,}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19         ECRS\_AllState = ECRS\_Pose | ECRS\_GoalId}
+\DoxyCodeLine{20     \};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keyword}{static}  \mbox{\hyperlink{class_game_object}{GameObject}}*   StaticCreate()          \{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_goal}{Goal}}(); \}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{comment}{//Note -\/ the code in the book doesn't provide this until the client.}}
+\DoxyCodeLine{26     \textcolor{comment}{//This however limits testing.}}
+\DoxyCodeLine{27     \textcolor{keyword}{static}  GameObjectPtr   StaticCreatePtr()           \{ \textcolor{keywordflow}{return} GameObjectPtr(\textcolor{keyword}{new} \mbox{\hyperlink{class_goal}{Goal}}()); \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keyword}{virtual} uint32\_t GetAllStateMask()\textcolor{keyword}{  const override  }\{ \textcolor{keywordflow}{return} ECRS\_AllState; \}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Update() \textcolor{keyword}{override};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{void}        SetGoalId( uint32\_t inPlayerId )            \{ mGoalId = inPlayerId; \}}
+\DoxyCodeLine{35     uint32\_t    GetGoalId()\textcolor{keyword}{                     const   }\{ \textcolor{keywordflow}{return} mGoalId; \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     uint32\_t Write( \mbox{\hyperlink{class_output_memory_bit_stream}{OutputMemoryBitStream}}\& inOutputStream, uint32\_t inDirtyState ) \textcolor{keyword}{const override};}
+\DoxyCodeLine{38     \textcolor{comment}{// For testing}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{41     \mbox{\hyperlink{class_goal}{Goal}}();}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{keyword}{private}:}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     uint32\_t            mGoalId;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{48     \textcolor{keywordtype}{float}               mHealth;}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keyword}{typedef} shared\_ptr< Goal >  GoalPtr;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// GOAL\_H}}
+
+\end{DoxyCode}

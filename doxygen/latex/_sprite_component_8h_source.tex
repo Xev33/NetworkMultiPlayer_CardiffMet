@@ -1,0 +1,48 @@
+\hypertarget{_sprite_component_8h_source}{}\doxysection{Sprite\+Component.\+h}
+\label{_sprite_component_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/client/SpriteComponent.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/client/SpriteComponent.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SPRITE\_COMPONENT\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SPRITE\_COMPONENT\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifndef \_WIN32}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <SDL2/SDL.h>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <SDL.h>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}Texture.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}Vector3.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_game_object}{GameObject}};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_sprite_component}{SpriteComponent}}}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \mbox{\hyperlink{class_sprite_component}{SpriteComponent}}( \mbox{\hyperlink{class_game_object}{GameObject}}* inGameObject );}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_sprite_component}{\string~SpriteComponent}}();}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}        Draw( \textcolor{keyword}{const} SDL\_Rect\& inViewTransform );}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24             \textcolor{keywordtype}{void}        SetTexture( TexturePtr inTexture )          \{ mTexture = inTexture; \}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26             \mbox{\hyperlink{class_vector3}{Vector3}}      GetOrigin()\textcolor{keyword}{                 const           }\{ \textcolor{keywordflow}{return} mOrigin; \}}
+\DoxyCodeLine{27             \textcolor{keywordtype}{void}        SetOrigin( \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inOrigin )     \{ mOrigin = inOrigin; \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{private}:}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \mbox{\hyperlink{class_vector3}{Vector3}}                                          mOrigin;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     TexturePtr                                      mTexture;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{comment}{//don't want circular reference...}}
+\DoxyCodeLine{37     \mbox{\hyperlink{class_game_object}{GameObject}}*                                       mGameObject;}
+\DoxyCodeLine{38 \};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{keyword}{typedef} shared\_ptr< SpriteComponent >   SpriteComponentPtr;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,108 @@
+\hypertarget{class_server}{}\doxysection{Server Class Reference}
+\label{class_server}\index{Server@{Server}}
+Inheritance diagram for Server\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_server}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{class_server_a6143c9d0d63417a8b790461adba00b09}{Do\+Frame}} () override
+\item 
+virtual int \mbox{\hyperlink{class_server_a696259b475a6e10bd029333c07626b21}{Run}} ()
+\item 
+\mbox{\Hypertarget{class_server_a01ce0da589fdc8e9d9b6f3e655d9a183}\label{class_server_a01ce0da589fdc8e9d9b6f3e655d9a183}} 
+void {\bfseries Handle\+New\+Client} (Client\+Proxy\+Ptr in\+Client\+Proxy)
+\item 
+\mbox{\Hypertarget{class_server_a6e0e353695a565b343e1ae041e806b36}\label{class_server_a6e0e353695a565b343e1ae041e806b36}} 
+void {\bfseries Handle\+Lost\+Client} (Client\+Proxy\+Ptr in\+Client\+Proxy)
+\item 
+\mbox{\Hypertarget{class_server_a3ca5f4cace09f10602066dcdf5abb63e}\label{class_server_a3ca5f4cace09f10602066dcdf5abb63e}} 
+Player\+Ptr {\bfseries Get\+Player} (int in\+Player\+Id)
+\item 
+\mbox{\Hypertarget{class_server_a39faa8f621bbdb083115cd47a1886bf4}\label{class_server_a39faa8f621bbdb083115cd47a1886bf4}} 
+\mbox{\hyperlink{class_vector3}{Vector3}} {\bfseries Get\+Closest\+Player\+Pos} (\mbox{\hyperlink{class_vector3}{Vector3}} in\+Loc)
+\item 
+\mbox{\Hypertarget{class_server_a26825fad140f7b3f74171226151e1071}\label{class_server_a26825fad140f7b3f74171226151e1071}} 
+void {\bfseries Spawn\+Player} (int in\+Player\+Id)
+\item 
+\mbox{\Hypertarget{class_server_a00685cc955f78866e93dbfb51724e525}\label{class_server_a00685cc955f78866e93dbfb51724e525}} 
+void {\bfseries Respawn\+AI} ()
+\item 
+\mbox{\Hypertarget{class_server_a3c929d0d3e12ea3d32e2fd691dd0c8b1}\label{class_server_a3c929d0d3e12ea3d32e2fd691dd0c8b1}} 
+void {\bfseries Respawn\+Goal} ()
+\item 
+\mbox{\Hypertarget{class_server_af11eff25f496b6e2f5f6a0aecfd47e94}\label{class_server_af11eff25f496b6e2f5f6a0aecfd47e94}} 
+int {\bfseries Get\+Current\+Number\+Of\+Player} () const
+\item 
+\mbox{\Hypertarget{class_server_a161a715b5e8706846bf9a20afda5df19}\label{class_server_a161a715b5e8706846bf9a20afda5df19}} 
+int {\bfseries Get\+Current\+Number\+Of\+Ai} () const
+\item 
+\mbox{\Hypertarget{class_server_abf9febc09a37255ea734a95980b2e404}\label{class_server_abf9febc09a37255ea734a95980b2e404}} 
+bool {\bfseries Is\+AGoal\+On\+Map} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_server_a821813e3aaba24f1836715b5b5d0306e}\label{class_server_a821813e3aaba24f1836715b5b5d0306e}} 
+static bool {\bfseries Static\+Init} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_server_a0d820cd17218ea4a7a797dc5f88ffce7}\label{class_server_a0d820cd17218ea4a7a797dc5f88ffce7}} 
+bool {\bfseries Init\+Network\+Manager} ()
+\item 
+\mbox{\Hypertarget{class_server_ad1a1c1b61f4311593afd29a15b2e2ac2}\label{class_server_ad1a1c1b61f4311593afd29a15b2e2ac2}} 
+void {\bfseries Setup\+World} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_server_a3b824a9c88d1749a26642c5f30442ac7}\label{class_server_a3b824a9c88d1749a26642c5f30442ac7}} 
+float {\bfseries m\+Time\+To\+Respawn\+Ai}
+\item 
+\mbox{\Hypertarget{class_server_acaf2d1a148d18026fbdc7306b73d0457}\label{class_server_acaf2d1a148d18026fbdc7306b73d0457}} 
+float {\bfseries m\+Cool\+Down\+Respawn\+AI}
+\item 
+\mbox{\Hypertarget{class_server_a7a8408c5e306a964bdc9044ca7abaf45}\label{class_server_a7a8408c5e306a964bdc9044ca7abaf45}} 
+int {\bfseries m\+Goal\+Spawner\+Index}
+\item 
+\mbox{\Hypertarget{class_server_a4c8c07fd774eb4bb0e33b9704094b19f}\label{class_server_a4c8c07fd774eb4bb0e33b9704094b19f}} 
+vector$<$ \mbox{\hyperlink{class_vector3}{Vector3}} $>$ {\bfseries m\+Level\+Positions}
+\item 
+\mbox{\Hypertarget{class_server_af87fbb6753db012f515419916d9e9600}\label{class_server_af87fbb6753db012f515419916d9e9600}} 
+vector$<$ \mbox{\hyperlink{class_vector3}{Vector3}} $>$ {\bfseries m\+Goal\+Spawner\+Pos}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_server_a6143c9d0d63417a8b790461adba00b09}\label{class_server_a6143c9d0d63417a8b790461adba00b09}} 
+\index{Server@{Server}!DoFrame@{DoFrame}}
+\index{DoFrame@{DoFrame}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{DoFrame()}{DoFrame()}}
+{\footnotesize\ttfamily void Server\+::\+Do\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_engine}{Engine}}.
+
+\mbox{\Hypertarget{class_server_a696259b475a6e10bd029333c07626b21}\label{class_server_a696259b475a6e10bd029333c07626b21}} 
+\index{Server@{Server}!Run@{Run}}
+\index{Run@{Run}!Server@{Server}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily int Server\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_engine}{Engine}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/server/Server.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/server/Server.\+cpp\end{DoxyCompactItemize}

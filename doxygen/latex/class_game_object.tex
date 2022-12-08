@@ -1,0 +1,122 @@
+\hypertarget{class_game_object}{}\doxysection{Game\+Object Class Reference}
+\label{class_game_object}\index{GameObject@{GameObject}}
+Inheritance diagram for Game\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.916667cm]{class_game_object}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_object_a0b6aa2240b15858f1300271ec7a4c7ed}\label{class_game_object_a0b6aa2240b15858f1300271ec7a4c7ed}} 
+virtual uint32\+\_\+t {\bfseries Get\+All\+State\+Mask} () const
+\item 
+\mbox{\Hypertarget{class_game_object_a1bd14aa169f501f94f1721943d716535}\label{class_game_object_a1bd14aa169f501f94f1721943d716535}} 
+virtual void {\bfseries Update} ()
+\item 
+\mbox{\Hypertarget{class_game_object_a9ebc8e75e148aa9ca5e72aa9421ee707}\label{class_game_object_a9ebc8e75e148aa9ca5e72aa9421ee707}} 
+virtual void {\bfseries Handle\+Dying} ()
+\item 
+\mbox{\Hypertarget{class_game_object_a7910bf3a751c73167e4c43b2269668b2}\label{class_game_object_a7910bf3a751c73167e4c43b2269668b2}} 
+void {\bfseries Set\+Index\+In\+World} (int in\+Index)
+\item 
+\mbox{\Hypertarget{class_game_object_a242bced2fdc0cb235b76720bd6166443}\label{class_game_object_a242bced2fdc0cb235b76720bd6166443}} 
+int {\bfseries Get\+Index\+In\+World} () const
+\item 
+\mbox{\Hypertarget{class_game_object_aca323729233f60540baaf891b8ac3dbe}\label{class_game_object_aca323729233f60540baaf891b8ac3dbe}} 
+void {\bfseries Set\+Rotation} (float in\+Rotation)
+\item 
+\mbox{\Hypertarget{class_game_object_a53875b706c5c9ebc0cdd8600a423ed20}\label{class_game_object_a53875b706c5c9ebc0cdd8600a423ed20}} 
+float {\bfseries Get\+Rotation} () const
+\item 
+\mbox{\Hypertarget{class_game_object_a72e7f7f5396d8355cd809399c90baa25}\label{class_game_object_a72e7f7f5396d8355cd809399c90baa25}} 
+void {\bfseries Set\+Scale} (float in\+Scale)
+\item 
+\mbox{\Hypertarget{class_game_object_a0fb90bbb74c8988d23e865280a065901}\label{class_game_object_a0fb90bbb74c8988d23e865280a065901}} 
+float {\bfseries Get\+Scale} () const
+\item 
+\mbox{\Hypertarget{class_game_object_a850018db6912367ca5cbe0ba53f325f9}\label{class_game_object_a850018db6912367ca5cbe0ba53f325f9}} 
+const \mbox{\hyperlink{class_vector3}{Vector3}} \& {\bfseries Get\+Location} () const
+\item 
+\mbox{\Hypertarget{class_game_object_a466fe28c6f16e9de27c48b6a24a93415}\label{class_game_object_a466fe28c6f16e9de27c48b6a24a93415}} 
+void {\bfseries Set\+Location} (const \mbox{\hyperlink{class_vector3}{Vector3}} \&in\+Location)
+\item 
+\mbox{\Hypertarget{class_game_object_a4ac243e16299a3a0e7e109d0721f65b7}\label{class_game_object_a4ac243e16299a3a0e7e109d0721f65b7}} 
+float {\bfseries Get\+Collision\+Radius} () const
+\item 
+\mbox{\Hypertarget{class_game_object_ac9000f9583fdf735a79f3780ce835fe4}\label{class_game_object_ac9000f9583fdf735a79f3780ce835fe4}} 
+void {\bfseries Set\+Collision\+Radius} (float in\+Radius)
+\item 
+\mbox{\Hypertarget{class_game_object_a5fc3df84b62a85f8bff778a96d04909c}\label{class_game_object_a5fc3df84b62a85f8bff778a96d04909c}} 
+\mbox{\hyperlink{class_vector3}{Vector3}} {\bfseries Get\+Forward\+Vector} () const
+\item 
+\mbox{\Hypertarget{class_game_object_ae14b9b86ade76cb8852b3a70223d978d}\label{class_game_object_ae14b9b86ade76cb8852b3a70223d978d}} 
+\mbox{\hyperlink{class_vector3}{Vector3}} {\bfseries Get\+Right\+Vector} () const
+\item 
+\mbox{\Hypertarget{class_game_object_a89eff7fc3d205ce1bfdc8357c45059d2}\label{class_game_object_a89eff7fc3d205ce1bfdc8357c45059d2}} 
+virtual bool {\bfseries Handle\+Collision\+With\+Player} (\mbox{\hyperlink{class_player}{Player}} $\ast$in\+Player)
+\item 
+\mbox{\Hypertarget{class_game_object_a65eea838bcae7000e9ca34ab142a86ff}\label{class_game_object_a65eea838bcae7000e9ca34ab142a86ff}} 
+virtual bool {\bfseries On\+Collision\+Enter} (\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$col\+Obj)
+\item 
+\mbox{\Hypertarget{class_game_object_a393749b2a0fe506c33dbc754fb14cfbe}\label{class_game_object_a393749b2a0fe506c33dbc754fb14cfbe}} 
+void {\bfseries Set\+Color} (const \mbox{\hyperlink{class_vector3}{Vector3}} \&in\+Color)
+\item 
+\mbox{\Hypertarget{class_game_object_a32e4bc50633db349846da5f9686fbc74}\label{class_game_object_a32e4bc50633db349846da5f9686fbc74}} 
+const \mbox{\hyperlink{class_vector3}{Vector3}} \& {\bfseries Get\+Color} () const
+\item 
+\mbox{\Hypertarget{class_game_object_a9a9e87a79721d30230ce8c6b69983e3b}\label{class_game_object_a9a9e87a79721d30230ce8c6b69983e3b}} 
+bool {\bfseries Does\+Want\+To\+Die} () const
+\item 
+\mbox{\Hypertarget{class_game_object_a9e1b3799da488b6f5a7712b9a409289c}\label{class_game_object_a9e1b3799da488b6f5a7712b9a409289c}} 
+void {\bfseries Set\+Does\+Want\+To\+Die} (bool in\+Wants)
+\item 
+\mbox{\Hypertarget{class_game_object_a7766a4c4e94883f29496521200123aff}\label{class_game_object_a7766a4c4e94883f29496521200123aff}} 
+int {\bfseries Get\+Network\+Id} () const
+\item 
+\mbox{\Hypertarget{class_game_object_a90e9048288761a5e0e4d52ff32bc49e1}\label{class_game_object_a90e9048288761a5e0e4d52ff32bc49e1}} 
+void {\bfseries Set\+Network\+Id} (int in\+Network\+Id)
+\item 
+\mbox{\Hypertarget{class_game_object_a20228420913490ac36a05878d00dd1da}\label{class_game_object_a20228420913490ac36a05878d00dd1da}} 
+virtual uint32\+\_\+t {\bfseries Write} (\mbox{\hyperlink{class_output_memory_bit_stream}{Output\+Memory\+Bit\+Stream}} \&in\+Output\+Stream, uint32\+\_\+t in\+Dirty\+State) const
+\item 
+\mbox{\Hypertarget{class_game_object_ae7ae11b320611cf4635f0eba6b17c402}\label{class_game_object_ae7ae11b320611cf4635f0eba6b17c402}} 
+virtual void {\bfseries Read} (\mbox{\hyperlink{class_input_memory_bit_stream}{Input\+Memory\+Bit\+Stream}} \&in\+Input\+Stream)
+\item 
+\mbox{\Hypertarget{class_game_object_a0fb2d6703ab336e9e81beb0fb44f82aa}\label{class_game_object_a0fb2d6703ab336e9e81beb0fb44f82aa}} 
+bool {\bfseries operator==} (\mbox{\hyperlink{class_game_object}{Game\+Object}} \&other)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_object_a80195cbc83848a18d6323c950ea0a54b}\label{class_game_object_a80195cbc83848a18d6323c950ea0a54b}} 
+\mbox{\hyperlink{class_vector3}{Vector3}} {\bfseries m\+Location}
+\item 
+\mbox{\Hypertarget{class_game_object_abad4b121a06f39d76075a21e5ecd5cd4}\label{class_game_object_abad4b121a06f39d76075a21e5ecd5cd4}} 
+\mbox{\hyperlink{class_vector3}{Vector3}} {\bfseries m\+Color}
+\item 
+\mbox{\Hypertarget{class_game_object_a66b463a7ae24f373939c93e79b5ef0c0}\label{class_game_object_a66b463a7ae24f373939c93e79b5ef0c0}} 
+float {\bfseries m\+Collision\+Radius}
+\item 
+\mbox{\Hypertarget{class_game_object_a78f10d4354529810bcd14cb8e70f4d03}\label{class_game_object_a78f10d4354529810bcd14cb8e70f4d03}} 
+float {\bfseries m\+Rotation}
+\item 
+\mbox{\Hypertarget{class_game_object_a542e533fd6aeed9b48b51b1b2370711f}\label{class_game_object_a542e533fd6aeed9b48b51b1b2370711f}} 
+float {\bfseries m\+Scale}
+\item 
+\mbox{\Hypertarget{class_game_object_a40218645583eeb73c2ff40f43f65eba1}\label{class_game_object_a40218645583eeb73c2ff40f43f65eba1}} 
+int {\bfseries m\+Index\+In\+World}
+\item 
+\mbox{\Hypertarget{class_game_object_a91d941639c99bfa3e6f1e7adf89aafc0}\label{class_game_object_a91d941639c99bfa3e6f1e7adf89aafc0}} 
+bool {\bfseries m\+Does\+Want\+To\+Die}
+\item 
+\mbox{\Hypertarget{class_game_object_af0dbf87aba3e8f5b8c98624b939dbf80}\label{class_game_object_af0dbf87aba3e8f5b8c98624b939dbf80}} 
+int {\bfseries m\+Network\+Id}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/engine/Game\+Object.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/engine/Game\+Object.\+cpp\end{DoxyCompactItemize}

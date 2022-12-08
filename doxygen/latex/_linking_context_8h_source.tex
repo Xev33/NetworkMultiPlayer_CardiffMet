@@ -1,0 +1,34 @@
+\hypertarget{_linking_context_8h_source}{}\doxysection{Linking\+Context.\+h}
+\label{_linking_context_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/serialisation/LinkingContext.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/serialisation/LinkingContext.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#ifndef LINKING\_CONTEXT\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#define LINKING\_CONTEXT\_H}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <cstdint>} \textcolor{comment}{// for uint32\_t}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_game_object}{GameObject}};}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_linking_context}{LinkingContext}}}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{13     \mbox{\hyperlink{class_linking_context}{LinkingContext}}() :}
+\DoxyCodeLine{14     mNextNetworkId( 1 ) \{\}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     uint32\_t GetNetworkId( \mbox{\hyperlink{class_game_object}{GameObject}}* inGameObject, \textcolor{keywordtype}{bool} inShouldCreateIfNotFound );}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_game_object}{GameObject}}* GetGameObject( uint32\_t inNetworkId ) \textcolor{keyword}{const};}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} AddGameObject( \mbox{\hyperlink{class_game_object}{GameObject}}* inGameObject, uint32\_t inNetworkId );}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} RemoveGameObject( \mbox{\hyperlink{class_game_object}{GameObject}} *inGameObject );}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{keyword}{private}:}
+\DoxyCodeLine{22     std::unordered\_map< uint32\_t, GameObject* > mNetworkIdToGameObjectMap;}
+\DoxyCodeLine{23     std::unordered\_map< const GameObject*, uint32\_t > mGameObjectToNetworkIdMap;}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     uint32\_t mNextNetworkId;}
+\DoxyCodeLine{26 \};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

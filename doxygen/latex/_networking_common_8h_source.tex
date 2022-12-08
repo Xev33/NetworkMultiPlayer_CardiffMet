@@ -1,0 +1,38 @@
+\hypertarget{_networking_common_8h_source}{}\doxysection{Networking\+Common.\+h}
+\label{_networking_common_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/networking/NetworkingCommon.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/networking/NetworkingCommon.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef NETWORKING\_COMMON\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define NETWORKING\_COMMON\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{comment}{/* Networking includes -\/ hopefully cross platform */}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#ifdef \_WIN32}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{    \#define WIN32\_LEAN\_AND\_MEAN}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{    \#define NOMINMAX}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{preprocessor}{    \#include "{}Windows.h"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{    \#include "{}WinSock2.h"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{    \#include "{}Ws2tcpip.h"{}}}
+\DoxyCodeLine{13     \textcolor{keyword}{typedef} \textcolor{keywordtype}{int} socklen\_t;}
+\DoxyCodeLine{14     \textcolor{comment}{//typedef char* receiveBufer\_t;}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{    \#include <sys/socket.h>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{    \#include <netinet/in.h>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{    \#include <sys/types.h>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{    \#include <netdb.h>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{    \#include <errno.h>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{    \#include <fcntl.h>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{    \#include <unistd.h>}}
+\DoxyCodeLine{23     \textcolor{comment}{//typedef void* receiveBufer\_t;}}
+\DoxyCodeLine{24     \textcolor{keyword}{typedef} \textcolor{keywordtype}{int} SOCKET;}
+\DoxyCodeLine{25     \textcolor{keyword}{const} \textcolor{keywordtype}{int} NO\_ERROR = 0;}
+\DoxyCodeLine{26     \textcolor{keyword}{const} \textcolor{keywordtype}{int} INVALID\_SOCKET = -\/1;}
+\DoxyCodeLine{27     \textcolor{keyword}{const} \textcolor{keywordtype}{int} WSAECONNRESET = ECONNRESET;}
+\DoxyCodeLine{28     \textcolor{keyword}{const} \textcolor{keywordtype}{int} WSAEWOULDBLOCK = EAGAIN;}
+\DoxyCodeLine{29     \textcolor{keyword}{const} \textcolor{keywordtype}{int} SOCKET\_ERROR = -\/1;}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

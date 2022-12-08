@@ -1,0 +1,60 @@
+\hypertarget{_wall_8h_source}{}\doxysection{Wall.\+h}
+\label{_wall_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/Wall.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/Wall.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef WALL\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define WALL\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}GameObject.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}World.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{comment}{/* We'll later create client and server versions of this class */}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_wall}{Wall}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12     CLASS\_IDENTIFICATION(\textcolor{stringliteral}{'WALL'}, \mbox{\hyperlink{class_game_object}{GameObject}})}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14         \textcolor{keyword}{enum} EPlayerReplicationState}
+\DoxyCodeLine{15     \{}
+\DoxyCodeLine{16         ECRS\_Pose = 1 << 0,}
+\DoxyCodeLine{17         ECRS\_WallId = 1 << 1,}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19         ECRS\_AllState = ECRS\_Pose | ECRS\_WallId}
+\DoxyCodeLine{20     \};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keyword}{static}  \mbox{\hyperlink{class_game_object}{GameObject}}* StaticCreate() \{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_wall}{Wall}}(); \}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{comment}{//Note -\/ the code in the book doesn't provide this until the client.}}
+\DoxyCodeLine{26     \textcolor{comment}{//This however limits testing.}}
+\DoxyCodeLine{27     \textcolor{keyword}{static}  GameObjectPtr   StaticCreatePtr() \{ \textcolor{keywordflow}{return} GameObjectPtr(\textcolor{keyword}{new} \mbox{\hyperlink{class_wall}{Wall}}()); \}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keyword}{virtual} uint32\_t GetAllStateMask()\textcolor{keyword}{  const override }\{ \textcolor{keywordflow}{return} ECRS\_AllState; \}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void}        SetIsSmoke(\textcolor{keywordtype}{bool} in) \{ mIsSmoke = in; \}}
+\DoxyCodeLine{33     \textcolor{keywordtype}{bool}        GetIsSmoke()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} mIsSmoke; \}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{void}        SetWallId(uint32\_t inPlayerId) \{ mWallId = inPlayerId; \}}
+\DoxyCodeLine{36     uint32\_t    GetWallId()\textcolor{keyword}{                     const }\{ \textcolor{keywordflow}{return} mWallId; \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     uint32\_t Write(\mbox{\hyperlink{class_output_memory_bit_stream}{OutputMemoryBitStream}}\& inOutputStream, uint32\_t inDirtyState) \textcolor{keyword}{const override};}
+\DoxyCodeLine{39     \textcolor{comment}{// For testing}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{42     \mbox{\hyperlink{class_wall}{Wall}}();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{private}:}
+\DoxyCodeLine{45     uint32\_t            mWallId;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{48     \textcolor{keywordtype}{bool}                mIsSmoke;}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{keyword}{typedef} shared\_ptr< Wall >  WallPtr;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// WALL\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,43 @@
+\hypertarget{_u_d_p_socket_8h_source}{}\doxysection{UDPSocket.\+h}
+\label{_u_d_p_socket_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/networking/UDPSocket.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/networking/UDPSocket.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef UDP\_SOCKET\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define UDP\_SOCKET\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}NetworkingCommon.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{7 \textcolor{keyword}{using }std::shared\_ptr;}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_socket_address}{SocketAddress}};}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_u_d_p_socket}{UDPSocket}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \mbox{\hyperlink{class_u_d_p_socket}{\string~UDPSocket}}();}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keywordtype}{int} Bind( \textcolor{keyword}{const} \mbox{\hyperlink{class_socket_address}{SocketAddress}}\& inToAddress );}
+\DoxyCodeLine{18     \textcolor{keywordtype}{int} SendTo( \textcolor{keyword}{const} \textcolor{keywordtype}{void}* inToSend, \textcolor{keywordtype}{int} inLength, \textcolor{keyword}{const} \mbox{\hyperlink{class_socket_address}{SocketAddress}}\& inToAddress );}
+\DoxyCodeLine{19     \textcolor{keywordtype}{int} ReceiveFrom( \textcolor{keywordtype}{void}* inToReceive, \textcolor{keywordtype}{int} inMaxLength, \mbox{\hyperlink{class_socket_address}{SocketAddress}}\& outFromAddress );}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{comment}{/*}}
+\DoxyCodeLine{22 \textcolor{comment}{    int SendTo( const MemoryOutputStream\& inMOS, const SocketAddress\& inToAddress );}}
+\DoxyCodeLine{23 \textcolor{comment}{    int ReceiveFrom( MemoryInputStream\& inMIS, SocketAddress\& outFromAddress );}}
+\DoxyCodeLine{24 \textcolor{comment}{    */}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{int} SetNonBlockingMode( \textcolor{keywordtype}{bool} inShouldBeNonBlocking );}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{private}:}
+\DoxyCodeLine{29     \textcolor{keyword}{friend} \textcolor{keyword}{class }\mbox{\hyperlink{class_socket_util}{SocketUtil}};}
+\DoxyCodeLine{30     \mbox{\hyperlink{class_u_d_p_socket}{UDPSocket}}( SOCKET inSocket ) : mSocket( inSocket ) \{\}}
+\DoxyCodeLine{31     SOCKET mSocket;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 \textcolor{keyword}{typedef} shared\_ptr< UDPSocket > UDPSocketPtr;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

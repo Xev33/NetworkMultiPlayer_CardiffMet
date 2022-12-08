@@ -1,0 +1,36 @@
+\hypertarget{_player_client_8h_source}{}\doxysection{Player\+Client.\+h}
+\label{_player_client_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/client/PlayerClient.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/client/PlayerClient.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PLAYER\_CLIENT\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PLAYER\_CLIENT\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Player.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}SpriteComponent.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_player_client}{PlayerClient}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_player}{Player}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \textcolor{keyword}{static}  GameObjectPtr   StaticCreate()      \{ \textcolor{keywordflow}{return} GameObjectPtr( \textcolor{keyword}{new} \mbox{\hyperlink{class_player_client}{PlayerClient}}() ); \}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Update();}
+\DoxyCodeLine{13     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}    HandleDying() \textcolor{keyword}{override};}
+\DoxyCodeLine{14     \textcolor{keyword}{const} SpriteComponentPtr GetSpriteComponent() \{ \textcolor{keywordflow}{return} mSpriteComponent; \}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}    Read( \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputStream ) \textcolor{keyword}{override};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_player_client}{PlayerClient}}();}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{private}:}
+\DoxyCodeLine{23     \textcolor{keywordtype}{float}               mTimeLocationBecameOutOfSync;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{float}               mTimeVelocityBecameOutOfSync;}
+\DoxyCodeLine{25     \textcolor{keywordtype}{bool}                mIsSpriteChanged;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     SpriteComponentPtr  mSpriteComponent;}
+\DoxyCodeLine{28 \};}
+\DoxyCodeLine{29 \textcolor{keyword}{typedef} shared\_ptr< PlayerClient >  PlayerClientPtr;}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PLAYER\_CLIENT\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,83 @@
+\hypertarget{class_input_memory_bit_stream}{}\doxysection{Input\+Memory\+Bit\+Stream Class Reference}
+\label{class_input_memory_bit_stream}\index{InputMemoryBitStream@{InputMemoryBitStream}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_a2bd852c52bc65a147f5bfe3fa30f593d}\label{class_input_memory_bit_stream_a2bd852c52bc65a147f5bfe3fa30f593d}} 
+{\bfseries Input\+Memory\+Bit\+Stream} (char $\ast$in\+Buffer, uint32\+\_\+t in\+Bit\+Count)
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_a3d94306e304ff7452570b32b3107837f}\label{class_input_memory_bit_stream_a3d94306e304ff7452570b32b3107837f}} 
+{\bfseries Input\+Memory\+Bit\+Stream} (const \mbox{\hyperlink{class_input_memory_bit_stream}{Input\+Memory\+Bit\+Stream}} \&in\+Other)
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_a22b3679e2f4452ced5aaa3c158bee19a}\label{class_input_memory_bit_stream_a22b3679e2f4452ced5aaa3c158bee19a}} 
+const char $\ast$ {\bfseries Get\+Buffer\+Ptr} () const
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_ad22296b2b4c21a1cac85b59202dec944}\label{class_input_memory_bit_stream_ad22296b2b4c21a1cac85b59202dec944}} 
+uint32\+\_\+t {\bfseries Get\+Remaining\+Bit\+Count} () const
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_af710e5933c9ec819a17c0b569f351b2d}\label{class_input_memory_bit_stream_af710e5933c9ec819a17c0b569f351b2d}} 
+void {\bfseries Read\+Bits} (uint8\+\_\+t \&out\+Data, uint32\+\_\+t in\+Bit\+Count)
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_ade33bcf4d8e8e31305ba1535610c4618}\label{class_input_memory_bit_stream_ade33bcf4d8e8e31305ba1535610c4618}} 
+void {\bfseries Read\+Bits} (void $\ast$out\+Data, uint32\+\_\+t in\+Bit\+Count)
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_a0daa83ddb2aa7bb0c6d951e7b21ae4d2}\label{class_input_memory_bit_stream_a0daa83ddb2aa7bb0c6d951e7b21ae4d2}} 
+void {\bfseries Read\+Bytes} (void $\ast$out\+Data, uint32\+\_\+t in\+Byte\+Count)
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_a50074acf250d716a030d514b2d82802b}\label{class_input_memory_bit_stream_a50074acf250d716a030d514b2d82802b}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries Read} (T \&in\+Data, uint32\+\_\+t in\+Bit\+Count=sizeof(T) $\ast$8)
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_a7a41b74857d0918f49b4f8769c6481a6}\label{class_input_memory_bit_stream_a7a41b74857d0918f49b4f8769c6481a6}} 
+void {\bfseries Read} (uint32\+\_\+t \&out\+Data, uint32\+\_\+t in\+Bit\+Count=32)
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_a9c53916bf14427ce3378ceaee173e568}\label{class_input_memory_bit_stream_a9c53916bf14427ce3378ceaee173e568}} 
+void {\bfseries Read} (int \&out\+Data, uint32\+\_\+t in\+Bit\+Count=32)
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_a3b9c2337e90dc171526f64a0fec9f072}\label{class_input_memory_bit_stream_a3b9c2337e90dc171526f64a0fec9f072}} 
+void {\bfseries Read} (float \&out\+Data)
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_a794279160b8b9c19ee2248020f50c964}\label{class_input_memory_bit_stream_a794279160b8b9c19ee2248020f50c964}} 
+void {\bfseries Read} (uint16\+\_\+t \&out\+Data, uint32\+\_\+t in\+Bit\+Count=16)
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_a48aa078820c21fb5b5396bf17393dd51}\label{class_input_memory_bit_stream_a48aa078820c21fb5b5396bf17393dd51}} 
+void {\bfseries Read} (int16\+\_\+t \&out\+Data, uint32\+\_\+t in\+Bit\+Count=16)
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_ac0166c2e5e90a2652111ba57c51ff2e4}\label{class_input_memory_bit_stream_ac0166c2e5e90a2652111ba57c51ff2e4}} 
+void {\bfseries Read} (uint8\+\_\+t \&out\+Data, uint32\+\_\+t in\+Bit\+Count=8)
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_aa3968ed1cf640488fda0debe3dec8359}\label{class_input_memory_bit_stream_aa3968ed1cf640488fda0debe3dec8359}} 
+void {\bfseries Read} (bool \&out\+Data)
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_aab1225be313cc70a94e9ebc805c7dad5}\label{class_input_memory_bit_stream_aab1225be313cc70a94e9ebc805c7dad5}} 
+void {\bfseries Read} (\mbox{\hyperlink{class_quaternion}{Quaternion}} \&out\+Quat)
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_abec34fad7a5c468c6ee0dc67d65cbce8}\label{class_input_memory_bit_stream_abec34fad7a5c468c6ee0dc67d65cbce8}} 
+void {\bfseries Reset\+To\+Capacity} (uint32\+\_\+t in\+Byte\+Capacity)
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_a139930caf0efefbced76349620511d3b}\label{class_input_memory_bit_stream_a139930caf0efefbced76349620511d3b}} 
+void {\bfseries Read} (std\+::string \&in\+String)
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_a953a04a6dc2e988947a7ff4ec7daae93}\label{class_input_memory_bit_stream_a953a04a6dc2e988947a7ff4ec7daae93}} 
+void {\bfseries Read} (\mbox{\hyperlink{class_vector3}{Vector3}} \&in\+Vector)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_aefe47857e19fca2e1e791bbabb979e87}\label{class_input_memory_bit_stream_aefe47857e19fca2e1e791bbabb979e87}} 
+char $\ast$ {\bfseries m\+Buffer}
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_ae5c2becc8847e7c60b0a23cd2ece8919}\label{class_input_memory_bit_stream_ae5c2becc8847e7c60b0a23cd2ece8919}} 
+uint32\+\_\+t {\bfseries m\+Bit\+Head}
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_a0671f21d5b6821f68b91f6477155f837}\label{class_input_memory_bit_stream_a0671f21d5b6821f68b91f6477155f837}} 
+uint32\+\_\+t {\bfseries m\+Bit\+Capacity}
+\item 
+\mbox{\Hypertarget{class_input_memory_bit_stream_a30f41b81a22174efd59b9f621354206b}\label{class_input_memory_bit_stream_a30f41b81a22174efd59b9f621354206b}} 
+bool {\bfseries m\+Is\+Buffer\+Owner}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/serialisation/Input\+Memory\+Bit\+Stream.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/serialisation/Input\+Memory\+Bit\+Stream.\+cpp\end{DoxyCompactItemize}

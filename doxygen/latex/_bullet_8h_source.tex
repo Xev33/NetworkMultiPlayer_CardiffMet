@@ -1,0 +1,79 @@
+\hypertarget{_bullet_8h_source}{}\doxysection{Bullet.\+h}
+\label{_bullet_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/Bullet.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/Bullet.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef BULLET\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define BULLET\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}GameObject.h"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}World.h"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{comment}{/* We'll later create client and server versions of this class */}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_bullet}{Bullet}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{public}:}
+\DoxyCodeLine{12     CLASS\_IDENTIFICATION( \textcolor{stringliteral}{'BULT'}, \mbox{\hyperlink{class_game_object}{GameObject}} )}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keyword}{enum} EPlayerReplicationState}
+\DoxyCodeLine{15     \{}
+\DoxyCodeLine{16         ECRS\_Pose = 1 << 0,}
+\DoxyCodeLine{17         ECRS\_BulletId = 1 << 1,}
+\DoxyCodeLine{18         \textcolor{comment}{//ECRS\_Health = 1 << 2,}}
+\DoxyCodeLine{19         \textcolor{comment}{//ECRS\_Color = 1 << 3,}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21         ECRS\_AllState = ECRS\_Pose | ECRS\_BulletId \textcolor{comment}{/*| ECRS\_Health | ECRS\_Color */}}
+\DoxyCodeLine{22     \};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keyword}{static}  \mbox{\hyperlink{class_game_object}{GameObject}}*   StaticCreate()          \{ \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_bullet}{Bullet}}(); \}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{comment}{//Note -\/ the code in the book doesn't provide this until the client.}}
+\DoxyCodeLine{28     \textcolor{comment}{//This however limits testing.}}
+\DoxyCodeLine{29     \textcolor{keyword}{static}  GameObjectPtr   StaticCreatePtr()           \{ \textcolor{keywordflow}{return} GameObjectPtr(\textcolor{keyword}{new} \mbox{\hyperlink{class_bullet}{Bullet}}()); \}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{virtual} uint32\_t GetAllStateMask()\textcolor{keyword}{  const override  }\{ \textcolor{keywordflow}{return} ECRS\_AllState; \}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void} Update() \textcolor{keyword}{override};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} SimulateMovement( \textcolor{keywordtype}{float} inDeltaTime );}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} ProcessCollisions();}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} ProcessCollisionsWithScreenWalls();}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} AdjustVelocityByThrust(\textcolor{keywordtype}{float} inDeltaTime);}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{void}        SetBulletId( uint32\_t inPlayerId )          \{ mBulletId = inPlayerId; \}}
+\DoxyCodeLine{43     uint32\_t    GetBulletId()\textcolor{keyword}{                       const   }\{ \textcolor{keywordflow}{return} mBulletId; \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keywordtype}{void}            SetVelocity(\textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inVelocity) \{ mVelocity = inVelocity; \}}
+\DoxyCodeLine{46     \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& GetVelocity()\textcolor{keyword}{                     const }\{ \textcolor{keywordflow}{return} mVelocity; \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} InitFromShooter(\mbox{\hyperlink{class_player}{Player}}* player);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{comment}{//  virtual void    Read( InputMemoryBitStream\& inInputStream ) override;}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     uint32\_t Write( \mbox{\hyperlink{class_output_memory_bit_stream}{OutputMemoryBitStream}}\& inOutputStream, uint32\_t inDirtyState ) \textcolor{keyword}{const override};}
+\DoxyCodeLine{53     \textcolor{comment}{// For testing}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordtype}{bool} operator==(\mbox{\hyperlink{class_bullet}{Bullet}} \&other);}
+\DoxyCodeLine{56 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{57     \mbox{\hyperlink{class_bullet}{Bullet}}();}
+\DoxyCodeLine{58     \mbox{\hyperlink{class_bullet}{Bullet}}(\mbox{\hyperlink{class_vector3}{Vector3}} dir);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \textcolor{keyword}{private}:}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     uint32\_t            mBulletId;}
+\DoxyCodeLine{63     \mbox{\hyperlink{class_vector3}{Vector3}}              mVelocity;}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{66     \textcolor{keywordtype}{float}               mHealth;}
+\DoxyCodeLine{67     \textcolor{keywordtype}{float}               mSpeed;}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 \textcolor{keyword}{typedef} shared\_ptr< Bullet >    BulletPtr;}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// BULLET\_H}}
+
+\end{DoxyCode}

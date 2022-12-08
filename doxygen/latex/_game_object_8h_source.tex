@@ -1,0 +1,100 @@
+\hypertarget{_game_object_8h_source}{}\doxysection{Game\+Object.\+h}
+\label{_game_object_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/GameObject.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/engine/GameObject.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef GAME\_OBJECT\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define GAME\_OBJECT\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#define CLASS\_IDENTIFICATION( inCode, inClass ) \(\backslash\)}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{enum \{ kClassId = inCode \}; \(\backslash\)}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{virtual uint32\_t GetClassId() const \{ return kClassId; \} \(\backslash\)}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{static GameObject* CreateInstance() \{ return static\_cast< GameObject* >( new inClass() ); \} \(\backslash\)}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{11 \textcolor{keyword}{using }std::shared\_ptr;}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}Vector3.h"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}};}
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_output_memory_bit_stream}{OutputMemoryBitStream}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{comment}{/* Note:}}
+\DoxyCodeLine{19 \textcolor{comment}{*  This is a cut down version of that provided in the course text,}}
+\DoxyCodeLine{20 \textcolor{comment}{*  simplified to allow the creation of a MWE in the tutorial.}}
+\DoxyCodeLine{21 \textcolor{comment}{*/}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_player}{Player}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_game_object}{GameObject}}}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     CLASS\_IDENTIFICATION( \textcolor{stringliteral}{'GOBJ'}, \mbox{\hyperlink{class_game_object}{GameObject}} )}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \mbox{\hyperlink{class_game_object}{GameObject}}();}
+\DoxyCodeLine{32     \textcolor{keyword}{virtual} \mbox{\hyperlink{class_game_object}{\string~GameObject}}() \{\}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keyword}{virtual} uint32\_t GetAllStateMask()\textcolor{keyword}{  const }\{ \textcolor{keywordflow}{return} 0; \}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}    Update();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}    HandleDying() \{\}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordtype}{void}    SetIndexInWorld( \textcolor{keywordtype}{int} inIndex )                      \{ mIndexInWorld = inIndex; \}}
+\DoxyCodeLine{41     \textcolor{keywordtype}{int}     GetIndexInWorld()\textcolor{keyword}{               const               }\{ \textcolor{keywordflow}{return} mIndexInWorld; \}}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{void}    SetRotation( \textcolor{keywordtype}{float} inRotation );}
+\DoxyCodeLine{44     \textcolor{keywordtype}{float}   GetRotation()\textcolor{keyword}{                   const               }\{ \textcolor{keywordflow}{return} mRotation; \}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordtype}{void}    SetScale( \textcolor{keywordtype}{float} inScale )                           \{ mScale = inScale; \}}
+\DoxyCodeLine{47     \textcolor{keywordtype}{float}   GetScale()\textcolor{keyword}{                      const               }\{ \textcolor{keywordflow}{return} mScale; \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\&       GetLocation()\textcolor{keyword}{               const               }\{ \textcolor{keywordflow}{return} mLocation; \}}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void}        SetLocation( \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inLocation )     \{ mLocation = inLocation; \}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordtype}{float}       GetCollisionRadius()\textcolor{keyword}{        const               }\{ \textcolor{keywordflow}{return} mCollisionRadius; \}}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void}        SetCollisionRadius( \textcolor{keywordtype}{float} inRadius )            \{ mCollisionRadius = inRadius; \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \mbox{\hyperlink{class_vector3}{Vector3}}      GetForwardVector()          \textcolor{keyword}{const};}
+\DoxyCodeLine{57     \mbox{\hyperlink{class_vector3}{Vector3}}      GetRightVector()            \textcolor{keyword}{const};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool}    HandleCollisionWithPlayer(\mbox{\hyperlink{class_player}{Player}}* inPlayer) \{ (void)inPlayer; \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}}
+\DoxyCodeLine{60     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool}    OnCollisionEnter( \mbox{\hyperlink{class_game_object}{GameObject}}* colObj) \{ ( void ) colObj; \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{void}        SetColor( \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\& inColor )                   \{ mColor = inColor; \}}
+\DoxyCodeLine{63     \textcolor{keyword}{const} \mbox{\hyperlink{class_vector3}{Vector3}}\&       GetColor()\textcolor{keyword}{                  const               }\{ \textcolor{keywordflow}{return} mColor; \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{bool}        DoesWantToDie()\textcolor{keyword}{             const               }\{ \textcolor{keywordflow}{return} mDoesWantToDie; \}}
+\DoxyCodeLine{66     \textcolor{keywordtype}{void}        SetDoesWantToDie( \textcolor{keywordtype}{bool} inWants )                \{ mDoesWantToDie = inWants; \}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{int}         GetNetworkId()\textcolor{keyword}{              const               }\{ \textcolor{keywordflow}{return} mNetworkId; \}}
+\DoxyCodeLine{69     \textcolor{keywordtype}{void}        SetNetworkId( \textcolor{keywordtype}{int} inNetworkId );}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{keyword}{virtual} uint32\_t    Write( \mbox{\hyperlink{class_output_memory_bit_stream}{OutputMemoryBitStream}}\& inOutputStream, uint32\_t inDirtyState )\textcolor{keyword}{ const    }\{  ( void ) inOutputStream; ( void ) inDirtyState; \textcolor{keywordflow}{return} 0; \}}
+\DoxyCodeLine{72     \textcolor{keyword}{virtual} \textcolor{keywordtype}{void}        Read( \mbox{\hyperlink{class_input_memory_bit_stream}{InputMemoryBitStream}}\& inInputStream ) \{ ( void ) inInputStream; \}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{keywordtype}{bool} operator==(\mbox{\hyperlink{class_game_object}{GameObject}}\& other);}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{keyword}{private}:}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \mbox{\hyperlink{class_vector3}{Vector3}}                                          mLocation;}
+\DoxyCodeLine{79     \mbox{\hyperlink{class_vector3}{Vector3}}                                          mColor;}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{keywordtype}{float}                                           mCollisionRadius;}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keywordtype}{float}                                           mRotation;}
+\DoxyCodeLine{84     \textcolor{keywordtype}{float}                                           mScale;}
+\DoxyCodeLine{85     \textcolor{keywordtype}{int}                                             mIndexInWorld;}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \textcolor{keywordtype}{bool}                                            mDoesWantToDie;}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89     \textcolor{keywordtype}{int}                                             mNetworkId;}
+\DoxyCodeLine{90 \};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{keyword}{typedef} shared\_ptr< GameObject >    GameObjectPtr;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// GAME\_OBJECT\_H\_}}
+
+\end{DoxyCode}

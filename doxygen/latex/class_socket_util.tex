@@ -1,0 +1,41 @@
+\hypertarget{class_socket_util}{}\doxysection{Socket\+Util Class Reference}
+\label{class_socket_util}\index{SocketUtil@{SocketUtil}}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_socket_util_a463ca73e373e8604e690f9c77d8e56a2}\label{class_socket_util_a463ca73e373e8604e690f9c77d8e56a2}} 
+static bool {\bfseries Static\+Init} ()
+\item 
+\mbox{\Hypertarget{class_socket_util_a55dce9461a984b202065c81d6ec90e3e}\label{class_socket_util_a55dce9461a984b202065c81d6ec90e3e}} 
+static void {\bfseries Clean\+Up} ()
+\item 
+\mbox{\Hypertarget{class_socket_util_a4410a0fd6293f951966d5d9918f89473}\label{class_socket_util_a4410a0fd6293f951966d5d9918f89473}} 
+static void {\bfseries Report\+Error} (const char $\ast$in\+Operation\+Desc)
+\item 
+\mbox{\Hypertarget{class_socket_util_a43dde7c5800bf96f990de676fb893332}\label{class_socket_util_a43dde7c5800bf96f990de676fb893332}} 
+static int {\bfseries Get\+Last\+Error} ()
+\item 
+\mbox{\Hypertarget{class_socket_util_a5158a2172ac8d616af63c42eec266d17}\label{class_socket_util_a5158a2172ac8d616af63c42eec266d17}} 
+static int {\bfseries Select} (const vector$<$ TCPSocket\+Ptr $>$ $\ast$in\+Read\+Set, vector$<$ TCPSocket\+Ptr $>$ $\ast$out\+Read\+Set, const vector$<$ TCPSocket\+Ptr $>$ $\ast$in\+Write\+Set, vector$<$ TCPSocket\+Ptr $>$ $\ast$out\+Write\+Set, const vector$<$ TCPSocket\+Ptr $>$ $\ast$in\+Except\+Set, vector$<$ TCPSocket\+Ptr $>$ $\ast$out\+Except\+Set)
+\item 
+\mbox{\Hypertarget{class_socket_util_afbdf33575d0703fc5b19eff7be85dfcc}\label{class_socket_util_afbdf33575d0703fc5b19eff7be85dfcc}} 
+static UDPSocket\+Ptr {\bfseries Create\+UDPSocket} (Socket\+Address\+Family in\+Family)
+\item 
+\mbox{\Hypertarget{class_socket_util_ac5052f62930ef892f02b68c3c11af993}\label{class_socket_util_ac5052f62930ef892f02b68c3c11af993}} 
+static TCPSocket\+Ptr {\bfseries Create\+TCPSocket} (Socket\+Address\+Family in\+Family)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_socket_util_a5779866b2d596af70312a57783cfadae}\label{class_socket_util_a5779866b2d596af70312a57783cfadae}} 
+static fd\+\_\+set $\ast$ {\bfseries Fill\+Set\+From\+Vector} (fd\+\_\+set \&out\+Set, const vector$<$ TCPSocket\+Ptr $>$ $\ast$in\+Sockets, int \&io\+Nax\+Nfds)
+\item 
+\mbox{\Hypertarget{class_socket_util_ab8dd20df140b4200bccef1afd8454af4}\label{class_socket_util_ab8dd20df140b4200bccef1afd8454af4}} 
+static void {\bfseries Fill\+Vector\+From\+Set} (vector$<$ TCPSocket\+Ptr $>$ $\ast$out\+Sockets, const vector$<$ TCPSocket\+Ptr $>$ $\ast$in\+Sockets, const fd\+\_\+set \&in\+Set)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/networking/Socket\+Util.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/networking/Socket\+Util.\+cpp\end{DoxyCompactItemize}

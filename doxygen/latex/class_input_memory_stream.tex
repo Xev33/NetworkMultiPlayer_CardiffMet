@@ -1,0 +1,44 @@
+\hypertarget{class_input_memory_stream}{}\doxysection{Input\+Memory\+Stream Class Reference}
+\label{class_input_memory_stream}\index{InputMemoryStream@{InputMemoryStream}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_input_memory_stream_afe5d1874caf7ecba0493163d9a401370}\label{class_input_memory_stream_afe5d1874caf7ecba0493163d9a401370}} 
+{\bfseries Input\+Memory\+Stream} (char $\ast$in\+Buffer, uint32\+\_\+t in\+Byte\+Count)
+\item 
+\mbox{\Hypertarget{class_input_memory_stream_ad76d4edd313985e8e1df0c91dade4313}\label{class_input_memory_stream_ad76d4edd313985e8e1df0c91dade4313}} 
+uint32\+\_\+t {\bfseries Get\+Remaining\+Data\+Size} () const
+\item 
+\mbox{\Hypertarget{class_input_memory_stream_a67595d3722519c60e41ee9b0c1f66117}\label{class_input_memory_stream_a67595d3722519c60e41ee9b0c1f66117}} 
+void {\bfseries Read} (void $\ast$out\+Data, uint32\+\_\+t in\+Byte\+Count)
+\item 
+\mbox{\Hypertarget{class_input_memory_stream_ae0b81efd19c66dbc773c4737edcc6775}\label{class_input_memory_stream_ae0b81efd19c66dbc773c4737edcc6775}} 
+void {\bfseries Read} (\mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$\&out\+Game\+Object)
+\item 
+\mbox{\Hypertarget{class_input_memory_stream_a1851399322f2b22be731be86fbc27f6b}\label{class_input_memory_stream_a1851399322f2b22be731be86fbc27f6b}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries Read} (T \&out\+Data)
+\item 
+\mbox{\Hypertarget{class_input_memory_stream_a218c391e993dc9e51150bd05773159ac}\label{class_input_memory_stream_a218c391e993dc9e51150bd05773159ac}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries Read} (std\+::vector$<$ T $>$ \&out\+Vector)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_input_memory_stream_a75b6c8ef858c124c541fb676054ba74e}\label{class_input_memory_stream_a75b6c8ef858c124c541fb676054ba74e}} 
+char $\ast$ {\bfseries m\+Buffer}
+\item 
+\mbox{\Hypertarget{class_input_memory_stream_ac2d1adc057b1460d9b1eed25bf206974}\label{class_input_memory_stream_ac2d1adc057b1460d9b1eed25bf206974}} 
+uint32\+\_\+t {\bfseries m\+Head}
+\item 
+\mbox{\Hypertarget{class_input_memory_stream_a34b90f74bcc04caeb17f24206f620ed2}\label{class_input_memory_stream_a34b90f74bcc04caeb17f24206f620ed2}} 
+uint32\+\_\+t {\bfseries m\+Capacity}
+\item 
+\mbox{\Hypertarget{class_input_memory_stream_abefa7bd5427dfd0837d4e40280bd1ef6}\label{class_input_memory_stream_abefa7bd5427dfd0837d4e40280bd1ef6}} 
+\mbox{\hyperlink{class_linking_context}{Linking\+Context}} $\ast$ {\bfseries m\+Linking\+Context}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/serialisation/Input\+Memory\+Stream.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/serialisation/Input\+Memory\+Stream.\+cpp\end{DoxyCompactItemize}

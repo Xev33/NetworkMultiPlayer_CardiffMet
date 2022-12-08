@@ -1,0 +1,47 @@
+\hypertarget{class_t_c_p_socket}{}\doxysection{TCPSocket Class Reference}
+\label{class_t_c_p_socket}\index{TCPSocket@{TCPSocket}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_t_c_p_socket_a74f01c7fb56948929e724f81707aec36}\label{class_t_c_p_socket_a74f01c7fb56948929e724f81707aec36}} 
+int {\bfseries Connect} (const \mbox{\hyperlink{class_socket_address}{Socket\+Address}} \&in\+Address)
+\item 
+\mbox{\Hypertarget{class_t_c_p_socket_a4754021108d91dd219869d7afa8615ba}\label{class_t_c_p_socket_a4754021108d91dd219869d7afa8615ba}} 
+int {\bfseries Bind} (const \mbox{\hyperlink{class_socket_address}{Socket\+Address}} \&in\+To\+Address)
+\item 
+\mbox{\Hypertarget{class_t_c_p_socket_aeed3280b70a01032e4f5ec133c398dba}\label{class_t_c_p_socket_aeed3280b70a01032e4f5ec133c398dba}} 
+int {\bfseries Listen} (int in\+Back\+Log=32)
+\item 
+\mbox{\Hypertarget{class_t_c_p_socket_a90edb938f3a2c5f61efcf6552eac360d}\label{class_t_c_p_socket_a90edb938f3a2c5f61efcf6552eac360d}} 
+shared\+\_\+ptr$<$ \mbox{\hyperlink{class_t_c_p_socket}{TCPSocket}} $>$ {\bfseries Accept} (\mbox{\hyperlink{class_socket_address}{Socket\+Address}} \&in\+From\+Address)
+\item 
+\mbox{\Hypertarget{class_t_c_p_socket_afbe3ecf486e8a5ed1039640dca8f6c51}\label{class_t_c_p_socket_afbe3ecf486e8a5ed1039640dca8f6c51}} 
+int32\+\_\+t {\bfseries Send} (const void $\ast$in\+Data, size\+\_\+t in\+Len)
+\item 
+\mbox{\Hypertarget{class_t_c_p_socket_a423a93c39fdaf9c1e7dd6a8ba26a5e0b}\label{class_t_c_p_socket_a423a93c39fdaf9c1e7dd6a8ba26a5e0b}} 
+int32\+\_\+t {\bfseries Receive} (void $\ast$in\+Buffer, size\+\_\+t in\+Len)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_t_c_p_socket_a13016503d1c67d89101258a43025e4ca}\label{class_t_c_p_socket_a13016503d1c67d89101258a43025e4ca}} 
+{\bfseries TCPSocket} (SOCKET in\+Socket)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_t_c_p_socket_a3588cd5fb640f5c8ae0b04f340feb20f}\label{class_t_c_p_socket_a3588cd5fb640f5c8ae0b04f340feb20f}} 
+SOCKET {\bfseries m\+Socket}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_t_c_p_socket_adaaf081e6e1295d70662265dd6e66526}\label{class_t_c_p_socket_adaaf081e6e1295d70662265dd6e66526}} 
+class {\bfseries Socket\+Util}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/networking/TCPSocket.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/networking/TCPSocket.\+cpp\end{DoxyCompactItemize}

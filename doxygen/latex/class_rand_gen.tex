@@ -1,0 +1,50 @@
+\hypertarget{class_rand_gen}{}\doxysection{Rand\+Gen Class Reference}
+\label{class_rand_gen}\index{RandGen@{RandGen}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_rand_gen_a8091e1fea51000993b76877a709a3937}\label{class_rand_gen_a8091e1fea51000993b76877a709a3937}} 
+void {\bfseries Seed} (uint32\+\_\+t in\+Seed)
+\item 
+\mbox{\Hypertarget{class_rand_gen_a01caf004b136a655c85ad158c1937304}\label{class_rand_gen_a01caf004b136a655c85ad158c1937304}} 
+std\+::mt19937 \& {\bfseries Get\+Generator\+Ref} ()
+\item 
+\mbox{\Hypertarget{class_rand_gen_a2942b64e10ede061864d5493cd995e6b}\label{class_rand_gen_a2942b64e10ede061864d5493cd995e6b}} 
+float {\bfseries Get\+Random\+Float} ()
+\item 
+\mbox{\Hypertarget{class_rand_gen_ada1c129f3d2b185d334a651dacb7a366}\label{class_rand_gen_ada1c129f3d2b185d334a651dacb7a366}} 
+uint32\+\_\+t {\bfseries Get\+Random\+UInt32} (uint32\+\_\+t in\+Min, uint32\+\_\+t in\+Max)
+\item 
+\mbox{\Hypertarget{class_rand_gen_a07e46d4623478744208c7a6b1fe24495}\label{class_rand_gen_a07e46d4623478744208c7a6b1fe24495}} 
+int32\+\_\+t {\bfseries Get\+Random\+Int} (int32\+\_\+t in\+Min, int32\+\_\+t in\+Max)
+\item 
+\mbox{\Hypertarget{class_rand_gen_a0f06b784ac7499c88928180d7d8aca78}\label{class_rand_gen_a0f06b784ac7499c88928180d7d8aca78}} 
+\mbox{\hyperlink{class_vector3}{Vector3}} {\bfseries Get\+Random\+Vector} (const \mbox{\hyperlink{class_vector3}{Vector3}} \&in\+Min, const \mbox{\hyperlink{class_vector3}{Vector3}} \&in\+Max)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_rand_gen_aa331ba0cf9d8cfe0f133c2102e4a0d15}\label{class_rand_gen_aa331ba0cf9d8cfe0f133c2102e4a0d15}} 
+static void {\bfseries Static\+Init} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_rand_gen_a21f98b8fb498061be2b6403bacdc9956}\label{class_rand_gen_a21f98b8fb498061be2b6403bacdc9956}} 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_rand_gen}{Rand\+Gen}} $>$ {\bfseries s\+Instance} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_rand_gen_ab2e3fc5a986aa5c70374154b4f5d50ce}\label{class_rand_gen_ab2e3fc5a986aa5c70374154b4f5d50ce}} 
+std\+::mt19937 {\bfseries m\+Generator}
+\item 
+\mbox{\Hypertarget{class_rand_gen_a68c5f2bd5d0656b481d8df6eb517baee}\label{class_rand_gen_a68c5f2bd5d0656b481d8df6eb517baee}} 
+std\+::uniform\+\_\+real\+\_\+distribution$<$ float $>$ {\bfseries m\+Float\+Distr}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/maths/Rand\+Gen.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/maths/Rand\+Gen.\+cpp\end{DoxyCompactItemize}

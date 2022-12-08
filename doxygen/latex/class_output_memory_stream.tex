@@ -1,0 +1,56 @@
+\hypertarget{class_output_memory_stream}{}\doxysection{Output\+Memory\+Stream Class Reference}
+\label{class_output_memory_stream}\index{OutputMemoryStream@{OutputMemoryStream}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_output_memory_stream_a131ef9d1a0027a7d1a8845f76bb7b0bd}\label{class_output_memory_stream_a131ef9d1a0027a7d1a8845f76bb7b0bd}} 
+const char $\ast$ {\bfseries Get\+Buffer\+Ptr} () const
+\item 
+\mbox{\Hypertarget{class_output_memory_stream_ae6c33e2dfef48d70f3a872ae135fdf61}\label{class_output_memory_stream_ae6c33e2dfef48d70f3a872ae135fdf61}} 
+uint32\+\_\+t {\bfseries Get\+Length} () const
+\item 
+\mbox{\Hypertarget{class_output_memory_stream_a13cbdad0079ce8a85e1515daf97183f7}\label{class_output_memory_stream_a13cbdad0079ce8a85e1515daf97183f7}} 
+void {\bfseries Write} (const void $\ast$in\+Data, size\+\_\+t in\+Byte\+Count)
+\item 
+\mbox{\Hypertarget{class_output_memory_stream_a16b022d40533af57c646b98c395e711b}\label{class_output_memory_stream_a16b022d40533af57c646b98c395e711b}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries Write} (T in\+Data)
+\item 
+\mbox{\Hypertarget{class_output_memory_stream_ae03961981e65c3d76067f4f45f9607df}\label{class_output_memory_stream_ae03961981e65c3d76067f4f45f9607df}} 
+void {\bfseries Write} (const std\+::vector$<$ int $>$ \&in\+Int\+Vector)
+\item 
+\mbox{\Hypertarget{class_output_memory_stream_a173e1b8fe99183af6fe6ed152a1423b6}\label{class_output_memory_stream_a173e1b8fe99183af6fe6ed152a1423b6}} 
+{\footnotesize template$<$typename T $>$ }\\void {\bfseries Write} (const std\+::vector$<$ T $>$ \&in\+Vector)
+\item 
+\mbox{\Hypertarget{class_output_memory_stream_a9ece99e86126ce19c20ff1efbb3c9eec}\label{class_output_memory_stream_a9ece99e86126ce19c20ff1efbb3c9eec}} 
+void {\bfseries Write} (const std\+::string \&in\+String)
+\item 
+\mbox{\Hypertarget{class_output_memory_stream_a015466bd7c3d3ac0b6c9b3043487368e}\label{class_output_memory_stream_a015466bd7c3d3ac0b6c9b3043487368e}} 
+void {\bfseries Write} (const \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$in\+Game\+Object)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_output_memory_stream_a8c26d8c1ab194d7c8f10da2762044279}\label{class_output_memory_stream_a8c26d8c1ab194d7c8f10da2762044279}} 
+void {\bfseries Realloc\+Buffer} (uint32\+\_\+t in\+New\+Length)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_output_memory_stream_a6f9c95379c07638704a0556bebcfaadb}\label{class_output_memory_stream_a6f9c95379c07638704a0556bebcfaadb}} 
+char $\ast$ {\bfseries m\+Buffer}
+\item 
+\mbox{\Hypertarget{class_output_memory_stream_addc55603c4b380f9a281ed8b5e22fd94}\label{class_output_memory_stream_addc55603c4b380f9a281ed8b5e22fd94}} 
+uint32\+\_\+t {\bfseries m\+Head}
+\item 
+\mbox{\Hypertarget{class_output_memory_stream_a5ef6de1b41e8d25f24a5838d22ebb19d}\label{class_output_memory_stream_a5ef6de1b41e8d25f24a5838d22ebb19d}} 
+uint32\+\_\+t {\bfseries m\+Capacity}
+\item 
+\mbox{\Hypertarget{class_output_memory_stream_a1463ec50663e97298c48f528ab47dcc1}\label{class_output_memory_stream_a1463ec50663e97298c48f528ab47dcc1}} 
+\mbox{\hyperlink{class_linking_context}{Linking\+Context}} $\ast$ {\bfseries m\+Linking\+Context}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/serialisation/Output\+Memory\+Stream.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/serialisation/Output\+Memory\+Stream.\+cpp\end{DoxyCompactItemize}

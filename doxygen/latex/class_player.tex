@@ -1,0 +1,204 @@
+\hypertarget{class_player}{}\doxysection{Player Class Reference}
+\label{class_player}\index{Player@{Player}}
+Inheritance diagram for Player\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_player}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_player_a835f3722bd7636c9ebfb42a376fc3cab}\label{class_player_a835f3722bd7636c9ebfb42a376fc3cab}} 
+enum {\bfseries EPlayer\+Replication\+State} \{ \newline
+{\bfseries ECRS\+\_\+\+Pose} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0
+, {\bfseries ECRS\+\_\+\+Color} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1
+, {\bfseries ECRS\+\_\+\+Player\+Id} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2
+, {\bfseries ECRS\+\_\+\+Health} = 1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3
+, \newline
+{\bfseries ECRS\+\_\+\+All\+State} = ECRS\+\_\+\+Pose $\vert$ ECRS\+\_\+\+Color $\vert$ ECRS\+\_\+\+Player\+Id $\vert$ ECRS\+\_\+\+Health
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{class_player_a5989372688e4b9b1ddd4b646d0a68d2e}{Get\+All\+State\+Mask}} () const override
+\item 
+virtual void \mbox{\hyperlink{class_player_a5e17be3418fa0ac0192c05efaf3dc8bd}{Update}} () override
+\item 
+\mbox{\Hypertarget{class_player_a6333549c3ce3d528b549ad68c2148363}\label{class_player_a6333549c3ce3d528b549ad68c2148363}} 
+void {\bfseries Process\+Input} (float in\+Delta\+Time, const \mbox{\hyperlink{class_input_state}{Input\+State}} \&in\+Input\+State)
+\item 
+\mbox{\Hypertarget{class_player_a597b595b5dd5814244726f41bc41c834}\label{class_player_a597b595b5dd5814244726f41bc41c834}} 
+void {\bfseries Simulate\+Movement} (float in\+Delta\+Time)
+\item 
+\mbox{\Hypertarget{class_player_a4a904492b2c48d75659eaa04c82dcd19}\label{class_player_a4a904492b2c48d75659eaa04c82dcd19}} 
+void {\bfseries Process\+Collisions} ()
+\item 
+\mbox{\Hypertarget{class_player_af1bced66e06785179341993befbd7731}\label{class_player_af1bced66e06785179341993befbd7731}} 
+void {\bfseries Process\+Collisions\+With\+Screen\+Walls} ()
+\item 
+\mbox{\Hypertarget{class_player_aa444171f37bc7ee9455fbd623384b279}\label{class_player_aa444171f37bc7ee9455fbd623384b279}} 
+void {\bfseries Set\+Player\+Id} (uint32\+\_\+t in\+Player\+Id)
+\item 
+\mbox{\Hypertarget{class_player_acbdb734ed6aadb92df64e8d47f24f953}\label{class_player_acbdb734ed6aadb92df64e8d47f24f953}} 
+uint32\+\_\+t {\bfseries Get\+Player\+Id} () const
+\item 
+\mbox{\Hypertarget{class_player_a1fbf299373ae36a8325c58833acf3df3}\label{class_player_a1fbf299373ae36a8325c58833acf3df3}} 
+void {\bfseries Set\+Player\+Health} (int in\+Player\+Id)
+\item 
+\mbox{\Hypertarget{class_player_ab57a255f259d22eb28b8277b63240d86}\label{class_player_ab57a255f259d22eb28b8277b63240d86}} 
+int {\bfseries Get\+Player\+Health} () const
+\item 
+\mbox{\Hypertarget{class_player_a0fd49d93ce401141a41d52ec54606811}\label{class_player_a0fd49d93ce401141a41d52ec54606811}} 
+void {\bfseries Set\+Thrust} (const float \&in\+Thrust)
+\item 
+\mbox{\Hypertarget{class_player_a252adef579b38c73b618f798433d5e69}\label{class_player_a252adef579b38c73b618f798433d5e69}} 
+void {\bfseries Set\+Velocity} (const \mbox{\hyperlink{class_vector3}{Vector3}} \&in\+Velocity)
+\item 
+\mbox{\Hypertarget{class_player_a3c3857db44ba9ea9196a6b1d290581ea}\label{class_player_a3c3857db44ba9ea9196a6b1d290581ea}} 
+const \mbox{\hyperlink{class_vector3}{Vector3}} \& {\bfseries Get\+Velocity} () const
+\item 
+\mbox{\Hypertarget{class_player_ad4019ef5f4e6ab26d4e38890e1de0550}\label{class_player_ad4019ef5f4e6ab26d4e38890e1de0550}} 
+void {\bfseries Enable\+Ai} (const bool is\+Ai)
+\item 
+\mbox{\Hypertarget{class_player_a258a99ebe00b31a5157da100e36b0aa0}\label{class_player_a258a99ebe00b31a5157da100e36b0aa0}} 
+void {\bfseries Set\+Closest\+Player\+Pos} (const \mbox{\hyperlink{class_vector3}{Vector3}} \&in\+Pos)
+\item 
+\mbox{\Hypertarget{class_player_ae82fa56c8b2433ffed1946564f22d11f}\label{class_player_ae82fa56c8b2433ffed1946564f22d11f}} 
+const \mbox{\hyperlink{class_vector3}{Vector3}} \& {\bfseries Get\+Closest\+Player\+Pos} () const
+\item 
+uint32\+\_\+t \mbox{\hyperlink{class_player_ab9d195103c258b59d029f2409cbe9e13}{Write}} (\mbox{\hyperlink{class_output_memory_bit_stream}{Output\+Memory\+Bit\+Stream}} \&in\+Output\+Stream, uint32\+\_\+t in\+Dirty\+State) const override
+\item 
+\mbox{\Hypertarget{class_player_ae75faa357930ac8da43a382eacfdbc10}\label{class_player_ae75faa357930ac8da43a382eacfdbc10}} 
+float {\bfseries Get\+Max\+Linear\+Speed} ()
+\item 
+\mbox{\Hypertarget{class_player_a84aaa69b37af5f53e6926711244badf9}\label{class_player_a84aaa69b37af5f53e6926711244badf9}} 
+float {\bfseries Get\+Max\+Rotation\+Speed} ()
+\item 
+\mbox{\Hypertarget{class_player_ae8f9205cb69a364e0a0a2ae5dc6d1fca}\label{class_player_ae8f9205cb69a364e0a0a2ae5dc6d1fca}} 
+float {\bfseries Get\+Wall\+Restitution} ()
+\item 
+\mbox{\Hypertarget{class_player_ab933ba23f7d77c961fc788df7dda0a8f}\label{class_player_ab933ba23f7d77c961fc788df7dda0a8f}} 
+float {\bfseries Get\+NPCRestitution} ()
+\item 
+\mbox{\Hypertarget{class_player_a1f3bd5df779ec972e116240e56780a5a}\label{class_player_a1f3bd5df779ec972e116240e56780a5a}} 
+float {\bfseries Get\+Last\+Move\+Timestamp} ()
+\item 
+\mbox{\Hypertarget{class_player_a3e4c38f961943c663c22c4f97c09fa5f}\label{class_player_a3e4c38f961943c663c22c4f97c09fa5f}} 
+float {\bfseries Get\+Thrust\+Dir} ()
+\item 
+\mbox{\Hypertarget{class_player_a8d962e02bc35d6181940a8aaf7a1a510}\label{class_player_a8d962e02bc35d6181940a8aaf7a1a510}} 
+int {\bfseries Get\+Health} ()
+\item 
+\mbox{\Hypertarget{class_player_adc1b0766aed79e9d7f1f561e02f17ea1}\label{class_player_adc1b0766aed79e9d7f1f561e02f17ea1}} 
+bool {\bfseries Is\+Shooting} ()
+\item 
+\mbox{\Hypertarget{class_player_a6a179563677c307372c9ee15ccd12064}\label{class_player_a6a179563677c307372c9ee15ccd12064}} 
+bool {\bfseries Is\+Making\+Smoke} ()
+\item 
+\mbox{\Hypertarget{class_player_a61583dad7c79525d7906717bbd416be5}\label{class_player_a61583dad7c79525d7906717bbd416be5}} 
+bool {\bfseries Is\+Ai} ()
+\item 
+\mbox{\Hypertarget{class_player_a1ea171a7ef8ef790744886c1e5e1c4e4}\label{class_player_a1ea171a7ef8ef790744886c1e5e1c4e4}} 
+bool {\bfseries operator==} (\mbox{\hyperlink{class_player}{Player}} \&other)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_player_a02d0bbeafbf656a47f8f1aa7c1d00fbd}\label{class_player_a02d0bbeafbf656a47f8f1aa7c1d00fbd}} 
+static \mbox{\hyperlink{class_game_object}{Game\+Object}} $\ast$ {\bfseries Static\+Create} ()
+\item 
+\mbox{\Hypertarget{class_player_a924c7b28bb0104a01f9414f4371254b5}\label{class_player_a924c7b28bb0104a01f9414f4371254b5}} 
+static Game\+Object\+Ptr {\bfseries Static\+Create\+Ptr} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_player_a67bea8dd02c7080ca90783916893932e}\label{class_player_a67bea8dd02c7080ca90783916893932e}} 
+float {\bfseries m\+Last\+Move\+Timestamp}
+\begin{DoxyCompactList}\small\item\em move down here for padding reasons... \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_player_a39c0a6775dc92555cb19c744c25fb348}\label{class_player_a39c0a6775dc92555cb19c744c25fb348}} 
+float {\bfseries m\+Thrust\+Dir}
+\item 
+\mbox{\Hypertarget{class_player_ad922e052536623e1c749e2826a8f8ef4}\label{class_player_ad922e052536623e1c749e2826a8f8ef4}} 
+int {\bfseries m\+Health}
+\item 
+\mbox{\Hypertarget{class_player_a6fb809e1f944eb2711d5afcf3c37a179}\label{class_player_a6fb809e1f944eb2711d5afcf3c37a179}} 
+bool {\bfseries m\+Is\+Shooting}
+\item 
+\mbox{\Hypertarget{class_player_a41a51c75d0680482dc63b6bbad9a8b3d}\label{class_player_a41a51c75d0680482dc63b6bbad9a8b3d}} 
+bool {\bfseries m\+Is\+Making\+Smoke}
+\item 
+\mbox{\Hypertarget{class_player_a8b56ad2e94e9e8229e432acfe9144eba}\label{class_player_a8b56ad2e94e9e8229e432acfe9144eba}} 
+bool {\bfseries m\+Is\+Ai}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_player_a5a88f737d8df999da51b0785ee8c9f63}\label{class_player_a5a88f737d8df999da51b0785ee8c9f63}} 
+void {\bfseries Adjust\+Velocity\+By\+Thrust} (float in\+Delta\+Time)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_player_af0a50cf576f9584803a973d335d6b7b4}\label{class_player_af0a50cf576f9584803a973d335d6b7b4}} 
+\mbox{\hyperlink{class_vector3}{Vector3}} {\bfseries m\+Velocity}
+\item 
+\mbox{\Hypertarget{class_player_a631a3e6ad5ca2ea12fea3746f1709a7d}\label{class_player_a631a3e6ad5ca2ea12fea3746f1709a7d}} 
+\mbox{\hyperlink{class_vector3}{Vector3}} {\bfseries m\+Closest\+Player\+Pos}
+\item 
+\mbox{\Hypertarget{class_player_a8c41a88e3dbe78ce08a5ef0176cdd23b}\label{class_player_a8c41a88e3dbe78ce08a5ef0176cdd23b}} 
+float {\bfseries m\+Max\+Linear\+Speed}
+\item 
+\mbox{\Hypertarget{class_player_a69c96a34b5aaf49ddc7b611399d5a0e7}\label{class_player_a69c96a34b5aaf49ddc7b611399d5a0e7}} 
+float {\bfseries m\+Max\+Rotation\+Speed}
+\item 
+\mbox{\Hypertarget{class_player_a88db92fcd008d164ab8c0a2f1688fc3b}\label{class_player_a88db92fcd008d164ab8c0a2f1688fc3b}} 
+float {\bfseries m\+Wall\+Restitution}
+\item 
+\mbox{\Hypertarget{class_player_ad0ac1df220bd02bc57969e54fc71fb59}\label{class_player_ad0ac1df220bd02bc57969e54fc71fb59}} 
+float {\bfseries m\+NPCRestitution}
+\item 
+\mbox{\Hypertarget{class_player_acd81db74638dc447459502206a704300}\label{class_player_acd81db74638dc447459502206a704300}} 
+uint32\+\_\+t {\bfseries m\+Player\+Id}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_player_a5989372688e4b9b1ddd4b646d0a68d2e}\label{class_player_a5989372688e4b9b1ddd4b646d0a68d2e}} 
+\index{Player@{Player}!GetAllStateMask@{GetAllStateMask}}
+\index{GetAllStateMask@{GetAllStateMask}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{GetAllStateMask()}{GetAllStateMask()}}
+{\footnotesize\ttfamily virtual uint32\+\_\+t Player\+::\+Get\+All\+State\+Mask (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_player_a5e17be3418fa0ac0192c05efaf3dc8bd}\label{class_player_a5e17be3418fa0ac0192c05efaf3dc8bd}} 
+\index{Player@{Player}!Update@{Update}}
+\index{Update@{Update}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Player\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_player_ab9d195103c258b59d029f2409cbe9e13}\label{class_player_ab9d195103c258b59d029f2409cbe9e13}} 
+\index{Player@{Player}!Write@{Write}}
+\index{Write@{Write}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{Write()}{Write()}}
+{\footnotesize\ttfamily uint32\+\_\+t Player\+::\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_output_memory_bit_stream}{Output\+Memory\+Bit\+Stream}} \&}]{in\+Output\+Stream,  }\item[{uint32\+\_\+t}]{in\+Dirty\+State }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_game_object}{Game\+Object}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/engine/Player.\+h\item 
+D\+:/\+Cardiff Courses/\+MPN\+\_\+\+SDL2\+\_\+\+Workshop/\+MTPL\+\_\+\+Repo/src/engine/Player.\+cpp\end{DoxyCompactItemize}

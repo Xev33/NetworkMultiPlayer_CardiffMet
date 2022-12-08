@@ -1,0 +1,63 @@
+\hypertarget{_weighted_timed_moving_average_8h_source}{}\doxysection{Weighted\+Timed\+Moving\+Average.\+h}
+\label{_weighted_timed_moving_average_8h_source}\index{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/replication/WeightedTimedMovingAverage.h@{D:/Cardiff Courses/MPN\_SDL2\_Workshop/MTPL\_Repo/src/replication/WeightedTimedMovingAverage.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef WEIGHTED\_TIMED\_MOVING\_AVERAGE\_H\_}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define WEIGHTED\_TIMED\_MOVING\_AVERAGE\_H\_}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}Timing.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{class }\mbox{\hyperlink{class_weighted_timed_moving_average}{WeightedTimedMovingAverage}}}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8 \textcolor{keyword}{public}:}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     \mbox{\hyperlink{class_weighted_timed_moving_average}{WeightedTimedMovingAverage}}( \textcolor{keywordtype}{float} inDuration = 5.f ) :}
+\DoxyCodeLine{11         mDuration( inDuration ),}
+\DoxyCodeLine{12         mValue( 0.f )}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{14         mTimeLastEntryMade = Timing::sInstance.GetTimef();}
+\DoxyCodeLine{15     \}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keywordtype}{void} UpdatePerSecond( \textcolor{keywordtype}{float} inValue )}
+\DoxyCodeLine{18     \{}
+\DoxyCodeLine{19         \textcolor{keywordtype}{float} time = Timing::sInstance.GetTimef();}
+\DoxyCodeLine{20         \textcolor{keywordtype}{float} timeSinceLastEntry = time -\/ mTimeLastEntryMade;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22         \textcolor{keywordtype}{float} valueOverTime = inValue / timeSinceLastEntry;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24         \textcolor{comment}{//now update our value by whatever amount of the duration that was..}}
+\DoxyCodeLine{25         \textcolor{keywordtype}{float} fractionOfDuration  = ( timeSinceLastEntry / mDuration );}
+\DoxyCodeLine{26         \textcolor{keywordflow}{if}( fractionOfDuration > 1.f ) \{ fractionOfDuration = 1.f; \}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28         mValue = mValue * ( 1.f -\/ fractionOfDuration ) + valueOverTime * fractionOfDuration;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30         mTimeLastEntryMade = time;}
+\DoxyCodeLine{31     \}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} Update( \textcolor{keywordtype}{float} inValue )}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35         \textcolor{keywordtype}{float} time = Timing::sInstance.GetTimef();}
+\DoxyCodeLine{36         \textcolor{keywordtype}{float} timeSinceLastEntry = time -\/ mTimeLastEntryMade;}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38         \textcolor{comment}{//now update our value by whatever amount of the duration that was..}}
+\DoxyCodeLine{39         \textcolor{keywordtype}{float} fractionOfDuration  = ( timeSinceLastEntry / mDuration );}
+\DoxyCodeLine{40         \textcolor{keywordflow}{if}( fractionOfDuration > 1.f ) \{ fractionOfDuration = 1.f; \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42         mValue = mValue * ( 1.f -\/ fractionOfDuration ) + inValue * fractionOfDuration;}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         mTimeLastEntryMade = time;}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordtype}{float} GetValue()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} mValue; \}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{private}:}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{float}           mTimeLastEntryMade;}
+\DoxyCodeLine{52     \textcolor{keywordtype}{float}           mValue;}
+\DoxyCodeLine{53     \textcolor{keywordtype}{float}           mDuration;}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
