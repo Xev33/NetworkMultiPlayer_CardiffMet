@@ -18,7 +18,7 @@ bool Server::StaticInit()
 	return true;
 }
 
-Server::Server() : mTimeToRespawnAi(0), mCoolDownRespawnAI(3), mGoalSpawnerIndex(0)
+Server::Server() : mTimeToRespawnAi(0), mCoolDownRespawnAI(3), mGoalSpawnerIndex(0), mMaxAiAllowed(20)
 {
 
 	GameObjectRegistry::sInstance->RegisterCreationFunction( 'PLYR', PlayerServer::StaticCreate );
@@ -119,7 +119,7 @@ void Server::SpawnPlayer( int inPlayerId )
 
 void Server::RespawnAI()
 {
-	if (GetCurrentNumberOfAi() == 2)
+	if (GetCurrentNumberOfAi() == mMaxAiAllowed)
 	{
 		mTimeToRespawnAi = 0;
 		return;
@@ -131,7 +131,7 @@ void Server::RespawnAI()
 	}
 	PlayerPtr ai = std::static_pointer_cast<Player>(GameObjectRegistry::sInstance->CreateGameObject('PLYR'));
 	ai->EnableAi(true);
-	if (GetCurrentNumberOfAi() == 2)
+	if (GetCurrentNumberOfAi() == mMaxAiAllowed)
 		ai->SetLocation(Vector3(3.f, 3.f, 0.f));
 	else
 		ai->SetLocation(Vector3(4.f, 3.f, 0.f));

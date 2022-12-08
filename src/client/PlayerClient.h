@@ -9,7 +9,6 @@ class PlayerClient : public Player
 public:
 	static	GameObjectPtr	StaticCreate()		{ return GameObjectPtr( new PlayerClient() ); }
 
-	virtual void Update();
 	virtual void	HandleDying() override;
 	const SpriteComponentPtr GetSpriteComponent() { return mSpriteComponent; }
 
@@ -22,7 +21,6 @@ protected:
 private:
 	float				mTimeLocationBecameOutOfSync;
 	float				mTimeVelocityBecameOutOfSync;
-	bool				mIsSpriteChanged;
 
 	SpriteComponentPtr	mSpriteComponent;
 };

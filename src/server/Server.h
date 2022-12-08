@@ -38,6 +38,7 @@ private:
 	bool	InitNetworkManager();
 	void	SetupWorld();
 	int		mGoalSpawnerIndex;
+	int		mMaxAiAllowed;
 
 	vector<Vector3> mLevelPositions;
 	vector<Vector3> mGoalSpawnerPos;

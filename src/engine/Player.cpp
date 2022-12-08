@@ -145,9 +145,6 @@ void Player::ProcessCollisions()
 					}
 				}
 			}
-			else if (target->OnCollisionEnter(this))
-			{
-			}
 		}
 	}
 }
