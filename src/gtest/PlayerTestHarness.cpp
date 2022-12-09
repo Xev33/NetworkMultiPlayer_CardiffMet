@@ -82,15 +82,16 @@ TEST_F(PlayerTestHarness,constructor_noArgs)
 * however there should be enough to underake some testing of the serialisation code.
 */
 
-TEST_F(PlayerTestHarness,EqualsOperator1)
-{ /* Won't compile - why?
-  Player a ();
-  Player b ();
+TEST_F(PlayerTestHarness, Update)
+{
+    Player* p = static_cast<Player*>(Player::StaticCreate());
 
-  a.SetPlayerId(10);
-  b.SetPlayerId(10);
+    p->EnableAi(true);
+    p->SetThrust(10.0f);
 
-  EXPECT_TRUE(a == b);*/
+    p->Update();
+
+    EXPECT_FALSE(Maths::Is3DVectorEqual(p->GetLocation(), Vector3::Zero));
 }
 
 TEST_F(PlayerTestHarness,EqualsOperator2)
