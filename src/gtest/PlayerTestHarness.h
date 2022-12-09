@@ -5,6 +5,7 @@
 #include <gtest/gtest.h>
 
 #include "Player.h"
+#include "PlayerServer.h"
 
 class PlayerTestHarness : public ::testing::Test
 {

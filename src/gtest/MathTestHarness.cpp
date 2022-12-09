@@ -77,3 +77,12 @@ TEST_F(MathTestHarness,ToDegrees)
   EXPECT_FLOAT_EQ(Maths::ToDegrees(Maths::PI/2.0f),90.0f);
   EXPECT_FLOAT_EQ(Maths::ToDegrees(Maths::PI*2.0f),360.0f);
 }
+
+TEST_F(MathTestHarness, Det2D)
+{
+	Vector3 v1(1.0f, 1.0f, 0.0f);
+	Vector3 v2(2.0f, -3.0f, 0.0f);
+	float result = Det2D(v1, v2);
+
+	EXPECT_FLOAT_EQ(result, 5);
+}

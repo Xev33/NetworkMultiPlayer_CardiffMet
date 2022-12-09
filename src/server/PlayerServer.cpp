@@ -7,7 +7,7 @@
 #include "Maths.h"
 #include "GameObjectRegistry.h"
 #include <memory>
-
+#include <iostream>
 PlayerServer::PlayerServer() :
 	mPlayerControlType( ESCT_Human ),
 	mTimeOfNextShot( 0.f ),

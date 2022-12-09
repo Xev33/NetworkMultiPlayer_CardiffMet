@@ -21,6 +21,8 @@ public:
 	virtual void UpdatePlayer();
 	virtual void UpdateAI();
 
+	float GetAiSpeed() { return mAiSpeed; }
+
 	void SetPlayerControlType( EPlayerControlType inPlayerControlType ) { mPlayerControlType = inPlayerControlType; }
 	virtual bool HandleCollisionWithPlayer(Player* inPlayer) override;
 

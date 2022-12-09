@@ -40,7 +40,8 @@ public:
 	void AdjustVelocityByThrust(float inDeltaTime);
 
 	void		SetBulletId( uint32_t inPlayerId )			{ mBulletId = inPlayerId; }
-	uint32_t	GetBulletId()						const 	{ return mBulletId; }
+	uint32_t	GetBulletId()						const { return mBulletId; }
+	int	GetHealth()						const { return mHealth; }
 
 	void			SetVelocity(const Vector3& inVelocity) { mVelocity = inVelocity; }
 	const Vector3& GetVelocity()						const { return mVelocity; }

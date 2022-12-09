@@ -47,7 +47,7 @@ TEST_F(PlayerTestHarness,constructor_noArgs)
   // Should be no need to do these as they were tested with the base class.
   EXPECT_TRUE(Maths::Is3DVectorEqual(pp->GetColor(), Colors::White));
   EXPECT_TRUE(Maths::Is3DVectorEqual(pp->GetLocation(), Vector3::Zero));
-  EXPECT_FLOAT_EQ(pp->GetCollisionRadius(), 0.5f);
+  EXPECT_FLOAT_EQ(pp->GetCollisionRadius(), 0.30000001f);
   EXPECT_FLOAT_EQ(pp->GetScale(),1.0f);
   EXPECT_FLOAT_EQ(pp->GetRotation(),0.0f);
   EXPECT_EQ(pp->GetIndexInWorld(), -1);
@@ -65,14 +65,15 @@ TEST_F(PlayerTestHarness,constructor_noArgs)
   EXPECT_NE(pp->GetClassId(), 'HELP');
 
   //Added some getters so I could check these - not an easy class to test.
-  EXPECT_FLOAT_EQ(pp->GetMaxLinearSpeed(),  50.0f);
+  EXPECT_FLOAT_EQ(pp->GetMaxLinearSpeed(), 75.0f);
   EXPECT_FLOAT_EQ(pp->GetMaxRotationSpeed(), 5.0f);
   EXPECT_FLOAT_EQ(pp->GetWallRestitution(), 0.1f);
   EXPECT_FLOAT_EQ(pp->GetNPCRestitution(), 0.1f);
   EXPECT_FLOAT_EQ(pp->GetLastMoveTimestamp(), 0.0f);
   EXPECT_FLOAT_EQ(pp->GetThrustDir(), 0.0f);
-  EXPECT_EQ(pp->GetHealth(), 10);
+  EXPECT_EQ(pp->GetHealth(), 3);
   EXPECT_FALSE(pp->IsShooting());
+  EXPECT_FALSE(pp->IsAi());
 }
 
 

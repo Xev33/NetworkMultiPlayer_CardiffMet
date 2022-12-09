@@ -32,7 +32,8 @@ public:
 	virtual void Update() override;
 
 	void		SetGoalId( uint32_t inPlayerId )			{ mGoalId = inPlayerId; }
-	uint32_t	GetGoalId()						const 	{ return mGoalId; }
+	uint32_t	GetGoalId()						const { return mGoalId; }
+	int	GetHealth()						const 	{ return mHealth; }
 
 	uint32_t Write( OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState ) const override;
 	// For testing
