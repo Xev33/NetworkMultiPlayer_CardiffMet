@@ -123,7 +123,7 @@ uint32_t Bullet::Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtySt
 bool Bullet::operator==(Bullet& other)
 {
 	if (!GameObject::operator==(other)) return false;
-
+	if (GetBulletId() != other.GetBulletId()) return false;
 	if (!Maths::Is3DVectorEqual(this->mVelocity, other.mVelocity)) return false;
 
 	return true;

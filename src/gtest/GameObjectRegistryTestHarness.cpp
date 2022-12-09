@@ -64,6 +64,38 @@ TEST_F(GameObjectRegistryTestHarness,TestPlayerObjectCreation)
     //memory will be destroyed.
 }
 
+TEST_F(GameObjectRegistryTestHarness, TestBulletObjectCreation)
+{
+    go = GameObjectRegistry::sInstance->CreateGameObject('BULT');
+
+    EXPECT_NE(go, nullptr);
+
+    EXPECT_EQ(go.use_count(), 2);
+
+    EXPECT_EQ(go->GetClassId(), 'BULT');
+}
+
+TEST_F(GameObjectRegistryTestHarness, TestGoalObjectCreation)
+{
+    go = GameObjectRegistry::sInstance->CreateGameObject('GOAL');
+
+    EXPECT_NE(go, nullptr);
+
+    EXPECT_EQ(go.use_count(), 2);
+
+    EXPECT_EQ(go->GetClassId(), 'GOAL');
+}
+
+TEST_F(GameObjectRegistryTestHarness, TestWallObjectCreation)
+{
+    go = GameObjectRegistry::sInstance->CreateGameObject('WALL');
+
+    EXPECT_NE(go, nullptr);
+
+    EXPECT_EQ(go.use_count(), 2);
+
+    EXPECT_EQ(go->GetClassId(), 'WALL');
+}
 
 TEST_F(GameObjectRegistryTestHarness,TestRegistryWorldLink)
 {
@@ -71,9 +103,17 @@ TEST_F(GameObjectRegistryTestHarness,TestRegistryWorldLink)
 
     EXPECT_EQ(go->GetIndexInWorld(), 0);
 
-    GameObjectPtr another = GameObjectRegistry::sInstance->CreateGameObject('PLYR');
+    GameObjectPtr another = GameObjectRegistry::sInstance->CreateGameObject('WALL');
 
     EXPECT_EQ(another->GetIndexInWorld(),1);
+
+    GameObjectPtr another1 = GameObjectRegistry::sInstance->CreateGameObject('GOAL');
+
+    EXPECT_EQ(another1->GetIndexInWorld(), 2);
+
+    GameObjectPtr another2 = GameObjectRegistry::sInstance->CreateGameObject('BULT');
+
+    EXPECT_EQ(another2->GetIndexInWorld(), 3);
 }
 
 TEST_F(GameObjectRegistryTestHarness,TestPlayerObjectSetup)
