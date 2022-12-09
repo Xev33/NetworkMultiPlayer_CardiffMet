@@ -21,6 +21,9 @@
 #include "WindowManager.h"
 #include "GraphicsDriver.h"
 
+#include "NetworkManagerClient.h"
+#include "SocketAddressFactory.h"
+
 /* Reference: http://www.yolinux.com/TUTORIALS/Cpp-GoogleTest.html */
 
 
@@ -954,59 +957,63 @@ TEST_F(MemoryBitStreamTestHarenss, VectorReadWrite)
   // expect these to now be the same.
   EXPECT_TRUE(Maths::Is3DVectorEqual(testInput,testOutput)); //expect constructed objs to be the same.
 }
-/*
-TEST_F(MemoryBitStreamTestHarenss,serialiseAndDeserialisePlayer)
-{
-    // Creating a player now requires SDL inc. rendering etc. 
-    // Setup SDL (normall Engine or one of its children do this.)
-  const int SDL_OKAY = 0;
 
-	SDL_SetMainReady(); //don't use sdl_main
-	int sdlStatus = SDL_Init(SDL_INIT_EVERYTHING);
-	
-	if (sdlStatus != SDL_OKAY)
-		throw "SDL init error";
+//////////////////////////////////////////////////////////////////////////////////////////////
+// I never managed to make an object serialiseAndDeserialise work because of the client part //
+//////////////////////////////////////////////////////////////////////////////////////////////
 
-  WindowManager::StaticInit();
-  GraphicsDriver::StaticInit( WindowManager::sInstance->GetMainWindow() );
-
-  TextureManager::StaticInit();
-	RenderManager::StaticInit();
-
-  PlayerPtr testOutput(static_cast<Player*>(Player::StaticCreate()));
-  PlayerClientPtr testInput(static_cast<PlayerClient*>(PlayerClient::StaticCreate().get()));
-
-  EXPECT_TRUE(*testOutput == *testInput); //expect constructed objs to be the same.
-                                          //TestInput should downcast to a Player
-
-  // change this one a bit so I know the changes have copied over.
-  testOutput->SetPlayerId(20);
-
-  EXPECT_FALSE(*testOutput == *testInput); //with one changed should be different.
-
-
-  //OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState
-  uint32_t state = 0x000F;
-
-  EXPECT_FALSE(*testInput == *testOutput); //with one changed should be different.
-
-  //write it into a buffer.
-  testOutput->Write(*out,state);
-
-   // ... imagine networking goes on and we get an
-  // actually we're connecting the output buffer to the input.
-  // copy the buffer first (or we get double de-allocation)
-  int copyLen = out->GetByteLength();
-  char* copyBuff = new char[copyLen];
-  memcpy(copyBuff, out->GetBufferPtr(), copyLen);
-
-  this->in.reset(new InputMemoryBitStream(copyBuff, copyLen));
-
-  // update from our server.
-  testInput->Read(*in);
-
-  // expect these to now be the same.
-  EXPECT_TRUE(*testOutput == *testInput); //expect read object to match written 
-  SDL_Quit();
-}
-*/
+//TEST_F(MemoryBitStreamTestHarenss,serialiseAndDeserialisePlayer)
+//{
+//    // Creating a player now requires SDL inc. rendering etc. 
+//    // Setup SDL (normall Engine or one of its children do this.)
+//  const int SDL_OKAY = 0;
+//
+//	SDL_SetMainReady(); //don't use sdl_main
+//	int sdlStatus = SDL_Init(SDL_INIT_EVERYTHING);
+//	
+//	if (sdlStatus != SDL_OKAY)
+//		throw "SDL init error";
+//
+//  WindowManager::StaticInit();
+//  GraphicsDriver::StaticInit( WindowManager::sInstance->GetMainWindow() );
+//
+//  TextureManager::StaticInit();
+//	RenderManager::StaticInit();
+//    PlayerClientPtr kek = static_cast<PlayerClientPtr>(PlayerClient::StaticCreate().get());
+//
+//  PlayerPtr testOutput(static_cast<Player*>(Player::StaticCreate()));
+//  PlayerClientPtr testInput(static_cast<PlayerClient*>(PlayerClient::StaticCreate().get()));
+//
+//  EXPECT_TRUE(*testOutput == *testInput); //expect constructed objs to be the same.
+//                                          //TestInput should downcast to a Player
+//
+//  // change this one a bit so I know the changes have copied over.
+//  testOutput->SetPlayerId(20);
+//
+//  EXPECT_FALSE(*testOutput == *testInput); //with one changed should be different.
+//
+//
+//  //OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState
+//  uint32_t state = 0x000F;
+//
+//  EXPECT_FALSE(*testInput == *testOutput); //with one changed should be different.
+//
+//  //write it into a buffer.
+//  testOutput->Write(*out,state);
+//
+//   // ... imagine networking goes on and we get an
+//  // actually we're connecting the output buffer to the input.
+//  // copy the buffer first (or we get double de-allocation)
+//  int copyLen = out->GetByteLength();
+//  char* copyBuff = new char[copyLen];
+//  memcpy(copyBuff, out->GetBufferPtr(), copyLen);
+//
+//  this->in.reset(new InputMemoryBitStream(copyBuff, copyLen));
+//
+//  // update from our server.
+//  testInput->Read(*in);
+//
+//  // expect these to now be the same.
+//  EXPECT_TRUE(*testOutput == *testInput); //expect read object to match written 
+//  SDL_Quit();
+//}
